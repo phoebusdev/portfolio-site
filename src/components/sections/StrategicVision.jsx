@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ParallaxBackground from './ParallaxBackground.jsx';
 import './Section.css';
 
 function StrategicVision() {
@@ -33,6 +34,7 @@ function StrategicVision() {
       className="section scroll-snap-section section-strategic-vision"
       data-section="strategic-vision"
     >
+      <ParallaxBackground intensity={0.5} />
       <div className="parallax-scene">
         <div className="section-padding content-right">
           <div className="section-header anim-fade-in-up">

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import smoothScrollController from './utils/scroll.js';
 import sessionTracker from './utils/session.js';
 import analyticsTracker from './utils/analytics.js';
+import keyboardNavController from './utils/keyboard.js';
 import ProvenExcellence from './components/sections/ProvenExcellence.jsx';
 import StrategicVision from './components/sections/StrategicVision.jsx';
 import ImmediateValue from './components/sections/ImmediateValue.jsx';
@@ -17,6 +18,7 @@ function App() {
     smoothScrollController.init();
     sessionTracker.init();
     analyticsTracker.init();
+    keyboardNavController.init();
 
     // Track performance after load
     window.addEventListener('load', () => {
@@ -38,6 +40,7 @@ function App() {
     // Cleanup
     return () => {
       smoothScrollController.destroy();
+      keyboardNavController.destroy();
       window.removeEventListener('section-change', handleSectionChange);
     };
   }, []);

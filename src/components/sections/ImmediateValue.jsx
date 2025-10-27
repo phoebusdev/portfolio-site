@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ParallaxBackground from './ParallaxBackground.jsx';
 import './Section.css';
 
 function ImmediateValue() {
@@ -33,6 +34,7 @@ function ImmediateValue() {
       className="section scroll-snap-section section-immediate-value"
       data-section="immediate-value"
     >
+      <ParallaxBackground intensity={0.4} />
       <div className="parallax-scene">
         <div className="section-padding content-left">
           <div className="section-header anim-fade-in-up">

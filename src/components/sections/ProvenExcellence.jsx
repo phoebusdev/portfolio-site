@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import ParallaxBackground from './ParallaxBackground.jsx';
 import './Section.css';
 
 function ProvenExcellence() {
@@ -33,6 +34,7 @@ function ProvenExcellence() {
       className="section scroll-snap-section section-proven-excellence"
       data-section="proven-excellence"
     >
+      <ParallaxBackground intensity={0.6} />
       <div className="parallax-scene">
         <div className="section-padding content-left">
           <div className="section-header anim-fade-in-up">
