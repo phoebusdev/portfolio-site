@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import ParallaxBackground from './ParallaxBackground.jsx';
+import ProductCard from '../products/ProductCard.jsx';
+import analyticsTracker from '../../utils/analytics.js';
 import './Section.css';
 
 function ImmediateValue() {
@@ -50,28 +52,18 @@ function ImmediateValue() {
 
           <div className="products-grid">
             {products.map((product, index) => (
-              <div
-                key={product.id}
-                className="product-placeholder"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <span className="product-category">{product.category}</span>
-                <h3>{product.name}</h3>
-                <p>{product.valueProposition}</p>
-                <div className="roi-preview">
-                  {product.roiMetrics.slice(0, 2).map((metric, i) => (
-                    <span key={i} className="roi-metric">
-                      <strong>{metric.value}</strong> {metric.label}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <ProductCard key={product.id} product={product} index={index} />
             ))}
           </div>
 
           <div className="contact-section space-organic-lg">
             <h2>Ready to get started?</h2>
-            <button className="cta-button">Get in Touch</button>
+            <button
+              className="cta-button"
+              onClick={() => analyticsTracker.trackContactClick('section-end')}
+            >
+              Get in Touch
+            </button>
           </div>
         </div>
       </div>

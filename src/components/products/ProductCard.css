@@ -1,0 +1,113 @@
+/* Product Card - Clean, value-focused design */
+
+.product-card {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  animation: fadeInUp 0.8s cubic-bezier(0.42, 0, 0.58, 1) both;
+  transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+    border-color 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+    box-shadow 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.product-card:hover,
+.product-card:focus {
+  transform: translate3d(0, -4px, 0);
+  border-color: #a855f7;
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.15);
+  outline: none;
+}
+
+.product-card:active {
+  transform: translate3d(0, -2px, 0);
+}
+
+.product-category {
+  display: inline-block;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #a855f7;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.product-name {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: #1a1a1a;
+}
+
+.product-value-prop {
+  margin-bottom: 1.5rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.product-timeline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(168, 85, 247, 0.05);
+  font-size: 0.9375rem;
+  color: #666;
+}
+
+.timeline-icon {
+  font-size: 1.25rem;
+}
+
+.product-roi {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.roi-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.roi-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #a855f7;
+  line-height: 1;
+}
+
+.roi-label {
+  font-size: 0.875rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.product-cta {
+  display: inline-block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #a855f7;
+  transition: transform 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.product-card:hover .product-cta,
+.product-card:focus .product-cta {
+  transform: translateX(4px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .product-card {
+    padding: 1.5rem;
+  }
+
+  .product-roi {
+    gap: 1.5rem;
+  }
+}

@@ -1,0 +1,43 @@
+/* ROI Metrics - Value-focused display */
+
+.roi-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin: 2.5rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(99, 102, 241, 0.05) 100%);
+}
+
+.roi-metric-item {
+  text-align: center;
+}
+
+.roi-value-large {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #a855f7;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.roi-label-large {
+  font-size: clamp(0.875rem, 1.25vw, 1rem);
+  color: #1a1a1a;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.roi-timeframe {
+  font-size: 0.8125rem;
+  color: #666;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .roi-metrics {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+}
