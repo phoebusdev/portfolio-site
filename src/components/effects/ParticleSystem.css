@@ -1,0 +1,38 @@
+/* Particle System - Floating particles for ambient motion */
+
+.particle-system {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  will-change: transform, opacity;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+/* Vary particle sizes slightly */
+.particle:nth-child(3n) {
+  width: 3px;
+  height: 3px;
+}
+
+.particle:nth-child(5n) {
+  width: 1px;
+  height: 1px;
+  opacity: 0.7;
+}
+
+.particle:nth-child(7n) {
+  background: rgba(200, 200, 200, 0.6);
+}

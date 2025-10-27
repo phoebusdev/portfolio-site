@@ -6,8 +6,10 @@ import keyboardNavController from './utils/keyboard.js';
 import ProvenExcellence from './components/sections/ProvenExcellence.jsx';
 import StrategicVision from './components/sections/StrategicVision.jsx';
 import ImmediateValue from './components/sections/ImmediateValue.jsx';
+import DepthShowcase from './components/sections/DepthShowcase.jsx';
 import './styles/animations.css';
 import './styles/layout.css';
+import './styles/depth.css';
 
 function App() {
   const [isReady, setIsReady] = useState(false);
@@ -60,6 +62,7 @@ function App() {
       <main className="scroll-snap-container">
         <ProvenExcellence />
         <StrategicVision />
+        <DepthShowcase />
         <ImmediateValue />
       </main>
 

@@ -1,0 +1,22 @@
+/* Noise Overlay - Monochrome texture for visual richness */
+
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 35; /* Within established z-index range (between z-ui and z-overlay) */
+  mix-blend-mode: overlay;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .noise-overlay {
+    display: none;
+  }
+}

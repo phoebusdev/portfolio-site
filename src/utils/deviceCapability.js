@@ -125,6 +125,29 @@ class DeviceCapabilityDetector {
         return 3;
     }
   }
+
+  shouldUseDepthEffects() {
+    const tier = this.getTier();
+    const { isDesktop, prefersReducedMotion } = this.capabilities;
+
+    // Only use depth effects on desktop without reduced motion preference
+    return tier !== 'low' && isDesktop && !prefersReducedMotion;
+  }
+
+  getDepthEffectLevel() {
+    const tier = this.getTier();
+
+    switch (tier) {
+      case 'high':
+        return 'full'; // All effects enabled
+      case 'medium':
+        return 'reduced'; // Some effects enabled
+      case 'low':
+        return 'none'; // No depth effects
+      default:
+        return 'reduced';
+    }
+  }
 }
 
 // Singleton instance

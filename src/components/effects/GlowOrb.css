@@ -1,0 +1,11 @@
+/* Glow Orb - Animated atmospheric depth orb */
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(60px);
+  will-change: transform, opacity;
+  mix-blend-mode: screen;
+  z-index: 2;
+}
