@@ -1,0 +1,36 @@
+{
+  "name": "targeted-pitch-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "format": "prettier --write \"src/**/*.{js,jsx,css,md}\"",
+    "validate-content": "ajv validate -s ../specs/001-pitch-site/contracts/schemas/*.schema.json -d \"src/data/targets/**/*.json\"",
+    "check-all": "npm run lint && npm run validate-content && npm run build"
+  },
+  "dependencies": {
+    "lenis": "^1.3.13",
+    "motion": "^10.18.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-markdown": "^9.0.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "ajv-cli": "^5.0.0",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "prettier": "^3.1.1",
+    "terser": "^5.44.0",
+    "vite": "^5.0.8"
+  }
+}

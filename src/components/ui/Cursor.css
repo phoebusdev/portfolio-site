@@ -1,0 +1,42 @@
+/* Custom Cursor Styles */
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999;
+  mix-blend-mode: difference;
+}
+
+.cursor-inner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  transition: width 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+    height 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+    border-width 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+/* Hovering state - cursor expands */
+.custom-cursor.hovering .cursor-inner {
+  width: 40px;
+  height: 40px;
+  border-width: 1px;
+}
+
+/* Clicking state - cursor shrinks */
+.custom-cursor.clicking .cursor-inner {
+  width: 16px;
+  height: 16px;
+  border-width: 3px;
+}
+
+/* Hide on touch devices */
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
+}

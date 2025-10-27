@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+.vite/
+
+# Coverage
+coverage/
+
+# Generated files
+*.min.js
+*.bundle.js
+
+# Config files
+vite.config.js
+playwright.config.js

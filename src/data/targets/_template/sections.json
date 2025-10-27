@@ -1,0 +1,37 @@
+{
+  "sections": [
+    {
+      "sectionType": "proven-excellence",
+      "heading": "Proven Excellence",
+      "subheading": "Real impact across diverse technical challenges",
+      "introductoryContent": "Delivering measurable results for companies ranging from early-stage startups to Fortune 500 enterprises. Each project demonstrates **technical depth**, **business impact**, and **execution speed**.",
+      "transitionConfig": {
+        "duration": 1000,
+        "easing": [0.42, 0, 0.58, 1],
+        "parallaxIntensity": 0.6
+      }
+    },
+    {
+      "sectionType": "strategic-vision",
+      "heading": "Strategic Vision",
+      "subheading": "Understanding your unique challenges",
+      "introductoryContent": "Deep analysis of your technical landscape reveals specific opportunities for dramatic improvement in performance, cost, and developer experience.",
+      "transitionConfig": {
+        "duration": 1000,
+        "easing": [0.42, 0, 0.58, 1],
+        "parallaxIntensity": 0.5
+      }
+    },
+    {
+      "sectionType": "immediate-value",
+      "heading": "Immediate Value",
+      "subheading": "Ready-to-deploy solutions",
+      "introductoryContent": "Battle-tested products and solutions that can be integrated into your workflow within weeks, not months. Clear ROI and proven results.",
+      "transitionConfig": {
+        "duration": 1000,
+        "easing": [0.42, 0, 0.58, 1],
+        "parallaxIntensity": 0.4
+      }
+    }
+  ]
+}

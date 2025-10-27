@@ -1,0 +1,15 @@
+{
+  "companyName": "Template Company",
+  "industry": "Technology",
+  "insights": [
+    {
+      "id": "example-insight-1",
+      "title": "Accelerate Deployment Velocity by 80%",
+      "opportunity": "Reduce deployment time from 45 minutes to under 10 minutes while improving reliability",
+      "currentState": "Based on industry standards, deployments often require manual approval gates and average 40-50 minutes from merge to production. This creates bottlenecks during critical incidents.",
+      "analysis": "Analysis reveals three primary bottlenecks:\n\n1. **Sequential test execution** (20 minutes): E2E tests run serially\n2. **Manual QA approval** (15 minutes): Human validation gates\n3. **Cold-start containers** (10 minutes): Slow pod initialization\n\nThese delays compound during rollbacks, extending incident response times.",
+      "proposal": "Implement parallel testing, automated QA gates, and warm container pools:\n\n**Expected Impact: 45min → 8min (82% improvement)**\n\nRisk mitigation includes staged rollouts and comprehensive monitoring.",
+      "displayOrder": 1
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "products": [
+    {
+      "id": "example-product-1",
+      "name": "CI Pipeline Optimizer",
+      "category": "Developer Tooling",
+      "valueProposition": "Reduce CI/CD costs by 60% and cut pipeline runtime from 35 minutes to under 12 minutes",
+      "timeline": "2 weeks to full deployment (includes monitoring setup)",
+      "description": "### Overview\n\nDrop-in replacement for GitHub Actions / GitLab CI that intelligently caches dependencies, parallelizes tests, and predicts which tests to run.\n\n### Key Features\n\n- Smart caching (73% hit rate)\n- Predictive testing (90% accuracy)\n- Parallel execution\n- Cost optimization",
+      "demoType": "interactive",
+      "integrationRequirements": "### Requirements\n\n- GitHub/GitLab repository access\n- Cloud account (AWS or GCP)\n- Node.js 18+ or Python 3.9+ project\n\n### Setup Time\n\n- Initial configuration: 2 hours\n- Migration: 1 week\n- No code changes required",
+      "roiMetrics": [
+        {
+          "label": "Cost Savings",
+          "value": "$2,400/month",
+          "timeframe": "for 20-developer team"
+        },
+        {
+          "label": "Time Savings",
+          "value": "23 minutes/build",
+          "timeframe": "average across all pipelines"
+        }
+      ],
+      "displayOrder": 1
+    }
+  ]
+}

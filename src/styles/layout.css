@@ -1,0 +1,177 @@
+/* Fluid Layout Primitives - NO GRIDS, NO RIGID CONTAINERS */
+
+/* Section wrapper - Full viewport, fluid */
+.section {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Breathing padding - Responsive without media queries */
+.section-padding {
+  padding: clamp(3rem, 8vw, 8rem) clamp(1.5rem, 5vw, 5rem);
+}
+
+/* Content flow - Organic, not centered */
+.content-flow {
+  max-width: none;
+  width: 100%;
+}
+
+/* Asymmetric layout - Break away from center */
+.content-left {
+  margin-left: clamp(1.5rem, 10vw, 15rem);
+  margin-right: clamp(3rem, 20vw, 30rem);
+}
+
+.content-right {
+  margin-left: clamp(3rem, 20vw, 30rem);
+  margin-right: clamp(1.5rem, 10vw, 15rem);
+}
+
+/* Fluid spacing - No uniform gaps */
+.space-organic-sm {
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+}
+
+.space-organic-md {
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.space-organic-lg {
+  margin-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+/* CSS Scroll Snap - Section anchoring */
+.scroll-snap-container {
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.scroll-snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/* Parallax layers - CSS 3D Transform foundation */
+.parallax-scene {
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+}
+
+.parallax-layer {
+  transform-style: preserve-3d;
+}
+
+/* Depth layers (desktop: 7 layers, mobile: 3-4 layers) */
+.layer-far {
+  transform: translateZ(-600px) scale(1.6);
+}
+
+.layer-mid-far {
+  transform: translateZ(-400px) scale(1.4);
+}
+
+.layer-mid {
+  transform: translateZ(-200px) scale(1.2);
+}
+
+.layer-near {
+  transform: translateZ(0) scale(1);
+}
+
+.layer-foreground {
+  transform: translateZ(200px) scale(0.8);
+}
+
+/* Mobile: reduce parallax intensity */
+@media (max-width: 768px) {
+  .layer-far {
+    transform: translateZ(-200px) scale(1.2);
+  }
+
+  .layer-mid-far {
+    transform: translateZ(-100px) scale(1.1);
+  }
+
+  .layer-mid {
+    transform: translateZ(0) scale(1);
+  }
+
+  /* Hide foreground layers on mobile */
+  .layer-foreground {
+    display: none;
+  }
+}
+
+/* Depth effects - Blur and opacity for distant layers */
+.depth-far {
+  filter: blur(2px);
+  opacity: 0.7;
+}
+
+.depth-mid {
+  filter: blur(1px);
+  opacity: 0.85;
+}
+
+/* Flexbox utilities - Organic, not rigid */
+.flex-organic {
+  display: flex;
+  gap: clamp(1rem, 3vw, 3rem);
+}
+
+.flex-wrap-natural {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+/* Z-index layering system */
+.z-background { z-index: 10; }
+.z-content { z-index: 20; }
+.z-ui { z-index: 30; }
+.z-overlay { z-index: 40; }
+.z-modal { z-index: 50; }
+.z-cursor { z-index: 999; }
+
+/* Responsive container queries (no media queries) */
+.container-fluid {
+  width: 100%;
+  padding-left: clamp(1rem, 3vw, 3rem);
+  padding-right: clamp(1rem, 3vw, 3rem);
+}
+
+/* Touch-friendly targets */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  position: relative;
+}
+
+/* Mobile-specific layouts */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem);
+  }
+
+  .content-left,
+  .content-right {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+}
+
+/* Prevent layout shift */
+.aspect-ratio-16-9 {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-ratio-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-ratio-1-1 {
+  aspect-ratio: 1 / 1;
+}

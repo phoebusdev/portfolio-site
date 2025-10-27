@@ -1,0 +1,31 @@
+{
+  "workItems": [
+    {
+      "id": "example-project-1",
+      "title": "Example Enterprise Platform",
+      "shortDescription": "Reduced infrastructure costs by 68% while improving response times for 50K+ daily users",
+      "detailedStory": "Architected and implemented a complete performance overhaul for a mission-critical B2B platform serving Fortune 500 clients.",
+      "impactMetrics": [
+        {
+          "label": "Cost Reduction",
+          "value": "68%",
+          "context": "from $47K/month to $15K/month"
+        },
+        {
+          "label": "Response Time",
+          "value": "83%",
+          "context": "p95 from 2.1s to 350ms"
+        },
+        {
+          "label": "User Satisfaction",
+          "value": "+42%",
+          "context": "NPS increased from 31 to 73"
+        }
+      ],
+      "technologiesUsed": ["React", "Node.js", "PostgreSQL", "Redis", "AWS"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nThe platform was experiencing daily outages during peak hours, impacting customer SLAs and revenue.\n\n### The Solution\n\nImplemented a comprehensive optimization strategy including database query optimization, caching layers, and infrastructure right-sizing.\n\n### The Results\n\nDramatic cost savings while simultaneously improving performance metrics across the board.",
+      "displayOrder": 1
+    }
+  ]
+}
