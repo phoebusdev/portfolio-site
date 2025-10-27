@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import ParallaxBackground from './ParallaxBackground.jsx';
+import WorkCard from '../work-items/WorkCard.jsx';
 import './Section.css';
 
 function ProvenExcellence() {
@@ -50,21 +51,7 @@ function ProvenExcellence() {
 
           <div className="work-items-grid">
             {workItems.map((item, index) => (
-              <div
-                key={item.id}
-                className="work-item-placeholder"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <h3>{item.title}</h3>
-                <p>{item.shortDescription}</p>
-                <div className="metrics">
-                  {item.impactMetrics.slice(0, 2).map((metric, i) => (
-                    <span key={i} className="metric">
-                      <strong>{metric.value}</strong> {metric.label}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <WorkCard key={item.id} workItem={item} index={index} />
             ))}
           </div>
         </div>

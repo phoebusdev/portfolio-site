@@ -1,0 +1,43 @@
+/* Impact Metrics - Prominent display */
+
+.impact-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin: 2.5rem 0;
+  padding: 2rem 0;
+  border-top: 2px solid rgba(99, 102, 241, 0.1);
+  border-bottom: 2px solid rgba(99, 102, 241, 0.1);
+}
+
+.impact-metric-item {
+  text-align: center;
+}
+
+.metric-value-large {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #6366f1;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.metric-label-large {
+  font-size: clamp(0.875rem, 1.25vw, 1rem);
+  color: #1a1a1a;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.metric-context-large {
+  font-size: 0.8125rem;
+  color: #666;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .impact-metrics {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+  }
+}

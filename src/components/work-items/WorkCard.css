@@ -1,0 +1,106 @@
+/* Work Card - Organic, non-templated design */
+
+.work-card {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-left: 3px solid #1a1a1a;
+  cursor: pointer;
+  animation: fadeInUp 0.8s cubic-bezier(0.42, 0, 0.58, 1) both;
+  transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+    border-color 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.work-card:hover,
+.work-card:focus {
+  transform: translate3d(8px, 0, 0);
+  border-color: #6366f1;
+  outline: none;
+}
+
+.work-card:active {
+  transform: translate3d(4px, 0, 0);
+}
+
+.work-card-title {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  color: #1a1a1a;
+}
+
+.work-card-description {
+  margin-bottom: 1.5rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.work-card-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metric-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #6366f1;
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.metric-context {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.work-card-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  background: rgba(99, 102, 241, 0.08);
+  color: #6366f1;
+  border-radius: 2px;
+}
+
+.work-card-cta {
+  display: inline-block;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #6366f1;
+  transition: transform 0.2s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.work-card:hover .work-card-cta,
+.work-card:focus .work-card-cta {
+  transform: translateX(4px);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .work-card {
+    padding: 1.5rem;
+  }
+
+  .work-card-metrics {
+    gap: 1.5rem;
+  }
+}
