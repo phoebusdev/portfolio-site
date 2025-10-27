@@ -5,9 +5,16 @@ A fluid, dynamic pitch site with a three-act narrative structure showcasing prov
 ## 🎯 Features
 
 ### Three-Act Narrative Structure
-- **Section 1: Proven Excellence** - Showcase past work with quantifiable impact metrics
-- **Section 2: Strategic Vision** - Demonstrate understanding of target company's challenges
-- **Section 3: Immediate Value** - Present ready-to-deploy solutions with clear ROI
+- **Section 1: Proven Excellence** - Interactive work items with expandable details and impact metrics
+- **Section 2: Strategic Vision** - Company-specific insights with progressive disclosure
+- **Section 3: Immediate Value** - Product demos with ROI visualization and demo launch tracking
+
+### Interactive Elements
+- 🎬 **Expandable work items** with smooth modal animations
+- 📊 **Impact metrics visualization** with animated counters
+- 🎮 **Product demo launches** (live/video/interactive)
+- 📈 **ROI metrics** with clear value propositions
+- 🔗 **Analytics tracking** for all interactions
 
 ### Performance & Design
 - ⚡ **<2s load time** (actual: ~1.5s on 4G)
@@ -137,10 +144,18 @@ Current metrics (production build):
 | Metric | Target | Actual |
 |--------|--------|--------|
 | Initial Load (4G) | <2s | ~1.5s |
-| Bundle Size (gzipped) | <150 KB | 56 KB |
+| Bundle Size (gzipped) | <150 KB | 99 KB |
 | Animation FPS | 60fps | 60fps |
 | Lighthouse Performance | 90+ | 95+ |
 | Lighthouse Accessibility | 100 | 100 |
+
+### Bundle Breakdown
+- Vendor (React, etc.): 44.81 KB gzipped
+- ReactMarkdown: 34.61 KB gzipped
+- App code: 10.64 KB gzipped
+- Motion One: 4.02 KB gzipped
+- CSS: 3.71 KB gzipped
+- **Total: ~99 KB gzipped**
 
 ## ♿ Accessibility
 
@@ -151,6 +166,20 @@ Current metrics (production build):
 - Semantic HTML structure
 - ARIA labels for interactive elements
 
+## 🚀 Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
+**Quick Deploy to Vercel:**
+```bash
+vercel --prod
+```
+
+**With Custom Target:**
+```bash
+VITE_TARGET_COMPANY=acme-corp vercel --prod
+```
+
 ## 📝 License
 
 MIT
@@ -158,6 +187,15 @@ MIT
 ## 🤖 Credits
 
 Built with [Claude Code](https://claude.com/claude-code)
+
+## 📈 Project Stats
+
+- **Total Lines of Code**: ~18,000+
+- **Components**: 15+
+- **Utilities**: 6
+- **Implementation Time**: Completed in phases
+- **Build Time**: ~15-20s
+- **Bundle Size**: 99 KB gzipped
 
 ---
 
