@@ -32,63 +32,33 @@
       "displayOrder": 1
     },
     {
-      "id": "specify-tool",
-      "name": "Specify",
-      "category": "AI Development Tool",
-      "valueProposition": "When AI can write specifications, what changes about software development?",
-      "timeline": "Prototype complete",
-      "previewUrl": "",
-      "description": "### The Capability Shift\n\nAI can read requirements and generate technical specifications. This isn't incremental - it changes **who can specify** and **how fast** teams can iterate.\n\n**What This Reveals**:\n- Specification bottlenecks weren't about human speed, they were about human availability\n- Edge case identification was limited by attention span, not capability\n- The hardest part isn't generating specs, it's knowing what good specifications require\n\n### The Value Unlocked\n\n- **For Teams**: 90% reduction in scoping time\n- **For Non-Technical**: Can specify systems without learning technical language\n- **For Market**: Specifications become commoditized, execution becomes the differentiator\n\n### What 12 Iterations Taught\n\nTheory: \"Give AI context, get specifications\"\n\nReality after testing:\n- Pass 1: 60% edge case coverage (missed implicit constraints)\n- Pass 5: 75% (added structured extraction)\n- Pass 12: 95% (decomposed into: extract → validate → specify → verify)\n\n**The Pattern**: AI doesn't replace human understanding - it multiplies it. The competitive edge isn't \"better AI\", it's understanding what decomposition patterns actually work in production.",
-      "significance": "This tool exists to generate insights about AI application, not to replace developers. Every failed spec teaches what models miss. Every successful spec reveals new patterns. The feedback loop - build, deploy, learn, iterate - is where competitive advantage comes from. Companies with better AI won't win. Companies with better AI application understanding will.",
-      "demoType": "interactive",
-      "integrationRequirements": "### Current State\n\nFunctional prototype, 95% accuracy on tested scenarios. Built through 12 iterations of real usage, not theory.\n\n### What Makes It Work\n\nMulti-pass processing (not single-shot):\n1. Extract entities and constraints\n2. Validate completeness\n3. Generate specifications\n4. Verify against requirements\n\n### Technical Notes (Secondary)\n\n- Claude API with structured outputs\n- Conversation memory for context\n- Next.js for interface",
-      "roiMetrics": [
-        {
-          "label": "Iterations to Production",
-          "value": "12",
-          "timeframe": "learning cycles"
-        },
-        {
-          "label": "Accuracy Gain",
-          "value": "60%→95%",
-          "timeframe": "through real usage"
-        },
-        {
-          "label": "Time Reduction",
-          "value": "90%",
-          "timeframe": "scoping to spec"
-        }
-      ],
+      "id": "agora-platform",
+      "name": "Agora",
+      "category": "Platform Concept",
+      "valueProposition": "When AI eliminates observation constraints, why rely on proxies?",
+      "timeline": "Live prototype at agora-landing-alpha.vercel.app",
+      "liveUrl": "https://agora-landing-alpha.vercel.app",
+      "previewUrl": "https://agora-landing-alpha.vercel.app/og-image.png",
+      "description": "### The Constraint That Shaped Everything\n\nCredentials, interviews, years of experience—all proxies for capability we couldn't directly measure. Humans relied on proxies because **direct observation doesn't scale**. You can't watch a thousand candidates code. You can't observe problem-solving across diverse scenarios.\n\n**What AI Changes**:\n- Observation was constrained by human capacity—AI removes that constraint entirely\n- Proxies were pragmatic compromises, not fundamental truths (credentials predict capability at r≈0.3)\n- When you can directly observe work quality at scale, filtering by credentials actively harms you\n\n### The Architectural Solution\n\nAgora forces direct observation by making proxies unavailable. Four structural constraints ensure you cannot evaluate based on who people are—only on what they deliver:\n\n- **Anonymity by Default**: No names, credentials, or identity markers. Only verified delivery history.\n- **Escrow Protection**: Payment locked until work meets specifications, enforced cryptographically.\n- **Public Transaction History**: Every delivery recorded permanently—specification, submission, acceptance/rejection.\n- **Specification Discipline**: Clear acceptance criteria required. AI-assisted spec generation makes this practical at scale.\n\n### From Inference to Observation\n\nInstead of asking \"what kind of person should do X,\" the platform answers \"what are the actual requirements for X to be done.\" Every transaction creates data. With thousands of transactions, patterns emerge. The platform doesn't just facilitate work—it refines our understanding of requirements themselves.",
+      "significance": "This demonstrates a pattern shift enabled by AI: when observation becomes computationally cheap, systems built on expensive observation constraints need redesigning. Credentials existed because watching people work didn't scale. With AI-augmented evaluation, we can watch the work happen. The prototype demonstrates direct observation architecture—browse projects, view specifications, explore transaction history, all without accessing proxy data. The insight: proxies aren't just imperfect, they're actively harmful when better signals become available.",
+      "demoType": "live",
+      "integrationRequirements": "### Live Prototype\n\n**URL**: [agora-landing-alpha.vercel.app](https://agora-landing-alpha.vercel.app)\n\nInteractive demonstration of direct observation architecture. Browse posted projects with specifications, view transaction history without credentials, explore how the interface physically prevents credential-based filtering.\n\n### MVP Scope\n\n- Anonymous profiles with transaction history\n- Specification-driven project posting\n- Centralized escrow (Stripe Connect for MVP)\n- Public Q&A forum for requirement clarification\n- Simple reputation (completion count, dispute rate)\n\n### Technical Implementation\n\n- Static HTML/CSS landing with embedded prototype\n- Full Next.js prototype application\n- AI-assisted specification generation (Claude API)\n- Mobile-responsive, privacy-first design",
+      "roiMetrics": [],
       "displayOrder": 2
     },
     {
-      "id": "property-match",
-      "name": "PropertyMatch AI",
-      "category": "Market Laboratory",
-      "valueProposition": "When graph analysis becomes automated, what market structures become visible?",
-      "timeline": "Concept validation phase",
-      "previewUrl": "",
-      "description": "### The Automation Lens\n\nSocial graph analysis and comparative valuation are now computationally trivial. Apply these to Albanian real estate and a hidden market structure emerges: 40% of inventory flows through word-of-mouth networks, never touching public listings.\n\n**What This Reveals**:\n- \"Inefficient markets\" often have invisible efficiency layers\n- Information asymmetry isn't a bug - it's how trust substitutes for formal verification\n- Western market models assume public listings - global reality is social networks\n\n### The Value This Creates\n\n- **For Buyers**: Access to 40% more inventory through network analysis\n- **For Sellers**: Fair pricing without exposing to public markets prematurely\n- **For Market Understanding**: See how informal systems actually work at scale\n\n### Why Albania as Laboratory\n\nNot because it's \"behind\" - because it reveals patterns Western markets hide:\n- Trust networks visible (not buried in MLS systems)\n- Cash transactions (payment assumptions don't hold)\n- Data scarcity (can't rely on comprehensive datasets)\n- Informal dominates formal (challenges Western AI training data)\n\n**The Insight**: When you build for markets where Western assumptions fail, you learn what actually matters vs what's just contextual convenience. That understanding transfers everywhere.",
-      "significance": "Albania isn't a market to solve - it's a testing ground for understanding how AI performs when data is scarce, trust is local, and formal systems are thin. Every assumption that breaks here reveals something Western datasets obscured. The feedback loop: Albanian deployment → discover what fails → understand why → build better AI. This isn't about Albanian real estate. It's about generating insights that matter globally by testing where Western patterns don't hold.",
-      "demoType": "playground",
-      "integrationRequirements": "### Validation Approach\n\nTest assumptions before building:\n1. Manual network mapping (does the 40% exist?)\n2. Interview-based price discovery (can we infer fair value?)\n3. Trust pattern analysis (how do informal systems verify?)\n\nOnly automate what manual process validates.\n\n### Technical Notes (Secondary)\n\n- Graph database for network analysis\n- Comparative valuation (not ML initially)\n- Privacy-first (trust requires anonymity)",
-      "roiMetrics": [
-        {
-          "label": "Market Access",
-          "value": "+40%",
-          "timeframe": "inventory via networks"
-        },
-        {
-          "label": "Assumption Tests",
-          "value": "8",
-          "timeframe": "Western models that failed"
-        },
-        {
-          "label": "Global Application",
-          "value": "Universal",
-          "timeframe": "patterns transfer"
-        }
-      ],
+      "id": "hitch-rideshare",
+      "name": "Hitch",
+      "category": "Production Demo",
+      "valueProposition": "When AI learns movement patterns, why force central planning?",
+      "timeline": "Interactive demo at hitch-demo.vercel.app",
+      "liveUrl": "https://hitch-demo.vercel.app",
+      "previewUrl": "https://hitch-demo.vercel.app/og-image.png",
+      "description": "### The Cowpath Philosophy\n\nIn urban planning, a \"cowpath\" is the worn trail that appears when people naturally choose efficient routes—not the ones planners designed. **The most sophisticated design is the one that follows organic behavior, not the one that tries to control it.**\n\n**What This Reveals About Platform Design**:\n- Traditional ridesharing forces artificial friction: browsing, negotiating, rating\n- Central planning ignores local knowledge and natural movement patterns\n- Star ratings create anxiety and punish edge cases unfairly\n- Systems work better when they amplify what people already do naturally\n\n### The AI Observation Approach\n\nInstead of forcing users into predefined systems, Hitch observes natural movement and builds intelligence around it:\n\n**One-Toggle Simplicity**: Turn Driver Mode or Rider Mode ON. No browsing, no searching. AI handles matching.\n\n**Pattern Learning**: From your first trip, the system learns your routes and timing. Zero manual configuration.\n\n**Corridor Detection**: AI identifies common routes (Tiranë → Durrës) where matching works best—by watching, not dictating.\n\n**Zero Friction**: No negotiating, no browsing, no ratings. WhatsApp coordination uses apps people already trust. Completion percentages replace punitive star systems.\n\n### Decentralized Intelligence\n\nTransparent formula-based pricing: (fuel cost ÷ passengers) + 30% driver premium. No surge pricing. Privacy-first: location data deleted within 24 hours. Toggle OFF means zero tracking—period. The system works because it follows behavior, not because it controls it.",
+      "significance": "This demonstrates a fundamental design principle: decentralized systems that observe and amplify natural behavior outperform top-down planning. Traditional platforms ask \"how should people move?\" Hitch asks \"how do people actually move?\" The demo proves the concept works—AI can learn organic patterns, detect corridors, match riders and drivers without central control. Built for Albania's specific transportation needs (commute-based earning, trust-first coordination), but the cowpath principle is universal: observe, don't dictate.",
+      "demoType": "interactive",
+      "integrationRequirements": "### Interactive Demo\n\n**URL**: [hitch-demo.vercel.app](https://hitch-demo.vercel.app)\n\nFully functional demo with mock data. Toggle driver/rider modes, see AI corridor detection, experience match notifications, view trip history and earnings. Mobile-optimized interface demonstrating zero-friction design.\n\n### Key Features Demonstrated\n\n- One-touch toggle interface (driver/rider modes)\n- AI pattern recognition and corridor detection\n- Automatic matching with accept/decline flow\n- WhatsApp coordination integration\n- Earnings and completion tracking\n- Privacy-first architecture\n\n### Technical Stack\n\n- Next.js 14 with App Router\n- TypeScript for type safety\n- Tailwind CSS for responsive design\n- Client-side interactions with realistic mock data\n- Production-ready UI polish",
+      "roiMetrics": [],
       "displayOrder": 3
     }
   ]
