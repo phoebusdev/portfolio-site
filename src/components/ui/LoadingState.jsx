@@ -1,46 +1,12 @@
-import { useEffect, useState } from 'react';
 import './LoadingState.css';
 
-function LoadingState({ onComplete }) {
-  const [progress, setProgress] = useState(0);
-  const [isComplete, setIsComplete] = useState(false);
-
-  useEffect(() => {
-    // Simulate loading progress (replace with actual asset loading)
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setIsComplete(true);
-          setTimeout(() => {
-            onComplete?.();
-          }, 500);
-          return 100;
-        }
-        return prev + Math.random() * 15;
-      });
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, [onComplete]);
-
+export function LoadingState({ message = "Loading..." }) {
   return (
-    <div className={`loading-state ${isComplete ? 'complete' : ''}`}>
-      <div className="loading-content">
-        <div className="loading-bar-container">
-          <div
-            className="loading-bar"
-            style={{
-              transform: `scaleX(${progress / 100})`,
-            }}
-          />
-        </div>
-        <div className="loading-text">
-          {progress < 100 ? `${Math.round(progress)}%` : 'Ready'}
-        </div>
+    <div className="loading-state" role="status" aria-live="polite">
+      <div className="loading-spinner" aria-hidden="true">
+        <div className="spinner-circle"></div>
       </div>
+      <p className="loading-message">{message}</p>
     </div>
   );
 }
-
-export default LoadingState;

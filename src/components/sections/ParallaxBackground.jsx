@@ -13,12 +13,10 @@ function ParallaxBackground({ intensity = 0.5, enableContentParallax = true }) {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) return;
 
-    // Check if mobile
-    const isMobile = window.innerWidth < 768;
-
     // Simple scroll-based parallax
     const handleScroll = () => {
       const scrollY = window.scrollY;
+      const isMobile = window.innerWidth < 768; // Re-check on each scroll for responsive behavior
 
       // Handle background layers
       const layers = scene.querySelectorAll('.parallax-layer');
@@ -33,24 +31,24 @@ function ParallaxBackground({ intensity = 0.5, enableContentParallax = true }) {
         const section = scene.closest('section');
         if (section) {
           const contentElements = section.querySelectorAll('[data-parallax]');
+          const viewportHeight = window.innerHeight;
+          const viewportCenter = viewportHeight / 2;
 
           contentElements.forEach((element) => {
             const rect = element.getBoundingClientRect();
-            const elementTop = rect.top + scrollY;
-            const elementHeight = rect.height;
-            const viewportHeight = window.innerHeight;
 
             // Only apply parallax when element is in or near viewport
-            if (elementTop < scrollY + viewportHeight + 100 && elementTop + elementHeight > scrollY - 100) {
+            const inViewport = rect.top < viewportHeight + 100 && rect.bottom > -100;
+
+            if (inViewport) {
               const speed = parseFloat(element.dataset.parallax) || 0.1;
 
-              // Calculate parallax based on scroll position relative to element
+              // Calculate parallax based on viewport-relative position
               // Negative speed moves element slower (creating depth illusion)
-              const elementCenter = elementTop + elementHeight / 2;
-              const viewportCenter = scrollY + viewportHeight / 2;
+              const elementCenter = rect.top + rect.height / 2;
               const distanceFromCenter = elementCenter - viewportCenter;
 
-              // Parallax effect: elements move slower as they're further from center
+              // Parallax effect: elements move slower based on distance from viewport center
               const yPos = distanceFromCenter * speed;
 
               element.style.transform = `translate3d(0, ${yPos}px, 0)`;

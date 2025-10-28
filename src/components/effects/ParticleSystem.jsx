@@ -46,7 +46,7 @@ function ParticleSystem({ count = 20 }) {
     return () => {
       animations.forEach((animation) => animation.stop());
     };
-  }, []); // Fixed: removed count from dependencies
+  }, [count]); // Re-added count to dependencies - animations should restart when count changes
 
   return (
     <div ref={containerRef} className="particle-system depth-desktop-only" aria-hidden="true">

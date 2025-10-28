@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { logError } from '../utils/errorLogger.js';
 
 /**
  * Custom hook to load section data from sections.json
@@ -27,8 +28,18 @@ export function useSectionData(sectionType) {
         setLoading(false);
       })
       .catch((err) => {
-        console.error(`Failed to load section data for "${sectionType}":`, err);
-        setError(err.message || 'Failed to load section data');
+        // Log with context for debugging
+        logError('SECTION_DATA_LOAD_FAILED', {
+          sectionType,
+          error: err.message,
+          stack: err.stack
+        });
+
+        // Set user-friendly error
+        setError({
+          message: 'Unable to load this section',
+          canRetry: true
+        });
         setLoading(false);
       });
   }, [sectionType]);

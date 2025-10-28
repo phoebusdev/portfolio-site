@@ -25,11 +25,13 @@ function App() {
     keyboardNavController.init();
 
     // Track performance after load
-    window.addEventListener('load', () => {
+    const handleLoad = () => {
       setTimeout(() => {
         analyticsTracker.trackPerformance();
       }, 100);
-    });
+    };
+
+    window.addEventListener('load', handleLoad);
 
     // Listen for section changes
     const handleSectionChange = (event) => {
@@ -46,6 +48,7 @@ function App() {
       smoothScrollController.destroy();
       keyboardNavController.destroy();
       window.removeEventListener('section-change', handleSectionChange);
+      window.removeEventListener('load', handleLoad);
     };
   }, []);
 

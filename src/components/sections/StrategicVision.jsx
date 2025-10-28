@@ -5,28 +5,67 @@ import ParticleSystem from '../effects/ParticleSystem.jsx';
 import LayeredBackground from '../effects/LayeredBackground.jsx';
 import InsightCard from '../insights/InsightCard.jsx';
 import { useSectionData } from '../../hooks/useSectionData.js';
+import { LoadingState } from '../ui/LoadingState.jsx';
+import { ErrorState } from '../ui/ErrorState.jsx';
+import { logError, logWarning } from '../../utils/errorLogger.js';
 import './Section.css';
 import './StrategicVision.css';
 
 function StrategicVision() {
-  const { sectionData, loading, error } = useSectionData('strategic-vision');
+  const { sectionData, loading: sectionLoading, error: sectionError } = useSectionData('strategic-vision');
   const [insights, setInsights] = useState([]);
+  const [insightsLoading, setInsightsLoading] = useState(true);
+  const [insightsError, setInsightsError] = useState(null);
 
   useEffect(() => {
     // Load insights
     import('@content/insights.json')
       .then((module) => {
-        setInsights(module.default.insights || []);
+        const items = module.default.insights || [];
+        if (items.length === 0) {
+          logWarning('INSIGHTS_EMPTY', { section: 'strategic-vision' });
+        }
+        setInsights(items);
+        setInsightsLoading(false);
       })
-      .catch((err) => console.error('Failed to load insights:', err));
+      .catch((err) => {
+        logError('INSIGHTS_LOAD_FAILED', {
+          section: 'strategic-vision',
+          error: err.message,
+          stack: err.stack
+        });
+        setInsightsError('Unable to load strategic insights');
+        setInsightsLoading(false);
+      });
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
+  // Retry function
+  const handleRetry = () => {
+    window.location.reload();
+  };
+
+  // Show loading state
+  if (sectionLoading || insightsLoading) {
+    return (
+      <section className="section scroll-snap-section section-strategic-vision" data-section="strategic-vision">
+        <LayeredBackground />
+        <LoadingState message="Loading insights..." />
+      </section>
+    );
   }
 
-  if (error) {
-    return <div>Failed to load section: {error}</div>;
+  // Show error state
+  if (sectionError) {
+    return (
+      <section className="section scroll-snap-section section-strategic-vision" data-section="strategic-vision">
+        <LayeredBackground />
+        <ErrorState
+          error={sectionError.message}
+          section="Strategic Vision"
+          onRetry={handleRetry}
+        />
+      </section>
+    );
   }
 
   return (
@@ -56,13 +95,22 @@ function StrategicVision() {
             <p>{sectionData.introductoryContent}</p>
           </div>
 
-          <div className="insights-list">
-            {insights.map((insight, index) => (
-              <div key={insight.id} data-parallax={0.12 + (index % 3) * 0.03}>
-                <InsightCard insight={insight} index={index} />
-              </div>
-            ))}
-          </div>
+          {/* Show insights error if load failed */}
+          {insightsError ? (
+            <ErrorState
+              error={insightsError}
+              section="insights"
+              onRetry={handleRetry}
+            />
+          ) : (
+            <div className="insights-list">
+              {insights.map((insight, index) => (
+                <div key={insight.id} data-parallax={0.12 + (index % 3) * 0.03}>
+                  <InsightCard insight={insight} index={index} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

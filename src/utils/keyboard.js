@@ -3,12 +3,13 @@
 class KeyboardNavigationController {
   constructor() {
     this.enabled = true;
-    this.sections = ['proven-excellence', 'strategic-vision', 'immediate-value'];
+    this.sections = ['intro-hero', 'proven-excellence', 'strategic-vision', 'immediate-value'];
     this.currentIndex = 0;
+    this.boundHandleKeyDown = this.handleKeyDown.bind(this); // Store bound reference
   }
 
   init() {
-    document.addEventListener('keydown', this.handleKeyDown.bind(this));
+    document.addEventListener('keydown', this.boundHandleKeyDown);
     console.log('[Keyboard] Navigation enabled (↑↓ arrows, Home, End, Tab)');
   }
 
@@ -106,7 +107,7 @@ class KeyboardNavigationController {
   }
 
   destroy() {
-    document.removeEventListener('keydown', this.handleKeyDown.bind(this));
+    document.removeEventListener('keydown', this.boundHandleKeyDown);
     console.log('[Keyboard] Navigation destroyed');
   }
 }

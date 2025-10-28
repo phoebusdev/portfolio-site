@@ -4,27 +4,66 @@ import LayeredBackground from '../effects/LayeredBackground.jsx';
 import GlowOrb from '../effects/GlowOrb.jsx';
 import WorkCard from '../work-items/WorkCard.jsx';
 import { useSectionData } from '../../hooks/useSectionData.js';
+import { LoadingState } from '../ui/LoadingState.jsx';
+import { ErrorState } from '../ui/ErrorState.jsx';
+import { logError, logWarning } from '../../utils/errorLogger.js';
 import './Section.css';
 
 function ProvenExcellence() {
-  const { sectionData, loading, error } = useSectionData('proven-excellence');
+  const { sectionData, loading: sectionLoading, error: sectionError } = useSectionData('proven-excellence');
   const [workItems, setWorkItems] = useState([]);
+  const [workItemsLoading, setWorkItemsLoading] = useState(true);
+  const [workItemsError, setWorkItemsError] = useState(null);
 
   useEffect(() => {
     // Load work items
     import('@content/work.json')
       .then((module) => {
-        setWorkItems(module.default.workItems || []);
+        const items = module.default.workItems || [];
+        if (items.length === 0) {
+          logWarning('WORK_ITEMS_EMPTY', { section: 'proven-excellence' });
+        }
+        setWorkItems(items);
+        setWorkItemsLoading(false);
       })
-      .catch((err) => console.error('Failed to load work items:', err));
+      .catch((err) => {
+        logError('WORK_ITEMS_LOAD_FAILED', {
+          section: 'proven-excellence',
+          error: err.message,
+          stack: err.stack
+        });
+        setWorkItemsError('Unable to load portfolio items');
+        setWorkItemsLoading(false);
+      });
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
+  // Retry function
+  const handleRetry = () => {
+    window.location.reload();
+  };
+
+  // Show loading state
+  if (sectionLoading || workItemsLoading) {
+    return (
+      <section className="section scroll-snap-section section-proven-excellence" data-section="proven-excellence">
+        <ParallaxBackground intensity={0.6} />
+        <LoadingState message="Loading portfolio..." />
+      </section>
+    );
   }
 
-  if (error) {
-    return <div>Failed to load section: {error}</div>;
+  // Show error state
+  if (sectionError) {
+    return (
+      <section className="section scroll-snap-section section-proven-excellence" data-section="proven-excellence">
+        <ParallaxBackground intensity={0.6} />
+        <ErrorState
+          error={sectionError.message}
+          section="Proven Excellence"
+          onRetry={handleRetry}
+        />
+      </section>
+    );
   }
 
   return (
@@ -49,13 +88,22 @@ function ProvenExcellence() {
             <p>{sectionData.introductoryContent}</p>
           </div>
 
-          <div className="work-items-grid">
-            {workItems.map((item, index) => (
-              <div key={item.id} data-parallax={0.12 + (index % 3) * 0.02}>
-                <WorkCard workItem={item} index={index} />
-              </div>
-            ))}
-          </div>
+          {/* Show work items error if load failed */}
+          {workItemsError ? (
+            <ErrorState
+              error={workItemsError}
+              section="work items"
+              onRetry={handleRetry}
+            />
+          ) : (
+            <div className="work-items-grid">
+              {workItems.map((item, index) => (
+                <div key={item.id} data-parallax={0.12 + (index % 3) * 0.02}>
+                  <WorkCard workItem={item} index={index} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

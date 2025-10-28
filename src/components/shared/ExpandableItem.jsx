@@ -43,11 +43,12 @@ function ExpandableItem({
   // Handle click - toggle expansion
   const handleClick = (e) => {
     e.preventDefault();
-    setIsExpanded(!isExpanded);
+    const newExpandedState = !isExpanded;
+    setIsExpanded(newExpandedState);
 
-    // Track expansion
+    // Track expansion with correct state
     if (id) {
-      const eventName = isExpanded ? 'item_collapsed' : 'item_expanded';
+      const eventName = newExpandedState ? 'item_expanded' : 'item_collapsed';
       analyticsTracker.trackEvent?.(eventName, { item_id: id });
     }
   };
