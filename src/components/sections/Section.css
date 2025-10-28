@@ -61,7 +61,7 @@
   display: block;
   font-size: 1.75rem;
   color: #fafafa;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 0.25rem;
 }
 
@@ -137,7 +137,7 @@
   display: block;
   font-size: 1.5rem;
   color: #fafafa;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 0.25rem;
 }
 
@@ -155,7 +155,7 @@
 .cta-button {
   padding: 1rem 2.5rem;
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 400;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);

@@ -15,7 +15,7 @@
 
 .roi-value-large {
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
+  font-weight: 400;
   color: #a855f7;
   line-height: 1;
   margin-bottom: 0.5rem;
@@ -24,7 +24,7 @@
 .roi-label-large {
   font-size: clamp(0.875rem, 1.25vw, 1rem);
   color: #1a1a1a;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 0.25rem;
 }
 

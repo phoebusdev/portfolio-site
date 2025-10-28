@@ -32,7 +32,7 @@
   letter-spacing: 0.05em;
   color: #a855f7;
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .product-value-prop-large {
@@ -62,7 +62,7 @@
 .demo-button {
   padding: 1rem 2.5rem;
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 400;
   background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
   color: #fff;
   border: none;
@@ -118,7 +118,7 @@
 .product-description strong,
 .integration-requirements strong {
   color: #1a1a1a;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .product-cta-section {
@@ -135,7 +135,7 @@
 .contact-button {
   padding: 1rem 2.5rem;
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 400;
   background: #1a1a1a;
   color: #fff;
   border: none;
