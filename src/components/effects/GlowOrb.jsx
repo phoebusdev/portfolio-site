@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { animate } from 'motion';
 import './GlowOrb.css';
 
-function GlowOrb({ size = 400, color = 'rgba(255,255,255,0.03)', duration = 20 }) {
+function GlowOrb({ size = 400, color = 'rgba(255,255,255,0.03)', duration = 20, style = {} }) {
   const orbRef = useRef(null);
 
   useEffect(() => {
@@ -49,6 +49,7 @@ function GlowOrb({ size = 400, color = 'rgba(255,255,255,0.03)', duration = 20 }
         width: `${size}px`,
         height: `${size}px`,
         background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
+        ...style,
       }}
       aria-hidden="true"
     />

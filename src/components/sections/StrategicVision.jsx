@@ -2,23 +2,14 @@ import { useEffect, useState } from 'react';
 import ParallaxBackground from './ParallaxBackground.jsx';
 import LayeredBackground from '../effects/LayeredBackground.jsx';
 import GlowOrb from '../effects/GlowOrb.jsx';
+import { useSectionData } from '../../hooks/useSectionData.js';
 import './Section.css';
 
 function StrategicVision() {
-  const [sectionData, setSectionData] = useState(null);
+  const { sectionData, loading, error } = useSectionData('strategic-vision');
   const [insights, setInsights] = useState([]);
 
   useEffect(() => {
-    // Load section content
-    import('@content/sections.json')
-      .then((module) => {
-        const section = module.default.sections.find(
-          (s) => s.sectionType === 'strategic-vision'
-        );
-        setSectionData(section);
-      })
-      .catch((err) => console.error('Failed to load section data:', err));
-
     // Load insights
     import('@content/insights.json')
       .then((module) => {
@@ -27,8 +18,12 @@ function StrategicVision() {
       .catch((err) => console.error('Failed to load insights:', err));
   }, []);
 
-  if (!sectionData) {
+  if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Failed to load section: {error}</div>;
   }
 
   return (

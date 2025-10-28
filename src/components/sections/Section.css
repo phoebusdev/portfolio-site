@@ -22,6 +22,14 @@
   color: #d4d4d4;
 }
 
+/* Enhanced intro text for hero section */
+.intro-hero-enhanced {
+  max-width: 75ch;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.8;
+  animation-delay: 0.2s;
+}
+
 /* Work Items Grid - Organic spacing */
 .work-items-grid {
   display: flex;

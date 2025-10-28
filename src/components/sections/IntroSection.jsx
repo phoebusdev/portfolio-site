@@ -1,26 +1,18 @@
-import { useEffect, useState } from 'react';
 import ParallaxBackground from './ParallaxBackground.jsx';
 import LayeredBackground from '../effects/LayeredBackground.jsx';
 import GlowOrb from '../effects/GlowOrb.jsx';
+import { useSectionData } from '../../hooks/useSectionData.js';
 import './Section.css';
 
 function IntroSection() {
-  const [sectionData, setSectionData] = useState(null);
+  const { sectionData, loading, error } = useSectionData('intro-hero');
 
-  useEffect(() => {
-    // Load section content
-    import('@content/sections.json')
-      .then((module) => {
-        const section = module.default.sections.find(
-          (s) => s.sectionType === 'intro-hero'
-        );
-        setSectionData(section);
-      })
-      .catch((err) => console.error('Failed to load section data:', err));
-  }, []);
-
-  if (!sectionData) {
+  if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Failed to load intro section: {error}</div>;
   }
 
   return (
@@ -55,18 +47,18 @@ function IntroSection() {
 
       <div className="parallax-scene">
         <div className="section-padding content-left">
+          {/* Section header (empty for intro-hero but maintains pattern) */}
+          <div className="section-header anim-fade-in-up" data-parallax="0.08">
+            {sectionData.heading && (
+              <h1 className="section-heading text-shadow-medium">{sectionData.heading}</h1>
+            )}
+            {sectionData.subheading && (
+              <p className="section-subheading">{sectionData.subheading}</p>
+            )}
+          </div>
+
           {/* Elegant intro text with enhanced animation */}
-          <div
-            className="section-intro intro-hero-text space-organic-md"
-            data-parallax="0.05"
-            style={{
-              maxWidth: '75ch',
-              fontSize: 'clamp(1.25rem, 2vw, 1.5rem)',
-              lineHeight: '1.8',
-              animation: 'fadeInUp 1.2s cubic-bezier(0.42, 0, 0.58, 1) both',
-              animationDelay: '0.2s'
-            }}
-          >
+          <div className="section-intro intro-hero-enhanced space-organic-md anim-fade-in-up" data-parallax="0.1">
             <p>{sectionData.introductoryContent}</p>
           </div>
         </div>

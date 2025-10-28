@@ -4,23 +4,14 @@ import LayeredBackground from '../effects/LayeredBackground.jsx';
 import GlowOrb from '../effects/GlowOrb.jsx';
 import ProductCard from '../products/ProductCard.jsx';
 import analyticsTracker from '../../utils/analytics.js';
+import { useSectionData } from '../../hooks/useSectionData.js';
 import './Section.css';
 
 function ImmediateValue() {
-  const [sectionData, setSectionData] = useState(null);
+  const { sectionData, loading, error } = useSectionData('immediate-value');
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Load section content
-    import('@content/sections.json')
-      .then((module) => {
-        const section = module.default.sections.find(
-          (s) => s.sectionType === 'immediate-value'
-        );
-        setSectionData(section);
-      })
-      .catch((err) => console.error('Failed to load section data:', err));
-
     // Load products
     import('@content/products.json')
       .then((module) => {
@@ -29,8 +20,12 @@ function ImmediateValue() {
       .catch((err) => console.error('Failed to load products:', err));
   }, []);
 
-  if (!sectionData) {
+  if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Failed to load section: {error}</div>;
   }
 
   return (

@@ -3,23 +3,14 @@ import ParallaxBackground from './ParallaxBackground.jsx';
 import LayeredBackground from '../effects/LayeredBackground.jsx';
 import GlowOrb from '../effects/GlowOrb.jsx';
 import WorkCard from '../work-items/WorkCard.jsx';
+import { useSectionData } from '../../hooks/useSectionData.js';
 import './Section.css';
 
 function ProvenExcellence() {
-  const [sectionData, setSectionData] = useState(null);
+  const { sectionData, loading, error } = useSectionData('proven-excellence');
   const [workItems, setWorkItems] = useState([]);
 
   useEffect(() => {
-    // Load section content
-    import('@content/sections.json')
-      .then((module) => {
-        const section = module.default.sections.find(
-          (s) => s.sectionType === 'proven-excellence'
-        );
-        setSectionData(section);
-      })
-      .catch((err) => console.error('Failed to load section data:', err));
-
     // Load work items
     import('@content/work.json')
       .then((module) => {
@@ -28,8 +19,12 @@ function ProvenExcellence() {
       .catch((err) => console.error('Failed to load work items:', err));
   }, []);
 
-  if (!sectionData) {
+  if (loading) {
     return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Failed to load section: {error}</div>;
   }
 
   return (
