@@ -14,6 +14,13 @@
       "heading": "Track Record",
       "subheading": "From consulting to founding to building",
       "introductoryContent": "Six years of progressive experience delivering measurable results. Each project demonstrates the evolution from data analysis to entrepreneurship to AI-powered development.",
+      "annotationContent": {
+        "heading": "Placeholder Context",
+        "paragraphs": [
+          "This annotation provides overarching context for the work experience showcased. It explains the strategic thread connecting these different projects and demonstrates progression.",
+          "The pattern shows systematic value creation across different contexts - from established organizations to startups to independent development."
+        ]
+      },
       "transitionConfig": {
         "parallaxIntensity": 0.6
       }

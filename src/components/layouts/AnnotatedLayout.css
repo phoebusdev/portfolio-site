@@ -1,0 +1,53 @@
+/* Annotated Layout - Side-by-side annotation and cards */
+
+.annotated-layout {
+  display: flex;
+  flex-direction: row;
+  gap: clamp(3rem, 8vw, 8rem);
+  align-items: flex-start;
+}
+
+/* Base column sizing (same for both variants) */
+.annotated-layout-cards {
+  flex: 0 0 60%;
+}
+
+.annotated-layout-annotation {
+  flex: 0 0 40%;
+}
+
+/* Annotation right (Proven Excellence): cards left, annotation right */
+.annotated-layout.annotation-right .annotated-layout-cards {
+  order: 1;
+}
+
+.annotated-layout.annotation-right .annotated-layout-annotation {
+  order: 2;
+}
+
+/* Annotation left (Immediate Value): annotation left, cards right */
+.annotated-layout.annotation-left .annotated-layout-annotation {
+  order: 1;
+}
+
+.annotated-layout.annotation-left .annotated-layout-cards {
+  order: 2;
+}
+
+/* Mobile: stack vertically (annotation top, cards below) */
+@media (max-width: 768px) {
+  .annotated-layout {
+    flex-direction: column;
+    gap: clamp(2rem, 6vw, 4rem);
+  }
+
+  .annotated-layout-annotation {
+    flex: 1 1 100%;
+    order: 1; /* Annotation always first on mobile */
+  }
+
+  .annotated-layout-cards {
+    flex: 1 1 100%;
+    order: 2;
+  }
+}

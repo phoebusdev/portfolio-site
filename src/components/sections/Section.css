@@ -164,33 +164,7 @@
   margin-bottom: 0.25rem;
 }
 
-/* Annotation Section - Contextual information alongside content */
-.section-annotation {
-  max-width: 65ch;
-  padding: clamp(2rem, 5vw, 4rem);
-  background: rgba(255, 255, 255, 0.02);
-  border-left: 3px solid rgba(255, 255, 255, 0.15);
-  animation: fadeInUp 0.8s cubic-bezier(0.42, 0, 0.58, 1) both;
-}
-
-.annotation-heading {
-  margin-bottom: 1.5rem;
-  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
-  font-weight: 400;
-  color: #fafafa;
-  letter-spacing: -0.01em;
-}
-
-.annotation-content p {
-  margin-bottom: 1.25rem;
-  font-size: clamp(1rem, 1.5vw, 1.125rem);
-  line-height: 1.7;
-  color: #d4d4d4;
-}
-
-.annotation-content p:last-child {
-  margin-bottom: 0;
-}
+/* Annotation styles moved to Annotation.css */
 
 /* Contact Section */
 .contact-section {
@@ -245,15 +219,5 @@
     padding: 1.5rem;
   }
 
-  .section-annotation {
-    padding: 1.5rem;
-  }
-
-  .annotation-heading {
-    font-size: 1.375rem;
-  }
-
-  .annotation-content p {
-    font-size: 1rem;
-  }
+  /* Annotation mobile styles moved to Annotation.css */
 }
