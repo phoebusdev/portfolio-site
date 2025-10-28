@@ -15,6 +15,46 @@
   white-space: pre-line;
 }
 
+/* Demo Link Button */
+.product-demo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin: 0.75rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.375rem;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.product-demo-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.product-demo-link:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
+}
+
+.product-demo-link:active {
+  transform: translateY(0);
+}
+
+.demo-link-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.demo-link-text {
+  font-weight: 500;
+}
+
 /* Preview Image Styles */
 .product-preview-image-link {
   display: block;

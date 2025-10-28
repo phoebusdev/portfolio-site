@@ -1,52 +1,36 @@
-import { useMemo, memo, useState } from 'react';
+import { useMemo, memo } from 'react';
 import ExpandableItem from '../shared/ExpandableItem.jsx';
 import { parseProductContent, extractProductKeyPoints } from '../../utils/markdownParser.js';
 import './ProductCard.css';
 
 /**
- * PreviewImage - Inline component for displaying product preview images
- * Handles lazy loading, error states, and click-to-open behavior
+ * DemoLink - Component for displaying demo link button
  */
-function PreviewImage({ previewUrl, liveUrl, productName }) {
-  const [imageError, setImageError] = useState(false);
-
-  // Don't render if no URL or if image failed to load
-  if (!previewUrl || imageError) {
-    return null;
-  }
-
+function DemoLink({ url, productName }) {
   const handleClick = (e) => {
-    e.stopPropagation(); // Prevent card expansion on image click
-    if (liveUrl) {
-      window.open(liveUrl, '_blank', 'noopener,noreferrer');
-    }
+    e.stopPropagation(); // Prevent card expansion on link click
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
+      e.stopPropagation();
       handleClick(e);
     }
   };
 
   return (
     <div
-      className="product-preview-image-link"
+      className="product-demo-link"
       onClick={handleClick}
       onKeyDown={handleKeyDown}
-      role={liveUrl ? 'link' : 'img'}
-      tabIndex={liveUrl ? 0 : -1}
-      aria-label={liveUrl ? `Open ${productName} live demo in new tab` : `${productName} preview`}
+      role="link"
+      tabIndex={0}
+      aria-label={`Visit ${productName} demo in new tab`}
     >
-      <div className="product-preview-image-wrapper">
-        <img
-          src={previewUrl}
-          alt={`${productName} - Live demo preview`}
-          loading="lazy"
-          className="product-preview-image"
-          onError={() => setImageError(true)}
-        />
-      </div>
+      <span className="demo-link-icon">🔗</span>
+      <span className="demo-link-text">View Demo</span>
     </div>
   );
 }
@@ -73,25 +57,18 @@ function ProductCard({ product, index }) {
     return `${product.valueProposition}\n\n⏱ ${product.timeline}${roiPreview ? `\n\n${roiPreview}` : ''}`;
   }, [product]);
 
-  // Create preview image component
-  const previewImage = useMemo(() => {
-    if (!product.previewUrl) return null;
-
-    return (
-      <PreviewImage
-        previewUrl={product.previewUrl}
-        liveUrl={product.liveUrl}
-        productName={product.name}
-      />
-    );
-  }, [product.previewUrl, product.liveUrl, product.name]);
+  // Create demo link component
+  const demoLink = useMemo(() => {
+    if (!product.liveUrl) return null;
+    return <DemoLink url={product.liveUrl} productName={product.name} />;
+  }, [product.liveUrl, product.name]);
 
   return (
     <ExpandableItem
       id={product.id}
       title={product.name}
       preview={preview}
-      previewImage={previewImage}
+      previewImage={demoLink}
       keyPoints={keyPoints}
       expandedSections={parsedSections}
       tags={[product.category, product.demoType]}
