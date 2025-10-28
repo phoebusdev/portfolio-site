@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import ParallaxBackground from './ParallaxBackground.jsx';
+import LayeredBackground from '../effects/LayeredBackground.jsx';
+import GlowOrb from '../effects/GlowOrb.jsx';
 import './Section.css';
 
 function StrategicVision() {
@@ -35,10 +37,14 @@ function StrategicVision() {
       data-section="strategic-vision"
     >
       <ParallaxBackground intensity={0.5} />
+      <LayeredBackground />
+      <GlowOrb size={400} color="rgba(255,255,255,0.025)" duration={25} />
+      <GlowOrb size={500} color="rgba(0,0,0,0.02)" duration={35} />
+
       <div className="parallax-scene">
         <div className="section-padding content-right">
           <div className="section-header anim-fade-in-up">
-            <h1 className="section-heading">{sectionData.heading}</h1>
+            <h1 className="section-heading text-shadow-medium">{sectionData.heading}</h1>
             {sectionData.subheading && (
               <p className="section-subheading">{sectionData.subheading}</p>
             )}

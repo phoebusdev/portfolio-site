@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import ParallaxBackground from './ParallaxBackground.jsx';
+import LayeredBackground from '../effects/LayeredBackground.jsx';
+import GlowOrb from '../effects/GlowOrb.jsx';
 import WorkCard from '../work-items/WorkCard.jsx';
 import './Section.css';
 
@@ -36,10 +38,13 @@ function ProvenExcellence() {
       data-section="proven-excellence"
     >
       <ParallaxBackground intensity={0.6} />
+      <LayeredBackground />
+      <GlowOrb size={600} color="rgba(255,255,255,0.02)" duration={30} />
+
       <div className="parallax-scene">
         <div className="section-padding content-left">
           <div className="section-header anim-fade-in-up">
-            <h1 className="section-heading">{sectionData.heading}</h1>
+            <h1 className="section-heading text-shadow-medium">{sectionData.heading}</h1>
             {sectionData.subheading && (
               <p className="section-subheading">{sectionData.subheading}</p>
             )}

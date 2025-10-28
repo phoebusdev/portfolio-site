@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import ParallaxBackground from './ParallaxBackground.jsx';
+import LayeredBackground from '../effects/LayeredBackground.jsx';
+import GlowOrb from '../effects/GlowOrb.jsx';
 import ProductCard from '../products/ProductCard.jsx';
 import analyticsTracker from '../../utils/analytics.js';
 import './Section.css';
@@ -37,10 +39,13 @@ function ImmediateValue() {
       data-section="immediate-value"
     >
       <ParallaxBackground intensity={0.4} />
+      <LayeredBackground />
+      <GlowOrb size={700} color="rgba(255,255,255,0.015)" duration={40} />
+
       <div className="parallax-scene">
         <div className="section-padding content-left">
           <div className="section-header anim-fade-in-up">
-            <h1 className="section-heading">{sectionData.heading}</h1>
+            <h1 className="section-heading text-shadow-medium">{sectionData.heading}</h1>
             {sectionData.subheading && (
               <p className="section-subheading">{sectionData.subheading}</p>
             )}

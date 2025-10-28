@@ -7,6 +7,8 @@ import ProvenExcellence from './components/sections/ProvenExcellence.jsx';
 import StrategicVision from './components/sections/StrategicVision.jsx';
 import ImmediateValue from './components/sections/ImmediateValue.jsx';
 import DepthShowcase from './components/sections/DepthShowcase.jsx';
+import NoiseOverlay from './components/effects/NoiseOverlay.jsx';
+import ParticleSystem from './components/effects/ParticleSystem.jsx';
 import './styles/animations.css';
 import './styles/layout.css';
 import './styles/depth.css';
@@ -59,6 +61,10 @@ function App() {
 
   return (
     <div className="app">
+      {/* Global ambient effects */}
+      <NoiseOverlay opacity={0.03} />
+      <ParticleSystem count={20} />
+
       <main className="scroll-snap-container">
         <ProvenExcellence />
         <StrategicVision />
