@@ -18,6 +18,7 @@ export const PARALLAX = {
     ITEMS_BASE: 0.12,
     ITEMS_VARIANCE: 0.02,
     ITEMS_VARIANCE_STRATEGIC: 0.03,
+    ANNOTATION: 0.1,
     CONTACT: 0.06,
   },
 };

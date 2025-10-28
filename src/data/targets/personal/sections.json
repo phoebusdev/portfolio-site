@@ -32,6 +32,15 @@
       "heading": "Ready Solutions",
       "subheading": "Prototypes pending deployment",
       "introductoryContent": "Concrete products addressing real problems with proven approaches. Global platforms leveraging AI, local solutions for Albanian market gaps. Each can be deployed within weeks.",
+      "annotationContent": {
+        "heading": "The Application Frontier",
+        "paragraphs": [
+          "AI advancement is currently bottlenecked by adoption and implementation. The challenge isn't technical capability—it's the friction of integrating AI into legacy systems built on fundamentally different assumptions.",
+          "Product suites that start AI-native, beginning with automation and the entirely different market variables it creates, represent a distinct competitive edge. Application is the last frontier of AI development, and companies positioned here have a unique advantage.",
+          "AI-native applications generate feedback that falls entirely outside existing knowledge bases. They create scenarios that have, by definition, never been implemented before. This real-world deployment data enables the development of more applicable AI in a practical, measurable sense.",
+          "The compounding advantage: applying AI delivers immediate utility, but the true competitive benefit is the capacity to build increasingly applicable AI systems. Each deployment generates insights that inform the next iteration, creating a feedback loop that legacy integrations cannot replicate."
+        ]
+      },
       "transitionConfig": {
         "parallaxIntensity": 0.4
       }

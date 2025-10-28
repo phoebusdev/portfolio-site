@@ -1,172 +1,95 @@
 {
   "products": [
     {
-      "id": "specify-tool",
-      "name": "Specify",
-      "category": "Development Tools",
-      "valueProposition": "Transform requirements into specifications in minutes",
-      "timeline": "2 weeks to deployment",
-      "description": "### Overview\n\nDevelopment specification tool that converts natural language requirements into executable specifications. Eliminates ambiguity, reduces scoping time by 90%.\n\n### Key Features\n\n- Natural language processing for requirement extraction\n- Automatic edge case identification\n- Test case generation\n- API specification creation\n\n### How It Works\n\n- Input: Business requirements in plain English\n- Processing: AI extracts entities, actions, constraints\n- Output: Complete technical specification with test cases\n\n### Technical Stack\n\nNext.js, Claude API, PostgreSQL, Vercel",
-      "demoType": "interactive",
-      "integrationRequirements": "### Integration\n\n- API-first design works with any system\n- Can be used standalone or integrated into existing workflows\n- Minimal setup required\n\n### Setup Time\n\n- 2 weeks for full deployment\n- Can be tested immediately with demo access",
+      "id": "carvenc-3d-store",
+      "name": "Carvenc",
+      "category": "Production Example",
+      "valueProposition": "When automation eliminates labor costs, what becomes economically viable?",
+      "timeline": "Live at carvenc.vercel.app | Demo → Production Roadmap",
+      "liveUrl": "https://carvenc.vercel.app",
+      "previewUrl": "https://carvenc.vercel.app/og-image.png",
+      "description": "### The Opportunity\n\nArchitectural stone ornament was constrained by labor costs for 150 years. CNC automation eliminates 90%+ of fabrication labor. Cathedral-quality elements become economically viable at any scale.\n\n**What This Reveals**: Cost structures aren't fixed. When major cost categories disappear (labor via CNC, design via photogrammetry/AI), previously uneconomical products become optimal. The shift from **$80,000 manual carving to $6,000 CNC** changes what's buildable.\n\n### The Value\n\n- **For Developers**: Access to UNESCO-quality ornament at material cost\n- **For Architecture**: Economics enable styles impossible for 150 years\n- **For Market**: Albanian production facility (€150-300/ton material, €400-700/month labor) creates 55%+ margins while competing with Western European pricing\n\n### Demo → Production Roadmap\n\n**Current State**: Live demo showcasing UNESCO Heritage Scans with interactive 3D visualization\n\n**Path to Production**:\n1. Albanian facility economics validated (labor + material costs)\n2. Photogrammetry pipeline (heritage sites → CNC-ready models)\n3. Quality verification (cathedral-grade output at scale)\n\n**The Insight**: When fabrication labor drops from $74,000 (93% of $80k) to near-zero, every architectural style from the last 150 years becomes economically accessible. This isn't about technology - it's about what happens when cost structures fundamentally change.",
+      "significance": "This demonstrates a pattern that repeats across automation: when a dominant cost category disappears, entire markets restructure. Manual stone carving wasn't expensive because stone was rare - it was expensive because skilled labor was. CNC + photogrammetry + AI eliminate three constraints simultaneously. The result: cathedral-quality ornament at material cost. The lesson: cost structures that seem permanent are often just waiting for the right automation to collapse them.",
+      "demoType": "live",
+      "integrationRequirements": "### Live Demo\n\n**URL**: [carvenc.vercel.app](https://carvenc.vercel.app)\n\nInteractive 3D visualization of UNESCO Heritage Scans. Full production stack demonstrating the economic viability of automated architectural ornament at scale.\n\n### Production Economics\n\n**Albanian Facility**:\n- Material: €150-300/ton (limestone/marble)\n- Labor: €400-700/month (CNC operators)\n- Margin: 55%+ while competing with Western European pricing\n\n**Cost Comparison**:\n- Traditional manual carving: $80,000 ($74k labor + $6k material)\n- CNC automated: $6,000 (material cost, 90%+ labor elimination)\n\n### Technical Pipeline\n\n- Photogrammetry (heritage sites → 3D models)\n- AI-assisted optimization (CNC-ready toolpaths)\n- Quality verification (cathedral-grade standards)\n- React Three Fiber for visualization",
       "roiMetrics": [
         {
-          "label": "Time Saved",
-          "value": "90%",
-          "timeframe": "scoping reduction"
+          "label": "Labor Cost Reduction",
+          "value": "90%+",
+          "timeframe": "CNC vs manual carving"
         },
         {
-          "label": "Accuracy",
-          "value": "95%",
-          "timeframe": "requirement capture"
+          "label": "Cost Transformation",
+          "value": "$80k → $6k",
+          "timeframe": "per major element"
         },
         {
-          "label": "Projects",
-          "value": "3x",
-          "timeframe": "throughput increase"
+          "label": "Production Margin",
+          "value": "55%+",
+          "timeframe": "Albanian facility economics"
         }
       ],
       "displayOrder": 1
     },
     {
-      "id": "agora-platform",
-      "name": "Agora",
-      "category": "Knowledge Markets",
-      "valueProposition": "Monetize expertise through micro-consultations",
-      "timeline": "3 weeks to launch",
-      "description": "### Overview\n\nDecentralized marketplace for trading verified expertise. Experts monetize knowledge through micro-consultations, buyers get instant access to specialized insights.\n\n### Key Features\n\n- Expertise verification system\n- Smart contract escrow\n- Real-time consultation booking\n- Knowledge base building from interactions\n\n### Market Validation\n\n- 73% of professionals underutilize domain expertise\n- Average consultation value: $50-200\n- Zero platform lock-in through blockchain verification\n\n### Technical Stack\n\nNext.js, Ethereum L2, IPFS, WebRTC",
-      "demoType": "video",
-      "integrationRequirements": "### Integration\n\n- Standalone platform\n- Can integrate with existing identity systems\n- Blockchain-based verification\n\n### Setup Time\n\n- 3 weeks for full launch\n- Pilot program available immediately",
+      "id": "specify-tool",
+      "name": "Specify",
+      "category": "AI Development Tool",
+      "valueProposition": "When AI can write specifications, what changes about software development?",
+      "timeline": "Prototype complete",
+      "previewUrl": "",
+      "description": "### The Capability Shift\n\nAI can read requirements and generate technical specifications. This isn't incremental - it changes **who can specify** and **how fast** teams can iterate.\n\n**What This Reveals**:\n- Specification bottlenecks weren't about human speed, they were about human availability\n- Edge case identification was limited by attention span, not capability\n- The hardest part isn't generating specs, it's knowing what good specifications require\n\n### The Value Unlocked\n\n- **For Teams**: 90% reduction in scoping time\n- **For Non-Technical**: Can specify systems without learning technical language\n- **For Market**: Specifications become commoditized, execution becomes the differentiator\n\n### What 12 Iterations Taught\n\nTheory: \"Give AI context, get specifications\"\n\nReality after testing:\n- Pass 1: 60% edge case coverage (missed implicit constraints)\n- Pass 5: 75% (added structured extraction)\n- Pass 12: 95% (decomposed into: extract → validate → specify → verify)\n\n**The Pattern**: AI doesn't replace human understanding - it multiplies it. The competitive edge isn't \"better AI\", it's understanding what decomposition patterns actually work in production.",
+      "significance": "This tool exists to generate insights about AI application, not to replace developers. Every failed spec teaches what models miss. Every successful spec reveals new patterns. The feedback loop - build, deploy, learn, iterate - is where competitive advantage comes from. Companies with better AI won't win. Companies with better AI application understanding will.",
+      "demoType": "interactive",
+      "integrationRequirements": "### Current State\n\nFunctional prototype, 95% accuracy on tested scenarios. Built through 12 iterations of real usage, not theory.\n\n### What Makes It Work\n\nMulti-pass processing (not single-shot):\n1. Extract entities and constraints\n2. Validate completeness\n3. Generate specifications\n4. Verify against requirements\n\n### Technical Notes (Secondary)\n\n- Claude API with structured outputs\n- Conversation memory for context\n- Next.js for interface",
       "roiMetrics": [
         {
-          "label": "Expert Earnings",
-          "value": "$500",
-          "timeframe": "per week average"
+          "label": "Iterations to Production",
+          "value": "12",
+          "timeframe": "learning cycles"
         },
         {
-          "label": "Response Time",
-          "value": "<2hrs",
-          "timeframe": "to expert match"
+          "label": "Accuracy Gain",
+          "value": "60%→95%",
+          "timeframe": "through real usage"
         },
         {
-          "label": "Satisfaction",
-          "value": "94%",
-          "timeframe": "successful consultations"
+          "label": "Time Reduction",
+          "value": "90%",
+          "timeframe": "scoping to spec"
         }
       ],
       "displayOrder": 2
     },
     {
-      "id": "archivis-3d",
-      "name": "ArchiVis",
-      "category": "Computer Vision",
-      "valueProposition": "2D blueprints to 3D walkthroughs in seconds",
-      "timeline": "4 weeks to production",
-      "description": "### Overview\n\nComputer vision platform converting architectural drawings into interactive 3D visualizations. No 3D modeling expertise required.\n\n### Key Features\n\n- Automatic dimension extraction\n- Material and texture inference\n- VR walkthrough generation\n- Real-time collaboration on models\n\n### Use Cases\n\n- Real estate marketing\n- Construction planning\n- Interior design visualization\n- Historical reconstruction\n\n### Technical Stack\n\nThree.js, TensorFlow, Python CV, React",
+      "id": "property-match",
+      "name": "PropertyMatch AI",
+      "category": "Market Laboratory",
+      "valueProposition": "When graph analysis becomes automated, what market structures become visible?",
+      "timeline": "Concept validation phase",
+      "previewUrl": "",
+      "description": "### The Automation Lens\n\nSocial graph analysis and comparative valuation are now computationally trivial. Apply these to Albanian real estate and a hidden market structure emerges: 40% of inventory flows through word-of-mouth networks, never touching public listings.\n\n**What This Reveals**:\n- \"Inefficient markets\" often have invisible efficiency layers\n- Information asymmetry isn't a bug - it's how trust substitutes for formal verification\n- Western market models assume public listings - global reality is social networks\n\n### The Value This Creates\n\n- **For Buyers**: Access to 40% more inventory through network analysis\n- **For Sellers**: Fair pricing without exposing to public markets prematurely\n- **For Market Understanding**: See how informal systems actually work at scale\n\n### Why Albania as Laboratory\n\nNot because it's \"behind\" - because it reveals patterns Western markets hide:\n- Trust networks visible (not buried in MLS systems)\n- Cash transactions (payment assumptions don't hold)\n- Data scarcity (can't rely on comprehensive datasets)\n- Informal dominates formal (challenges Western AI training data)\n\n**The Insight**: When you build for markets where Western assumptions fail, you learn what actually matters vs what's just contextual convenience. That understanding transfers everywhere.",
+      "significance": "Albania isn't a market to solve - it's a testing ground for understanding how AI performs when data is scarce, trust is local, and formal systems are thin. Every assumption that breaks here reveals something Western datasets obscured. The feedback loop: Albanian deployment → discover what fails → understand why → build better AI. This isn't about Albanian real estate. It's about generating insights that matter globally by testing where Western patterns don't hold.",
       "demoType": "playground",
-      "integrationRequirements": "### Integration\n\n- Upload blueprints via web interface\n- API available for programmatic access\n- Export to popular 3D formats\n\n### Setup Time\n\n- 4 weeks for production deployment\n- Demo playground available now",
+      "integrationRequirements": "### Validation Approach\n\nTest assumptions before building:\n1. Manual network mapping (does the 40% exist?)\n2. Interview-based price discovery (can we infer fair value?)\n3. Trust pattern analysis (how do informal systems verify?)\n\nOnly automate what manual process validates.\n\n### Technical Notes (Secondary)\n\n- Graph database for network analysis\n- Comparative valuation (not ML initially)\n- Privacy-first (trust requires anonymity)",
       "roiMetrics": [
         {
-          "label": "Time Saved",
-          "value": "95%",
-          "timeframe": "vs. manual modeling"
+          "label": "Market Access",
+          "value": "+40%",
+          "timeframe": "inventory via networks"
         },
         {
-          "label": "Cost Reduction",
-          "value": "$5000",
-          "timeframe": "per project"
+          "label": "Assumption Tests",
+          "value": "8",
+          "timeframe": "Western models that failed"
         },
         {
-          "label": "Accuracy",
-          "value": "98%",
-          "timeframe": "dimension preservation"
+          "label": "Global Application",
+          "value": "Universal",
+          "timeframe": "patterns transfer"
         }
       ],
       "displayOrder": 3
-    },
-    {
-      "id": "rideshare-albania",
-      "name": "RideShare Albania",
-      "category": "Local Market",
-      "valueProposition": "Inter-city carpooling for underserved routes",
-      "timeline": "6 weeks to launch",
-      "description": "### Overview\n\nCarpooling platform optimized for Albanian geography and payment preferences. Focus on inter-city routes underserved by public transport.\n\n### Market Opportunity\n\n- 60% of inter-city routes have limited public transport\n- Average savings: 70% vs. taxi\n- Environmental impact: 3 tons CO2 saved per active user yearly\n\n### Localization\n\n- Cash payment integration\n- Route optimization for Albanian road conditions\n- Trust system through social verification\n\n### Technical Stack\n\nReact Native, Node.js, PostgreSQL, Maps API",
-      "demoType": "interactive",
-      "integrationRequirements": "### Integration\n\n- Mobile app (iOS and Android)\n- Web dashboard for administration\n- Payment gateway integration\n\n### Setup Time\n\n- 6 weeks for full launch\n- Beta testing available in 3 weeks",
-      "roiMetrics": [
-        {
-          "label": "Routes",
-          "value": "150+",
-          "timeframe": "cities connected"
-        },
-        {
-          "label": "Savings",
-          "value": "70%",
-          "timeframe": "vs. alternatives"
-        },
-        {
-          "label": "Growth",
-          "value": "1000",
-          "timeframe": "users per month"
-        }
-      ],
-      "displayOrder": 4
-    },
-    {
-      "id": "digital-notary",
-      "name": "Digital Notary Network",
-      "category": "GovTech",
-      "valueProposition": "Blockchain-verified documents, e-Albania integrated",
-      "timeline": "8 weeks to pilot",
-      "description": "### Overview\n\nDocument authentication platform removing need for physical notarization. Integrates with e-Albania for official recognition.\n\n### Features\n\n- Blockchain timestamp verification\n- Multi-party signature workflows\n- e-Albania API integration\n- Legal compliance built-in\n\n### Impact\n\n- Eliminate notary visits\n- Reduce document fraud\n- Enable remote transactions\n- 90% cost reduction\n\n### Technical Stack\n\nHyperledger, Next.js, e-Albania API",
-      "demoType": "video",
-      "integrationRequirements": "### Integration\n\n- e-Albania API integration required\n- Legal framework validation needed\n- Pilot program with government partnership\n\n### Setup Time\n\n- 8 weeks for pilot deployment\n- Requires regulatory approval",
-      "roiMetrics": [
-        {
-          "label": "Time Saved",
-          "value": "2 days",
-          "timeframe": "per transaction"
-        },
-        {
-          "label": "Cost",
-          "value": "90%",
-          "timeframe": "reduction"
-        },
-        {
-          "label": "Security",
-          "value": "Immutable",
-          "timeframe": "blockchain verified"
-        }
-      ],
-      "displayOrder": 5
-    },
-    {
-      "id": "property-match",
-      "name": "PropertyMatch AI",
-      "category": "Real Estate",
-      "valueProposition": "Find unlisted properties through social graphs",
-      "timeline": "5 weeks to beta",
-      "description": "### Overview\n\nAI platform matching property seekers with unlisted inventory through social graph analysis. Solves information asymmetry in Albanian real estate.\n\n### The Problem\n\n- 40% of properties never publicly listed\n- Word-of-mouth dominates transactions\n- Price opacity benefits sellers\n\n### The Solution\n\n- Social graph analysis for hidden inventory\n- Fair market value estimation\n- Anonymous initial inquiries\n- Trust scores through transaction history\n\n### Technical Stack\n\nGraph database, ML valuation model, Next.js",
-      "demoType": "playground",
-      "integrationRequirements": "### Integration\n\n- Social login for network analysis\n- Property data API integration\n- Valuation model training on local data\n\n### Setup Time\n\n- 5 weeks for beta launch\n- Initial data collection in 2 weeks",
-      "roiMetrics": [
-        {
-          "label": "Inventory",
-          "value": "+40%",
-          "timeframe": "accessible properties"
-        },
-        {
-          "label": "Price Accuracy",
-          "value": "±5%",
-          "timeframe": "valuation precision"
-        },
-        {
-          "label": "Match Rate",
-          "value": "65%",
-          "timeframe": "successful connections"
-        }
-      ],
-      "displayOrder": 6
     }
   ]
 }

@@ -23,6 +23,18 @@ function ImmediateValue() {
             ))}
           </div>
 
+          {/* Contextual Annotation */}
+          {sectionData.annotationContent && (
+            <div className="section-annotation space-organic-lg" data-parallax={PARALLAX.CONTENT.ANNOTATION}>
+              <h3 className="annotation-heading">{sectionData.annotationContent.heading}</h3>
+              <div className="annotation-content">
+                {sectionData.annotationContent.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          )}
+
           <div className="contact-section space-organic-lg" data-parallax={PARALLAX.CONTENT.CONTACT}>
             <h2>Ready to get started?</h2>
             <button
