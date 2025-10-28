@@ -1,0 +1,36 @@
+/* Strategic Vision Section - Enhanced depth design from DepthShowcase */
+
+.section-strategic-vision {
+  background: linear-gradient(180deg, #0a0a0a 0%, #171717 50%, #0a0a0a 100%);
+  color: #f5f5f5;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Enhanced heading with depth shadow */
+.section-strategic-vision .depth-heading {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.01em;
+}
+
+/* Enhanced depth for insight cards */
+.section-strategic-vision .insight-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.section-strategic-vision .insight-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 8px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .section-strategic-vision {
+    background: #0a0a0a;
+  }
+}
+
+/* Ensure section uses scroll snap */
+.section-strategic-vision.scroll-snap-section {
+  scroll-snap-align: start;
+}
