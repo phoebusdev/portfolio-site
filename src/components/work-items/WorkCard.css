@@ -10,4 +10,94 @@
   /* Any work-card-specific overrides can go here */
 }
 
+/* Company cards - larger and more prominent */
+.expandable-item.work-card--company {
+  padding: 2rem;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.expandable-item.work-card--company:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+}
+
+.expandable-item.work-card--company .expandable-item-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.expandable-item.work-card--company .expandable-item-description {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Website Link Button */
+.work-card-website-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin: 0.75rem 0;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.375rem;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.work-card-website-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.work-card-website-link:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
+}
+
+.work-card-website-link:active {
+  transform: translateY(0);
+}
+
+.website-link-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.website-link-text {
+  font-weight: 500;
+}
+
+/* Sub-project styling - visually distinct from company entries */
+.expandable-item.work-card--sub-project {
+  margin-left: 2.5rem;
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  position: relative;
+  opacity: 0.92;
+  padding: 1.25rem 1.5rem;
+  border-left: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Sub-project title styling - smaller than company cards */
+.expandable-item.work-card--sub-project .expandable-item-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.expandable-item.work-card--sub-project .expandable-item-description {
+  font-size: 0.95rem;
+}
+
 /* Legacy styles kept for backward compatibility but not actively used */
