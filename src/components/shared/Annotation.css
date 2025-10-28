@@ -3,6 +3,9 @@
 .annotation {
   /* No background, no border - just elegant text */
   max-width: 50ch;
+  position: sticky;
+  top: clamp(2rem, 15vh, 10rem);
+  align-self: flex-start;
 }
 
 .annotation-heading {
@@ -26,6 +29,10 @@
 
 /* Mobile responsive */
 @media (max-width: 768px) {
+  .annotation {
+    position: static; /* Remove sticky on mobile */
+  }
+
   .annotation-heading {
     font-size: 1.375rem;
   }

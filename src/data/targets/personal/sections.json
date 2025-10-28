@@ -15,10 +15,16 @@
       "subheading": "From consulting to founding to building",
       "introductoryContent": "Six years of progressive experience delivering measurable results. Each project demonstrates the evolution from data analysis to entrepreneurship to AI-powered development.",
       "annotationContent": {
-        "heading": "Placeholder Context",
+        "heading": "The Pattern Behind the Projects",
         "paragraphs": [
-          "This annotation provides overarching context for the work experience showcased. It explains the strategic thread connecting these different projects and demonstrates progression.",
-          "The pattern shows systematic value creation across different contexts - from established organizations to startups to independent development."
+          "Six years of experience reveals a consistent pattern: identify leverage points, build systematic solutions, measure outcomes. Each project represents not just capability demonstration, but evidence of an evolving methodology.",
+          "At Boston Consulting Group, the challenge was extracting signal from noise in massive legal datasets. The solution wasn't more complex AI—it was understanding which patterns lawyers actually needed to see, then automating those specific extractions. The result: case preparation time reduced from weeks to hours.",
+          "Founding Prodhub shifted the context entirely. No established systems, no existing processes. Building a B2B SaaS platform from scratch meant every architectural decision had direct business consequences. The focus became: what's the minimum viable system that creates immediate value? That constraint forced clarity.",
+          "The current work synthesizes both experiences. Complex problems requiring systematic solutions, but with the architectural discipline learned from building with limited resources. Each project builds on lessons from the previous.",
+          "This isn't a portfolio of disconnected achievements. It's documentation of a feedback loop: encounter problem, build solution, measure effectiveness, extract principles, apply to next challenge. The progression shows not just what was built, but how the building process itself improved.",
+          "The real value isn't in any single project—it's in the demonstrated capacity to move between contexts, identify what matters, and ship solutions that work. From established consulting to startup founding to independent development, the core pattern remains consistent: find leverage, build systematically, deliver measurably.",
+          "Every project here represents both outcome and learning. The legal analytics work taught speed and precision. The startup founding taught resource constraints and architectural tradeoffs. The recent work applies both lessons simultaneously. Each layer builds on the previous, creating compounding capability.",
+          "This trajectory demonstrates something specific: the ability to identify patterns across different domains and apply systematic thinking to generate consistent results. Not random successes, but repeatable methodology applied across varying contexts."
         ]
       },
       "transitionConfig": {
