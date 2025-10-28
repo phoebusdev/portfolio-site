@@ -1,0 +1,13 @@
+{
+  "buildCommand": "VITE_TARGET_COMPANY=personal npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "env": {
+    "VITE_TARGET_COMPANY": "personal"
+  },
+  "build": {
+    "env": {
+      "VITE_TARGET_COMPANY": "personal"
+    }
+  }
+}
