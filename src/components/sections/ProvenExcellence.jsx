@@ -38,6 +38,7 @@ function ProvenExcellence() {
               <Annotation
                 heading={annotation.heading}
                 paragraphs={annotation.paragraphs}
+                parallax={PARALLAX.CONTENT.ANNOTATION}
               />
             );
           }}
