@@ -79,15 +79,42 @@
   font-weight: 500;
 }
 
-/* Sub-project styling - visually distinct from company entries */
+/* Sub-project styling - chrome reduction for clear hierarchy */
 .expandable-item.work-card--sub-project {
+  /* Remove glass morphism - transparent background */
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+
+  /* Remove shadows */
+  box-shadow: none !important;
+
+  /* Remove all borders except left accent */
+  border: none;
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+
+  /* Spacing */
   margin-left: 2.5rem;
   margin-top: 1rem;
   margin-bottom: 0.75rem;
-  position: relative;
-  opacity: 0.92;
   padding: 1.25rem 1.5rem;
-  border-left: 3px solid rgba(255, 255, 255, 0.15);
+
+  /* Keep subtle opacity reduction */
+  opacity: 0.95;
+  position: relative;
+}
+
+/* Remove inner glow pseudo-element for sub-projects */
+.expandable-item.work-card--sub-project::before {
+  display: none;
+}
+
+/* Hover state for sub-projects - minimal, just accent color change */
+.expandable-item.work-card--sub-project:hover {
+  border-left-color: #8b93ff;
+  box-shadow: none !important;
+  transform: none;
 }
 
 /* Sub-project title styling - smaller than company cards */
