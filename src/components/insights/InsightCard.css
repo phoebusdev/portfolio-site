@@ -1,0 +1,124 @@
+/* Insight Card - Text-focused design (not card-based) */
+
+/*
+ * Insights are more text-focused and less "card-like"
+ * They have no glass morphism chrome, just clean typography
+ */
+
+.expandable-item.insight-card {
+  /* Override expandable-item defaults for text-focused design */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0;
+  box-shadow: none;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(1.5rem, 3vw, 2.5rem)
+    clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 65ch;
+}
+
+.expandable-item.insight-card::before {
+  display: none; /* No inner glow for text-focused design */
+}
+
+/* Hover state - subtle left shift instead of lift */
+.expandable-item.insight-card:hover {
+  transform: translateX(8px);
+  background: transparent;
+  border-left-color: #8b93ff;
+  box-shadow: none;
+}
+
+/* Focus state */
+.expandable-item.insight-card:focus {
+  outline: 2px solid #6366f1;
+  outline-offset: 4px;
+}
+
+/* Title */
+.expandable-item.insight-card .expandable-item-title {
+  font-size: clamp(1.375rem, 3vw, 2rem);
+  margin-bottom: 1rem;
+  transition: color 0.3s ease;
+}
+
+.expandable-item.insight-card:hover .expandable-item-title {
+  color: #8b93ff;
+}
+
+/* Preview / Opportunity text */
+.expandable-item.insight-card .expandable-item-description {
+  font-size: clamp(1.0625rem, 1.75vw, 1.25rem);
+  line-height: 1.7;
+  color: #d4d4d4;
+  margin-bottom: 0;
+}
+
+/* Expanded content styling for insights */
+.expandable-item.insight-card .expandable-item-content {
+  padding-top: 2rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.expandable-item.insight-card .content-section-title {
+  font-size: 1rem;
+  color: #8b93ff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.expandable-item.insight-card .content-section-body {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: #d4d4d4;
+}
+
+/* Increase section spacing for insights */
+.expandable-item.insight-card .expandable-item-sections {
+  gap: 2.5rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .expandable-item.insight-card {
+    padding: 1.5rem 0 1.5rem 1.5rem;
+    max-width: 100%;
+  }
+
+  .expandable-item.insight-card:hover {
+    transform: translateX(4px);
+  }
+
+  .expandable-item.insight-card .expandable-item-title {
+    font-size: 1.375rem;
+  }
+
+  .expandable-item.insight-card .expandable-item-description {
+    font-size: 1.0625rem;
+  }
+
+  .expandable-item.insight-card .expandable-item-content {
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .expandable-item.insight-card .expandable-item-sections {
+    gap: 2rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .expandable-item.insight-card:hover {
+    transform: none;
+  }
+
+  .expandable-item.insight-card .expandable-item-title {
+    transition: none;
+  }
+}

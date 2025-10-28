@@ -7,9 +7,9 @@
   overflow: hidden;
 }
 
-/* Breathing padding - Responsive without media queries */
+/* Breathing padding - Responsive without media queries - Increased for more whitespace */
 .section-padding {
-  padding: clamp(3rem, 8vw, 8rem) clamp(1.5rem, 5vw, 5rem);
+  padding: clamp(4rem, 10vw, 10rem) clamp(2rem, 6vw, 6rem); /* Increased from 3rem/8vw/8rem and 1.5rem/5vw/5rem */
 }
 
 /* Content flow - Organic, not centered */

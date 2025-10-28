@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import ParallaxBackground from './ParallaxBackground.jsx';
 import LayeredBackground from '../effects/LayeredBackground.jsx';
 import GlowOrb from '../effects/GlowOrb.jsx';
+import InsightCard from '../insights/InsightCard.jsx';
 import { useSectionData } from '../../hooks/useSectionData.js';
 import './Section.css';
 
@@ -51,14 +52,8 @@ function StrategicVision() {
 
           <div className="insights-list">
             {insights.map((insight, index) => (
-              <div
-                key={insight.id}
-                className="insight-placeholder"
-                style={{ animationDelay: `${index * 0.15}s` }}
-                data-parallax={0.12 + (index % 3) * 0.03}
-              >
-                <h3>{insight.title}</h3>
-                <p className="opportunity">{insight.opportunity}</p>
+              <div key={insight.id} data-parallax={0.12 + (index % 3) * 0.03}>
+                <InsightCard insight={insight} index={index} />
               </div>
             ))}
           </div>

@@ -22,6 +22,21 @@
   color: #d4d4d4;
 }
 
+/* Name header above hero */
+.intro-name {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  animation-delay: 0.1s;
+}
+
+.intro-name h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 300;
+  color: #fafafa;
+  letter-spacing: 0.02em;
+  text-align: left;
+  margin: 0;
+}
+
 /* Enhanced intro text for hero section */
 .intro-hero-enhanced {
   max-width: 75ch;
@@ -30,11 +45,11 @@
   animation-delay: 0.2s;
 }
 
-/* Work Items Grid - Organic spacing */
+/* Work Items Grid - Organic spacing with increased whitespace */
 .work-items-grid {
   display: flex;
   flex-direction: column;
-  gap: clamp(2rem, 5vw, 4rem);
+  gap: clamp(3rem, 6vw, 5rem); /* Increased from 2rem/5vw/4rem */
 }
 
 .work-item-placeholder {
@@ -73,11 +88,11 @@
   margin-bottom: 0.25rem;
 }
 
-/* Insights List - Progressive disclosure preview */
+/* Insights List - Progressive disclosure preview with increased whitespace */
 .insights-list {
   display: flex;
   flex-direction: column;
-  gap: clamp(2.5rem, 6vw, 5rem);
+  gap: clamp(3.5rem, 7vw, 6rem); /* Increased from 2.5rem/6vw/5rem */
 }
 
 .insight-placeholder {
@@ -97,11 +112,11 @@
   line-height: 1.6;
 }
 
-/* Products Grid */
+/* Products Grid - Increased whitespace */
 .products-grid {
   display: flex;
   flex-direction: column;
-  gap: clamp(2rem, 5vw, 4rem);
+  gap: clamp(3rem, 6vw, 5rem); /* Increased from 2rem/5vw/4rem to match work items */
 }
 
 .product-placeholder {

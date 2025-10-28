@@ -7,7 +7,6 @@ import IntroSection from './components/sections/IntroSection.jsx';
 import ProvenExcellence from './components/sections/ProvenExcellence.jsx';
 import StrategicVision from './components/sections/StrategicVision.jsx';
 import ImmediateValue from './components/sections/ImmediateValue.jsx';
-import DepthShowcase from './components/sections/DepthShowcase.jsx';
 import NoiseOverlay from './components/effects/NoiseOverlay.jsx';
 import ParticleSystem from './components/effects/ParticleSystem.jsx';
 import './styles/animations.css';
@@ -70,7 +69,6 @@ function App() {
         <IntroSection />
         <ProvenExcellence />
         <StrategicVision />
-        <DepthShowcase />
         <ImmediateValue />
       </main>
 

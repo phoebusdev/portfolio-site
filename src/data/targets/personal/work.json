@@ -1,0 +1,164 @@
+{
+  "workItems": [
+    {
+      "id": "blumbergs-consulting",
+      "title": "Data Analysis & Automation Consultant",
+      "shortDescription": "Transformed regulatory data into actionable insights for 10,000+ charitable organizations",
+      "detailedStory": "Six-year engagement processing and analyzing large-scale regulatory datasets for Canada's charitable sector. Progressed from manual SQL analysis to implementing machine learning models for pattern recognition.",
+      "impactMetrics": [
+        {
+          "label": "Output",
+          "value": "300%",
+          "context": "productivity increase"
+        },
+        {
+          "label": "Reach",
+          "value": "10,000+",
+          "context": "organizations served"
+        },
+        {
+          "label": "Accuracy",
+          "value": "99.7%",
+          "context": "data validation rate"
+        },
+        {
+          "label": "Time Saved",
+          "value": "500hrs",
+          "context": "annually through automation"
+        }
+      ],
+      "technologiesUsed": ["SQL", "Python", "Machine Learning", "Data Pipeline Automation"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nCanadian charities submit complex regulatory filings with inconsistent data quality. Manual processing was error-prone and couldn't scale with sector growth.\n\n### The Solution\n\nDeveloped automated validation pipelines using SQL and Python. Implemented ML models to identify anomalies and predict compliance issues before they occur.\n\n### The Impact\n\n- Published sector-wide trend analyses reaching 10,000+ organizations\n- Reduced data processing time from weeks to hours\n- Created reusable automation templates now standard across the firm",
+      "displayOrder": 1
+    },
+    {
+      "id": "dormezy-platform",
+      "title": "Dormezy - Student Housing Platform",
+      "shortDescription": "Founded venture-backed startup selected for WebSummit presentation",
+      "detailedStory": "Identified critical inefficiency in student housing market. Secured $30,000 funding, built platform reaching 500+ beta users, selected from 2,400+ startups for WebSummit.",
+      "impactMetrics": [
+        {
+          "label": "Funding",
+          "value": "$30k",
+          "context": "seed capital raised"
+        },
+        {
+          "label": "Users",
+          "value": "500+",
+          "context": "beta testers"
+        },
+        {
+          "label": "Recognition",
+          "value": "Top 100",
+          "context": "WebSummit selection"
+        },
+        {
+          "label": "Partnerships",
+          "value": "12",
+          "context": "property providers"
+        }
+      ],
+      "technologiesUsed": ["React", "Node.js", "PostgreSQL", "AWS"],
+      "visualAssets": [],
+      "explorationContent": "### The Opportunity\n\nStudent housing platforms hadn't evolved with user expectations. Existing solutions were fragmented, unverified, and difficult to navigate.\n\n### The Innovation\n\nCombined existing technologies in a novel way: verified listings, virtual tours, roommate matching, and integrated lease signing.\n\n### The Validation\n\n- Selected for WebSummit from 2,400+ applicants\n- 500+ students joined beta within 2 months\n- 12 property partners signed before launch",
+      "displayOrder": 2
+    },
+    {
+      "id": "applyvisa-platform",
+      "title": "ApplyVisa.au - Education Search Platform",
+      "shortDescription": "Built Australia's most comprehensive university program database in 3 weeks",
+      "detailedStory": "Transformed stalled $50k project into functioning platform at zero external cost. Created searchable database of 40,000+ programs, now the leading research tool for Australian education.",
+      "impactMetrics": [
+        {
+          "label": "Programs",
+          "value": "40,000+",
+          "context": "indexed courses"
+        },
+        {
+          "label": "Cost Saved",
+          "value": "$50k",
+          "context": "vs. traditional development"
+        },
+        {
+          "label": "Time",
+          "value": "3 weeks",
+          "context": "to production"
+        },
+        {
+          "label": "Conversion",
+          "value": "12%",
+          "context": "visitor to applicant"
+        }
+      ],
+      "technologiesUsed": ["Next.js", "Web Scraping", "PostgreSQL", "Vercel"],
+      "visualAssets": [],
+      "explorationContent": "### The Problem\n\nClient had commission deals with universities but no platform. Previous developers quoted $50,000+ with uncertain timelines. Existing sites prioritized conversion over utility.\n\n### My Approach\n\n- Scraped CRICOS government database and university sites\n- Built filterable interface with session persistence\n- Created SEO-optimized pages for each university and field\n- Zero external costs, 3-week delivery\n\n### The Result\n\nPlatform became the most comprehensive free resource for Australian education research. Natural conversion through utility-first design.",
+      "displayOrder": 3
+    },
+    {
+      "id": "english-unleashed",
+      "title": "EnglishUnleashed - Language Learning Platform",
+      "shortDescription": "Scaled from PDF sales to 600,000+ users in 4 months",
+      "detailedStory": "Evolved linguistics professor's concept from simple storefront to comprehensive learning platform. Strategic guidance prevented premature scaling while focusing on validated growth.",
+      "impactMetrics": [
+        {
+          "label": "Users",
+          "value": "600k+",
+          "context": "registered accounts"
+        },
+        {
+          "label": "Growth",
+          "value": "200k",
+          "context": "subscribers month 1"
+        },
+        {
+          "label": "Products",
+          "value": "150+",
+          "context": "learning materials"
+        },
+        {
+          "label": "Revenue",
+          "value": "6-figure",
+          "context": "annual run rate"
+        }
+      ],
+      "technologiesUsed": ["Next.js", "Stripe", "YouTube API", "PostgreSQL"],
+      "visualAssets": [],
+      "explorationContent": "### Phase 1: MVP (Week 1)\n\nSimple PDF store using Gumroad API. YouTube integration for video catalog. Zero backend complexity.\n\n### Phase 2: Viral Growth (Month 2)\n\nAI-generated shadowing videos gained 200k subscribers. The 'soulless' AI voice was perfect for learners - clear, consistent, easy to follow.\n\n### Phase 3: Platform Evolution (Month 4)\n\n- Migrated from Gumroad to reduce fees\n- Implemented quiz system\n- Advised against premature features (app, AI chat)\n- Focus: validate before expanding\n\n### The Result\n\n600,000 users. Complete platform ownership. Sustainable revenue model.",
+      "displayOrder": 4
+    },
+    {
+      "id": "l2-english",
+      "title": "L2English - IELTS Certification Platform",
+      "shortDescription": "Built comprehensive platform for accredited English teachers",
+      "detailedStory": "Collaboration platform connecting certified teachers with IELTS students. Clean execution focused on core value proposition.",
+      "impactMetrics": [
+        {
+          "label": "Teachers",
+          "value": "50+",
+          "context": "certified instructors"
+        },
+        {
+          "label": "Students",
+          "value": "2,000+",
+          "context": "active learners"
+        },
+        {
+          "label": "Completion",
+          "value": "78%",
+          "context": "course finish rate"
+        },
+        {
+          "label": "Score Increase",
+          "value": "+1.5",
+          "context": "average IELTS improvement"
+        }
+      ],
+      "technologiesUsed": ["React", "Node.js", "WebRTC", "Stripe", "Cambridge API"],
+      "visualAssets": [],
+      "explorationContent": "### Core Features\n\n- Cambridge assessment integration for placement\n- Tiered subscriptions (group/individual)\n- Progress tracking and analytics\n- Material distribution system\n\n### Design Philosophy\n\nNo unnecessary features. Focus on connecting qualified teachers with motivated students. Everything else is noise.\n\n### The Result\n\nClean platform that does one thing excellently: prepare students for IELTS certification.",
+      "displayOrder": 5
+    }
+  ]
+}

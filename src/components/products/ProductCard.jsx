@@ -1,64 +1,45 @@
-import { useState } from 'react';
-import { animate } from 'motion';
-import ProductDetail from './ProductDetail.jsx';
-import analyticsTracker from '../../utils/analytics.js';
+import { useMemo, memo } from 'react';
+import ExpandableItem from '../shared/ExpandableItem.jsx';
+import { parseProductContent, extractProductKeyPoints } from '../../utils/markdownParser.js';
 import './ProductCard.css';
 
 function ProductCard({ product, index }) {
-  const [isExpanded, setIsExpanded] = useState(false);
+  // Parse product content once and memoize
+  const parsedSections = useMemo(
+    () => parseProductContent(product),
+    [product]
+  );
 
-  const handleClick = () => {
-    setIsExpanded(true);
-  };
+  const keyPoints = useMemo(
+    () => extractProductKeyPoints(product.description || ''),
+    [product.description]
+  );
 
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      handleClick();
-    }
-  };
+  // Create preview with category, timeline, and ROI preview
+  const preview = useMemo(() => {
+    const roiPreview = product.roiMetrics
+      .slice(0, 2)
+      .map(m => `${m.value} ${m.label}`)
+      .join(' • ');
 
-  const handleClose = () => {
-    setIsExpanded(false);
-  };
+    return `${product.valueProposition}\n\n⏱ ${product.timeline}\n\n${roiPreview}`;
+  }, [product]);
 
   return (
-    <>
-      <article
-        className="product-card hover-lift"
-        onClick={handleClick}
-        onKeyPress={handleKeyPress}
-        role="button"
-        tabIndex={0}
-        aria-label={`View details for ${product.name}`}
-        style={{ animationDelay: `${index * 0.1}s` }}
-      >
-        <span className="product-category">{product.category}</span>
-        <h3 className="product-name">{product.name}</h3>
-        <p className="product-value-prop">{product.valueProposition}</p>
-
-        <div className="product-timeline">
-          <span className="timeline-icon">⏱</span>
-          <span>{product.timeline}</span>
-        </div>
-
-        <div className="product-roi">
-          {product.roiMetrics.slice(0, 2).map((metric, i) => (
-            <div key={i} className="roi-item">
-              <span className="roi-value">{metric.value}</span>
-              <span className="roi-label">{metric.label}</span>
-            </div>
-          ))}
-        </div>
-
-        <span className="product-cta">View Demo →</span>
-      </article>
-
-      {isExpanded && (
-        <ProductDetail product={product} onClose={handleClose} />
-      )}
-    </>
+    <ExpandableItem
+      id={product.id}
+      title={product.name}
+      preview={preview}
+      keyPoints={keyPoints}
+      expandedSections={parsedSections}
+      tags={[product.category, product.demoType]}
+      enableModal={false}
+      onModalOpen={null}
+      showExternalIcon={false}
+      className="product-card"
+      index={index}
+    />
   );
 }
 
-export default ProductCard;
+export default memo(ProductCard);

@@ -47,6 +47,11 @@ function IntroSection() {
 
       <div className="parallax-scene">
         <div className="section-padding content-left">
+          {/* Name header */}
+          <div className="intro-name anim-fade-in-up" data-parallax="0.06">
+            <h2>Henri Fontaine</h2>
+          </div>
+
           {/* Section header (empty for intro-hero but maintains pattern) */}
           <div className="section-header anim-fade-in-up" data-parallax="0.08">
             {sectionData.heading && (

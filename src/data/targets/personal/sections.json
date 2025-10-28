@@ -1,0 +1,40 @@
+{
+  "sections": [
+    {
+      "sectionType": "intro-hero",
+      "heading": "",
+      "subheading": "",
+      "introductoryContent": "Six years bridging data analysis, automation, and AI-powered development. From legal consulting to entrepreneurship to building efficient, AI-native solutions that deliver immediate value.",
+      "transitionConfig": {
+        "parallaxIntensity": 0.8
+      }
+    },
+    {
+      "sectionType": "proven-excellence",
+      "heading": "Track Record",
+      "subheading": "From consulting to founding to building",
+      "introductoryContent": "Six years of progressive experience delivering measurable results. Each project demonstrates the evolution from data analysis to entrepreneurship to AI-powered development.",
+      "transitionConfig": {
+        "parallaxIntensity": 0.6
+      }
+    },
+    {
+      "sectionType": "strategic-vision",
+      "heading": "Strategic Perspective",
+      "subheading": "Understanding the AI paradigm shift",
+      "introductoryContent": "The real opportunity isn't in using AI as a better calculator - it's in understanding how neural networks fundamentally change what's possible. Albania's position offers unique advantages for AI-native transformation.",
+      "transitionConfig": {
+        "parallaxIntensity": 0.5
+      }
+    },
+    {
+      "sectionType": "immediate-value",
+      "heading": "Ready Solutions",
+      "subheading": "Prototypes pending deployment",
+      "introductoryContent": "Concrete products addressing real problems with proven approaches. Global platforms leveraging AI, local solutions for Albanian market gaps. Each can be deployed within weeks.",
+      "transitionConfig": {
+        "parallaxIntensity": 0.4
+      }
+    }
+  ]
+}
