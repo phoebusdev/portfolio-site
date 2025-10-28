@@ -48,12 +48,15 @@ function ImmediateValue() {
 
           <div className="contact-section space-organic-lg" data-parallax={PARALLAX.CONTENT.CONTACT}>
             <h2>Ready to get started?</h2>
-            <button
+            <a
+              href="https://wa.link/gs5pqq"
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-button"
               onClick={() => analyticsTracker.trackContactClick('section-end')}
             >
               Get in Touch
-            </button>
+            </a>
           </div>
         </>
       )}
