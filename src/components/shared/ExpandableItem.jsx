@@ -3,6 +3,7 @@ import { animate } from 'motion';
 import ReactMarkdown from 'react-markdown';
 import { getSectionDisplayName } from '../../utils/markdownParser.js';
 import analyticsTracker from '../../utils/analytics.js';
+import { ANIMATION } from '../../constants/design.js';
 import './ExpandableItem.css';
 
 /**
@@ -78,8 +79,8 @@ function ExpandableItem({
           opacity: [0, 1],
         },
         {
-          duration: 0.4,
-          easing: [0.42, 0, 0.58, 1],
+          duration: ANIMATION.DURATION.NORMAL,
+          easing: ANIMATION.EASING.STANDARD,
         }
       );
     } else {
@@ -92,8 +93,8 @@ function ExpandableItem({
           opacity: [1, 0],
         },
         {
-          duration: 0.3,
-          easing: [0.42, 0, 0.58, 1],
+          duration: ANIMATION.DURATION.FAST,
+          easing: ANIMATION.EASING.STANDARD,
         }
       );
     }
@@ -119,7 +120,7 @@ function ExpandableItem({
       aria-expanded={isExpanded}
       aria-controls={hasExpandedContent ? contentId : undefined}
       aria-label={`${title} - ${isExpanded ? 'collapse' : 'expand'} for more details`}
-      style={{ animationDelay: `${index * 0.1}s` }}
+      style={{ animationDelay: `${index * ANIMATION.DELAY.STEP}s` }}
     >
       {/* Preview Content (Always Visible) */}
       <div className="expandable-item-preview">

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { animate } from 'motion';
+import { ANIMATION } from '../../constants/design.js';
 import './ParticleSystem.css';
 
 function ParticleSystem({ count = 20 }) {
@@ -20,7 +21,7 @@ function ParticleSystem({ count = 20 }) {
     const animations = [];
 
     particles.forEach((particle, i) => {
-      const delay = i * 0.15; // Stagger the start
+      const delay = i * ANIMATION.DELAY.STAGGER_PARTICLES; // Stagger the start
       const duration = 15 + Math.random() * 15; // 15-30 seconds
       const startX = Math.random() * 100;
       const drift = (Math.random() - 0.5) * 30; // Horizontal drift

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { BREAKPOINTS } from '../../constants/design.js';
 import './ParallaxBackground.css';
 
 function ParallaxBackground({ intensity = 0.5, enableContentParallax = true }) {
@@ -16,7 +17,7 @@ function ParallaxBackground({ intensity = 0.5, enableContentParallax = true }) {
     // Simple scroll-based parallax
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const isMobile = window.innerWidth < 768; // Re-check on each scroll for responsive behavior
+      const isMobile = window.innerWidth < BREAKPOINTS.MOBILE; // Re-check on each scroll for responsive behavior
 
       // Handle background layers
       const layers = scene.querySelectorAll('.parallax-layer');
