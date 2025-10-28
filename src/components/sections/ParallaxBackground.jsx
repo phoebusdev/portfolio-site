@@ -41,10 +41,17 @@ function ParallaxBackground({ intensity = 0.5, enableContentParallax = true }) {
             const viewportHeight = window.innerHeight;
 
             // Only apply parallax when element is in or near viewport
-            if (elementTop < scrollY + viewportHeight && elementTop + elementHeight > scrollY) {
-              const speed = parseFloat(element.dataset.parallax) || 0.05;
-              const relativeScroll = scrollY - elementTop + viewportHeight;
-              const yPos = -(relativeScroll * speed);
+            if (elementTop < scrollY + viewportHeight + 100 && elementTop + elementHeight > scrollY - 100) {
+              const speed = parseFloat(element.dataset.parallax) || 0.1;
+
+              // Calculate parallax based on scroll position relative to element
+              // Negative speed moves element slower (creating depth illusion)
+              const elementCenter = elementTop + elementHeight / 2;
+              const viewportCenter = scrollY + viewportHeight / 2;
+              const distanceFromCenter = elementCenter - viewportCenter;
+
+              // Parallax effect: elements move slower as they're further from center
+              const yPos = distanceFromCenter * speed;
 
               element.style.transform = `translate3d(0, ${yPos}px, 0)`;
               element.style.willChange = 'transform';
