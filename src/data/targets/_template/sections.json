@@ -1,6 +1,17 @@
 {
   "sections": [
     {
+      "sectionType": "intro-hero",
+      "heading": "",
+      "subheading": "",
+      "introductoryContent": "In a landscape where technical execution defines competitive advantage, I deliver transformative solutions that compress timelines, amplify impact, and unlock capabilities you didn't know were possible. This is the intersection of deep technical mastery, strategic vision, and relentless execution.",
+      "transitionConfig": {
+        "duration": 1200,
+        "easing": [0.42, 0, 0.58, 1],
+        "parallaxIntensity": 0.8
+      }
+    },
+    {
       "sectionType": "proven-excellence",
       "heading": "Proven Excellence",
       "subheading": "Real impact across diverse technical challenges",

@@ -3,6 +3,7 @@ import smoothScrollController from './utils/scroll.js';
 import sessionTracker from './utils/session.js';
 import analyticsTracker from './utils/analytics.js';
 import keyboardNavController from './utils/keyboard.js';
+import IntroSection from './components/sections/IntroSection.jsx';
 import ProvenExcellence from './components/sections/ProvenExcellence.jsx';
 import StrategicVision from './components/sections/StrategicVision.jsx';
 import ImmediateValue from './components/sections/ImmediateValue.jsx';
@@ -66,6 +67,7 @@ function App() {
       <ParticleSystem count={20} />
 
       <main className="scroll-snap-container">
+        <IntroSection />
         <ProvenExcellence />
         <StrategicVision />
         <DepthShowcase />
