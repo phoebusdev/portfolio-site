@@ -1,27 +1,340 @@
 {
   "products": [
     {
-      "id": "example-product-1",
-      "name": "CI Pipeline Optimizer",
-      "category": "Developer Tooling",
-      "valueProposition": "Reduce CI/CD costs by 60% and cut pipeline runtime from 35 minutes to under 12 minutes",
-      "timeline": "2 weeks to full deployment (includes monitoring setup)",
-      "description": "### Overview\n\nDrop-in replacement for GitHub Actions / GitLab CI that intelligently caches dependencies, parallelizes tests, and predicts which tests to run.\n\n### Key Features\n\n- Smart caching (73% hit rate)\n- Predictive testing (90% accuracy)\n- Parallel execution\n- Cost optimization",
+      "id": "product-001",
+      "name": "SmartCache Pro",
+      "category": "Performance",
+      "valueProposition": "50% faster page loads in 48 hours",
+      "timeline": "48 hours to implementation",
+      "description": "### Overview\n\nIntelligent caching layer that learns from user patterns to predictively load content. Reduces server load by 70% while improving user experience.\n\n### Key Features\n\n- ML-powered prediction engine\n- Automatic cache invalidation\n- Real-time performance monitoring\n- Zero-configuration setup\n\n### Technical Stack\n\n- Redis, Machine Learning, Edge Computing\n\n### Requirements\n\n- Node.js 16+, Redis 6+, 2GB RAM",
       "demoType": "interactive",
-      "integrationRequirements": "### Requirements\n\n- GitHub/GitLab repository access\n- Cloud account (AWS or GCP)\n- Node.js 18+ or Python 3.9+ project\n\n### Setup Time\n\n- Initial configuration: 2 hours\n- Migration: 1 week\n- No code changes required",
+      "integrationRequirements": "### Integration\n\n- Drop-in replacement for current cache\n- Zero-configuration setup\n- Customizable TTL strategies, Prediction algorithms, Storage backends\n\n### Testimonial\n\n\"SmartCache transformed our user experience overnight.\" - CTO, TechStartup\n\n2.3s → 1.2s page load",
       "roiMetrics": [
         {
-          "label": "Cost Savings",
-          "value": "$2,400/month",
-          "timeframe": "for 20-developer team"
+          "label": "Avg Improvement",
+          "value": "47%",
+          "timeframe": "faster load times"
         },
         {
-          "label": "Time Savings",
-          "value": "23 minutes/build",
-          "timeframe": "average across all pipelines"
+          "label": "Server Reduction",
+          "value": "70%",
+          "timeframe": "fewer database queries"
+        },
+        {
+          "label": "User Satisfaction",
+          "value": "+23",
+          "timeframe": "NPS score increase"
         }
       ],
       "displayOrder": 1
+    },
+    {
+      "id": "product-002",
+      "name": "FlowBuilder Studio",
+      "category": "Automation",
+      "valueProposition": "Visual workflows live in 1 week",
+      "timeline": "1 week to full deployment",
+      "description": "### Overview\n\nDrag-and-drop workflow automation that integrates with your existing tools. Build complex automations without code.\n\n### Key Features\n\n- 200+ pre-built connectors\n- Visual debugging tools\n- Version control built-in\n- Team collaboration features\n\n### Technical Stack\n\n- TypeScript, React, Node.js\n\n### Requirements\n\n- Modern browser, API access",
+      "demoType": "playground",
+      "integrationRequirements": "### Integration\n\n- API-first, works with any system\n- Customizable: Custom nodes, Themes, Workflows\n\n### Setup Time\n\n- Embedded demo available",
+      "roiMetrics": [
+        {
+          "label": "Automation Rate",
+          "value": "80%",
+          "timeframe": "task automation"
+        },
+        {
+          "label": "Time Saved",
+          "value": "30 hours",
+          "timeframe": "per week per team"
+        },
+        {
+          "label": "Error Reduction",
+          "value": "95%",
+          "timeframe": "fewer manual errors"
+        }
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": "product-003",
+      "name": "DataPulse Analytics",
+      "category": "Analytics",
+      "valueProposition": "Real-time insights in 3 days",
+      "timeline": "3 days to implementation",
+      "description": "### Overview\n\nStream processing pipeline that turns raw data into actionable insights. See what's happening in your business right now.\n\n### Key Features\n\n- Sub-second data processing\n- Customizable dashboards\n- Anomaly detection\n- Predictive analytics\n\n### Technical Stack\n\n- Apache Kafka, ClickHouse, React\n\n### Requirements\n\n- Data source access, 8GB RAM",
+      "demoType": "video",
+      "integrationRequirements": "### Integration\n\n- Connects to existing data sources\n- Customizable: Metrics, Alerts, Visualizations\n\n### Demo\n\n- Video duration: 2:30",
+      "roiMetrics": [
+        {
+          "label": "Processing Speed",
+          "value": "1M",
+          "timeframe": "events/second"
+        },
+        {
+          "label": "Latency",
+          "value": "<100ms",
+          "timeframe": "end-to-end"
+        },
+        {
+          "label": "Accuracy",
+          "value": "99.9%",
+          "timeframe": "data accuracy"
+        }
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": "product-004",
+      "name": "Solution 4",
+      "category": "Performance",
+      "valueProposition": "10% improvement in 2 days",
+      "timeline": "2 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 4 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 4\n- Feature 2 of product 4\n- Feature 3 of product 4\n- Feature 4 of product 4\n\n### Technical Stack\n\n- Technology 1, Platform 2\n\n### Requirements\n\n- Requirement 1",
+      "demoType": "interactive",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 1",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "10%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "100ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "1000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": "product-005",
+      "name": "Solution 5",
+      "category": "Automation",
+      "valueProposition": "20% improvement in 3 days",
+      "timeline": "3 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 5 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 5\n- Feature 2 of product 5\n- Feature 3 of product 5\n- Feature 4 of product 5\n\n### Technical Stack\n\n- Technology 2, Platform 3\n\n### Requirements\n\n- Requirement 2",
+      "demoType": "video",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 2",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "20%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "90ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "2000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": "product-006",
+      "name": "Solution 6",
+      "category": "Analytics",
+      "valueProposition": "30% improvement in 4 days",
+      "timeline": "4 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 6 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 6\n- Feature 2 of product 6\n- Feature 3 of product 6\n- Feature 4 of product 6\n\n### Technical Stack\n\n- Technology 3, Platform 4\n\n### Requirements\n\n- Requirement 3",
+      "demoType": "playground",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 3",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "30%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "80ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "3000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": "product-007",
+      "name": "Solution 7",
+      "category": "Integration",
+      "valueProposition": "40% improvement in 5 days",
+      "timeline": "5 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 7 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 7\n- Feature 2 of product 7\n- Feature 3 of product 7\n- Feature 4 of product 7\n\n### Technical Stack\n\n- Technology 4, Platform 5\n\n### Requirements\n\n- Requirement 4",
+      "demoType": "interactive",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 4",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "40%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "70ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "4000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": "product-008",
+      "name": "Solution 8",
+      "category": "Performance",
+      "valueProposition": "50% improvement in 6 days",
+      "timeline": "6 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 8 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 8\n- Feature 2 of product 8\n- Feature 3 of product 8\n- Feature 4 of product 8\n\n### Technical Stack\n\n- Technology 5, Platform 6\n\n### Requirements\n\n- Requirement 5",
+      "demoType": "video",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 5",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "50%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "60ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "5000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": "product-009",
+      "name": "Solution 9",
+      "category": "Automation",
+      "valueProposition": "60% improvement in 7 days",
+      "timeline": "7 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 9 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 9\n- Feature 2 of product 9\n- Feature 3 of product 9\n- Feature 4 of product 9\n\n### Technical Stack\n\n- Technology 6, Platform 7\n\n### Requirements\n\n- Requirement 6",
+      "demoType": "playground",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 6",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "60%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "50ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "6000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": "product-010",
+      "name": "Solution 10",
+      "category": "Analytics",
+      "valueProposition": "70% improvement in 8 days",
+      "timeline": "8 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 10 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 10\n- Feature 2 of product 10\n- Feature 3 of product 10\n- Feature 4 of product 10\n\n### Technical Stack\n\n- Technology 7, Platform 8\n\n### Requirements\n\n- Requirement 7",
+      "demoType": "interactive",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 7",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "70%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "40ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "7000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": "product-011",
+      "name": "Solution 11",
+      "category": "Integration",
+      "valueProposition": "80% improvement in 9 days",
+      "timeline": "9 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 11 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 11\n- Feature 2 of product 11\n- Feature 3 of product 11\n- Feature 4 of product 11\n\n### Technical Stack\n\n- Technology 8, Platform 9\n\n### Requirements\n\n- Requirement 8",
+      "demoType": "video",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 8",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "80%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "30ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "8000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": "product-012",
+      "name": "Solution 12",
+      "category": "Performance",
+      "valueProposition": "90% improvement in 10 days",
+      "timeline": "10 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 12 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 12\n- Feature 2 of product 12\n- Feature 3 of product 12\n- Feature 4 of product 12\n\n### Technical Stack\n\n- Technology 9, Platform 10\n\n### Requirements\n\n- Requirement 9",
+      "demoType": "playground",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 9",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "90%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "20ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "9000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 12
     }
   ]
 }

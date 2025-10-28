@@ -1,31 +1,484 @@
 {
   "workItems": [
     {
-      "id": "example-project-1",
-      "title": "Example Enterprise Platform",
-      "shortDescription": "Reduced infrastructure costs by 68% while improving response times for 50K+ daily users",
-      "detailedStory": "Architected and implemented a complete performance overhaul for a mission-critical B2B platform serving Fortune 500 clients.",
+      "id": "proj-001",
+      "title": "Global Payment Platform",
+      "shortDescription": "Scaled payment processing to 1M daily transactions",
+      "detailedStory": "Built a distributed payment processing system handling over $500M in daily volume across 47 countries. Achieved 99.99% uptime during peak events with sub-50ms latency.",
       "impactMetrics": [
         {
-          "label": "Cost Reduction",
-          "value": "68%",
-          "context": "from $47K/month to $15K/month"
+          "label": "Scale",
+          "value": "1M+",
+          "context": "transactions/day"
         },
         {
-          "label": "Response Time",
-          "value": "83%",
-          "context": "p95 from 2.1s to 350ms"
+          "label": "Performance",
+          "value": "< 50ms",
+          "context": "p99 latency"
         },
         {
-          "label": "User Satisfaction",
-          "value": "+42%",
-          "context": "NPS increased from 31 to 73"
+          "label": "Reliability",
+          "value": "99.99%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "$500M",
+          "context": "daily volume"
         }
       ],
-      "technologiesUsed": ["React", "Node.js", "PostgreSQL", "Redis", "AWS"],
+      "technologiesUsed": ["Distributed Systems", "Event Sourcing", "Real-time Processing", "Global Infrastructure"],
       "visualAssets": [],
-      "explorationContent": "### The Challenge\n\nThe platform was experiencing daily outages during peak hours, impacting customer SLAs and revenue.\n\n### The Solution\n\nImplemented a comprehensive optimization strategy including database query optimization, caching layers, and infrastructure right-sizing.\n\n### The Results\n\nDramatic cost savings while simultaneously improving performance metrics across the board.",
+      "explorationContent": "### The Challenge\n\nLegacy monolith couldn't handle Black Friday traffic. Cross-region data consistency requirements. PCI compliance at scale.\n\n### The Solution\n\nWhen the platform hit scaling limits at 100k transactions, I redesigned the architecture using event sourcing and CQRS patterns. This allowed horizontal scaling across regions while maintaining consistency.\n\n### The Results\n\nImplemented event sourcing for audit trail. Multi-region active-active deployment. Zero-downtime migration strategy.",
       "displayOrder": 1
+    },
+    {
+      "id": "proj-002",
+      "title": "AI-Powered Analytics Dashboard",
+      "shortDescription": "Reduced time-to-insight from hours to seconds",
+      "detailedStory": "Created an intelligent analytics platform that automatically surfaces insights from petabytes of data using ML models and natural language queries.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "5PB",
+          "context": "data processed"
+        },
+        {
+          "label": "Performance",
+          "value": "3s",
+          "context": "average query time"
+        },
+        {
+          "label": "Accuracy",
+          "value": "94%",
+          "context": "prediction accuracy"
+        },
+        {
+          "label": "Impact",
+          "value": "10x",
+          "context": "faster decisions"
+        }
+      ],
+      "technologiesUsed": ["Machine Learning", "Natural Language Processing", "Real-time Analytics", "Distributed Computing"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nPetabyte-scale data processing. Real-time ML inference at scale. Natural language understanding.\n\n### The Solution\n\nTraditional BI tools required analysts to manually build queries and wait hours for results. I built an AI layer that understands natural language questions and pre-computes likely queries.\n\n### The Results\n\nDistributed ML pipeline with caching. Smart query optimization engine. Progressive result streaming.",
+      "displayOrder": 2
+    },
+    {
+      "id": "proj-003",
+      "title": "Real-time Collaboration Engine",
+      "shortDescription": "Enabled 50k concurrent users with zero conflicts",
+      "detailedStory": "Architected a conflict-free replicated data type (CRDT) based collaboration system supporting real-time editing across global teams.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "50k",
+          "context": "concurrent users"
+        },
+        {
+          "label": "Performance",
+          "value": "< 100ms",
+          "context": "sync time"
+        },
+        {
+          "label": "Reliability",
+          "value": "Zero",
+          "context": "data conflicts"
+        },
+        {
+          "label": "Impact",
+          "value": "5x",
+          "context": "team productivity"
+        }
+      ],
+      "technologiesUsed": ["CRDTs", "WebSockets", "Edge Computing", "Operational Transform"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nGlobal synchronization latency. Conflict resolution at scale. Offline-first architecture.\n\n### The Solution\n\nTraditional collaboration tools suffered from conflicts and data loss. Using CRDTs, I built a system where every edit is preserved and conflicts are mathematically impossible.\n\n### The Results\n\nCRDT-based conflict-free merging. Edge node deployment strategy. Intelligent sync prioritization.",
+      "displayOrder": 3
+    },
+    {
+      "id": "proj-004",
+      "title": "Innovation Project 4",
+      "shortDescription": "Achieved 20x performance improvement",
+      "detailedStory": "Architected a distributed system handling millions of requests with sub-second latency across global regions.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "100k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 100ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.9%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "5x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 1", "Stack 2", "Tool 3"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 1: Scalability requirements. Challenge 2: Performance optimization. Challenge 3: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 1: Advanced architecture. Solution 2: Optimized algorithms. Solution 3: Seamless integration.",
+      "displayOrder": 4
+    },
+    {
+      "id": "proj-005",
+      "title": "Innovation Project 5",
+      "shortDescription": "Achieved 30x performance improvement",
+      "detailedStory": "Led the transformation from monolithic architecture to microservices, reducing deployment time by 90%.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "200k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 95ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.91%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "10x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 2", "Stack 3", "Tool 4"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 2: Scalability requirements. Challenge 3: Performance optimization. Challenge 4: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 2: Advanced architecture. Solution 3: Optimized algorithms. Solution 4: Seamless integration.",
+      "displayOrder": 5
+    },
+    {
+      "id": "proj-006",
+      "title": "Innovation Project 6",
+      "shortDescription": "Achieved 40x performance improvement",
+      "detailedStory": "Built machine learning pipeline processing terabytes of data daily with 99.9% accuracy.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "300k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 90ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.92%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "15x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 3", "Stack 4", "Tool 5"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 3: Scalability requirements. Challenge 4: Performance optimization. Challenge 5: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 3: Advanced architecture. Solution 4: Optimized algorithms. Solution 5: Seamless integration.",
+      "displayOrder": 6
+    },
+    {
+      "id": "proj-007",
+      "title": "Innovation Project 7",
+      "shortDescription": "Achieved 50x performance improvement",
+      "detailedStory": "Designed and implemented real-time collaboration features supporting thousands of concurrent users.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "400k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 85ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.93%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "20x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 4", "Stack 5", "Tool 6"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 4: Scalability requirements. Challenge 5: Performance optimization. Challenge 6: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 4: Advanced architecture. Solution 5: Optimized algorithms. Solution 6: Seamless integration.",
+      "displayOrder": 7
+    },
+    {
+      "id": "proj-008",
+      "title": "Innovation Project 8",
+      "shortDescription": "Achieved 60x performance improvement",
+      "detailedStory": "Created automated testing framework reducing bug escape rate by 75% and deployment time by 60%.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "500k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 80ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.94%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "25x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 5", "Stack 6", "Tool 7"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 5: Scalability requirements. Challenge 6: Performance optimization. Challenge 7: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 5: Advanced architecture. Solution 6: Optimized algorithms. Solution 7: Seamless integration.",
+      "displayOrder": 8
+    },
+    {
+      "id": "proj-009",
+      "title": "Innovation Project 9",
+      "shortDescription": "Achieved 70x performance improvement",
+      "detailedStory": "Developed edge computing solution decreasing latency by 80% for users in remote regions.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "600k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 75ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.95%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "30x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 6", "Stack 7", "Tool 8"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 6: Scalability requirements. Challenge 7: Performance optimization. Challenge 8: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 6: Advanced architecture. Solution 7: Optimized algorithms. Solution 8: Seamless integration.",
+      "displayOrder": 9
+    },
+    {
+      "id": "proj-010",
+      "title": "Innovation Project 10",
+      "shortDescription": "Achieved 80x performance improvement",
+      "detailedStory": "Implemented event-driven architecture processing 100k events per second with zero message loss.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "700k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 70ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.96%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "35x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 7", "Stack 8", "Tool 9"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 7: Scalability requirements. Challenge 8: Performance optimization. Challenge 9: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 7: Advanced architecture. Solution 8: Optimized algorithms. Solution 9: Seamless integration.",
+      "displayOrder": 10
+    },
+    {
+      "id": "proj-011",
+      "title": "Innovation Project 11",
+      "shortDescription": "Achieved 90x performance improvement",
+      "detailedStory": "Built progressive web app achieving 95+ Lighthouse scores and 40% increase in user engagement.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "800k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 65ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.97%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "40x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 8", "Stack 9", "Tool 10"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 8: Scalability requirements. Challenge 9: Performance optimization. Challenge 10: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 8: Advanced architecture. Solution 9: Optimized algorithms. Solution 10: Seamless integration.",
+      "displayOrder": 11
+    },
+    {
+      "id": "proj-012",
+      "title": "Innovation Project 12",
+      "shortDescription": "Achieved 100x performance improvement",
+      "detailedStory": "Architected a distributed system handling millions of requests with sub-second latency across global regions.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "900k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 60ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.98%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "45x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 9", "Stack 10", "Tool 11"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 9: Scalability requirements. Challenge 10: Performance optimization. Challenge 11: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 9: Advanced architecture. Solution 10: Optimized algorithms. Solution 11: Seamless integration.",
+      "displayOrder": 12
+    },
+    {
+      "id": "proj-013",
+      "title": "Innovation Project 13",
+      "shortDescription": "Achieved 110x performance improvement",
+      "detailedStory": "Led the transformation from monolithic architecture to microservices, reducing deployment time by 90%.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "1000k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 55ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.99%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "50x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 10", "Stack 11", "Tool 12"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 10: Scalability requirements. Challenge 11: Performance optimization. Challenge 12: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 10: Advanced architecture. Solution 11: Optimized algorithms. Solution 12: Seamless integration.",
+      "displayOrder": 13
+    },
+    {
+      "id": "proj-014",
+      "title": "Innovation Project 14",
+      "shortDescription": "Achieved 120x performance improvement",
+      "detailedStory": "Built machine learning pipeline processing terabytes of data daily with 99.9% accuracy.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "1100k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 50ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.91%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "55x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 11", "Stack 12", "Tool 13"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 11: Scalability requirements. Challenge 12: Performance optimization. Challenge 13: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 11: Advanced architecture. Solution 12: Optimized algorithms. Solution 13: Seamless integration.",
+      "displayOrder": 14
+    },
+    {
+      "id": "proj-015",
+      "title": "Innovation Project 15",
+      "shortDescription": "Achieved 130x performance improvement",
+      "detailedStory": "Designed and implemented real-time collaboration features supporting thousands of concurrent users.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "1200k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 45ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.92%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "60x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 12", "Stack 13", "Tool 14"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 12: Scalability requirements. Challenge 13: Performance optimization. Challenge 14: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 12: Advanced architecture. Solution 13: Optimized algorithms. Solution 14: Seamless integration.",
+      "displayOrder": 15
     }
   ]
 }
