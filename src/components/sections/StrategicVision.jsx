@@ -43,14 +43,14 @@ function StrategicVision() {
 
       <div className="parallax-scene">
         <div className="section-padding content-right">
-          <div className="section-header anim-fade-in-up">
+          <div className="section-header anim-fade-in-up" data-parallax="0.03">
             <h1 className="section-heading text-shadow-medium">{sectionData.heading}</h1>
             {sectionData.subheading && (
               <p className="section-subheading">{sectionData.subheading}</p>
             )}
           </div>
 
-          <div className="section-intro space-organic-md">
+          <div className="section-intro space-organic-md" data-parallax="0.04">
             <p>{sectionData.introductoryContent}</p>
           </div>
 
@@ -60,6 +60,7 @@ function StrategicVision() {
                 key={insight.id}
                 className="insight-placeholder"
                 style={{ animationDelay: `${index * 0.15}s` }}
+                data-parallax={0.05 + (index % 3) * 0.015}
               >
                 <h3>{insight.title}</h3>
                 <p className="opportunity">{insight.opportunity}</p>

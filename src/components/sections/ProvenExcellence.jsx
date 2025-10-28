@@ -43,20 +43,22 @@ function ProvenExcellence() {
 
       <div className="parallax-scene">
         <div className="section-padding content-left">
-          <div className="section-header anim-fade-in-up">
+          <div className="section-header anim-fade-in-up" data-parallax="0.03">
             <h1 className="section-heading text-shadow-medium">{sectionData.heading}</h1>
             {sectionData.subheading && (
               <p className="section-subheading">{sectionData.subheading}</p>
             )}
           </div>
 
-          <div className="section-intro space-organic-md">
+          <div className="section-intro space-organic-md" data-parallax="0.04">
             <p>{sectionData.introductoryContent}</p>
           </div>
 
           <div className="work-items-grid">
             {workItems.map((item, index) => (
-              <WorkCard key={item.id} workItem={item} index={index} />
+              <div key={item.id} data-parallax={0.05 + (index % 3) * 0.01}>
+                <WorkCard workItem={item} index={index} />
+              </div>
             ))}
           </div>
         </div>

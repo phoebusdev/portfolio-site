@@ -44,24 +44,26 @@ function ImmediateValue() {
 
       <div className="parallax-scene">
         <div className="section-padding content-left">
-          <div className="section-header anim-fade-in-up">
+          <div className="section-header anim-fade-in-up" data-parallax="0.03">
             <h1 className="section-heading text-shadow-medium">{sectionData.heading}</h1>
             {sectionData.subheading && (
               <p className="section-subheading">{sectionData.subheading}</p>
             )}
           </div>
 
-          <div className="section-intro space-organic-md">
+          <div className="section-intro space-organic-md" data-parallax="0.04">
             <p>{sectionData.introductoryContent}</p>
           </div>
 
           <div className="products-grid">
             {products.map((product, index) => (
-              <ProductCard key={product.id} product={product} index={index} />
+              <div key={product.id} data-parallax={0.05 + (index % 3) * 0.01}>
+                <ProductCard product={product} index={index} />
+              </div>
             ))}
           </div>
 
-          <div className="contact-section space-organic-lg">
+          <div className="contact-section space-organic-lg" data-parallax="0.02">
             <h2>Ready to get started?</h2>
             <button
               className="cta-button"
