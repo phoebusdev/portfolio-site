@@ -16,6 +16,7 @@ import './ExpandableItem.css';
  * @param {string} props.id - Unique identifier for analytics
  * @param {string} props.title - Item title
  * @param {string} props.preview - Preview text shown when collapsed
+ * @param {React.ReactNode} props.previewImage - Optional image component to render before preview text
  * @param {Array<Object>} props.keyPoints - Key points to display (optional)
  * @param {Object} props.expandedSections - Sections to show when expanded { key: markdownContent }
  * @param {Array<string>} props.tags - Tags to display (optional, e.g., technologies)
@@ -29,6 +30,7 @@ function ExpandableItem({
   id,
   title,
   preview,
+  previewImage = null,
   keyPoints = [],
   expandedSections = {},
   tags = [],
@@ -125,6 +127,7 @@ function ExpandableItem({
       {/* Preview Content (Always Visible) */}
       <div className="expandable-item-preview">
         <h3 id={titleId} className="expandable-item-title">{title}</h3>
+        {previewImage}
         <p className="expandable-item-description">{preview}</p>
 
         {/* Key Points */}

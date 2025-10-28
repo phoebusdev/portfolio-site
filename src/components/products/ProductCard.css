@@ -15,4 +15,98 @@
   white-space: pre-line;
 }
 
+/* Preview Image Styles */
+.product-preview-image-link {
+  display: block;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.product-preview-image-link:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.product-preview-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+    border-color 0.3s cubic-bezier(0.42, 0, 0.58, 1),
+    box-shadow 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.product-preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Show image when loaded */
+.product-preview-image[src] {
+  opacity: 1;
+}
+
+/* Hover effect on image wrapper */
+.product-preview-image-link:hover .product-preview-image-wrapper {
+  transform: translateY(-2px);
+  border-color: #8b93ff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Loading placeholder effect */
+.product-preview-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .product-preview-image-wrapper {
+    max-width: 100%;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .product-preview-image-link {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .product-preview-image-wrapper {
+    transition: none;
+  }
+
+  .product-preview-image {
+    transition: none;
+  }
+}
+
 /* Legacy styles kept for backward compatibility but not actively used */
