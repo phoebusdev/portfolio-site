@@ -55,7 +55,6 @@
       "shortDescription": "Language learning platform reaching 600,000+ users organically",
       "detailedStory": "Evolved linguistics professor's concept from PDF store to comprehensive platform. Strategic guidance prevented premature scaling while achieving viral growth through AI-generated content.",
       "technologiesUsed": ["Next.js", "Stripe", "YouTube API", "PostgreSQL"],
-      "websiteUrl": "https://englishunleashed.com",
       "visualAssets": [],
       "explorationContent": "### Evolution Through Validation\n\n**Week 1 - MVP**: Simple PDF store using Gumroad API. YouTube integration for video catalog. Zero backend complexity. Test market response before building.\n\n**Month 2 - Viral Growth**: AI-generated shadowing videos gained 200,000 subscribers. Key insight: the 'soulless' AI voice was perfect for learners—clear, consistent, comprehensible. What entertainment considers a weakness, education considers a strength.\n\n**Month 4 - Platform Scaling**: \n- Migrated from Gumroad (reducing 10% fees to 2.9%)\n- Built quiz system with progress tracking\n- Implemented tiered subscriptions\n- Account system capturing user value\n\n### Strategic Guidance\n\nClient wanted to add mobile app and AI chat immediately. Advised against—validate core offering first. Features without proven value create maintenance burden, not competitive advantage.\n\n### Results\n\n- 600,000 users in 4 months\n- Sustainable revenue from day one\n- Complete platform ownership\n- Positioned for strategic expansion based on data, not assumptions",
       "displayOrder": 5
@@ -68,7 +67,6 @@
       "shortDescription": "IELTS certification platform with Cambridge integration",
       "detailedStory": "Collaboration platform connecting certified teachers with IELTS students. Clean architecture focused on core value: effective test preparation.",
       "technologiesUsed": ["React", "Node.js", "WebRTC", "Stripe", "Cambridge API"],
-      "websiteUrl": "https://l2english.com",
       "visualAssets": [],
       "explorationContent": "### Design Principle\n\nNo feature bloat. Every element serves the core mission: preparing students for IELTS certification.\n\n### Core Platform\n\n- **Cambridge Integration**: Official placement testing\n- **Flexible Structure**: Group and individual instruction tiers\n- **Progress Analytics**: Data-driven improvement tracking\n- **Material Distribution**: Centralized resource management\n- **Clean Architecture**: Focus on learning, not platform complexity\n\n### Technical Implementation\n\n- Real-time video sessions without third-party dependencies\n- Stripe subscription management with sandbox testing\n- Complete client ownership of infrastructure\n- Production-ready with single webhook configuration\n\n### Value Delivery\n\nPlatform does one thing excellently: connect qualified teachers with motivated students for IELTS success. No distractions, no unnecessary features, just effective preparation.",
       "displayOrder": 6
