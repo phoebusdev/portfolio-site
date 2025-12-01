@@ -26,6 +26,21 @@
   pointer-events: none;
 }
 
+.page-hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 150px;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.8) 0%,
+    rgba(10, 10, 10, 0) 100%
+  );
+  pointer-events: none;
+}
+
 .hero-content {
   max-width: 800px;
   position: relative;
@@ -57,9 +72,41 @@
   position: relative;
 }
 
+/* Soft transition overlays for section blending */
+.page-section::before,
+.page-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-section::before {
+  top: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.6) 0%,
+    rgba(10, 10, 10, 0) 100%
+  );
+}
+
+.page-section::after {
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.6) 0%,
+    rgba(10, 10, 10, 0) 100%
+  );
+}
+
 .section-content {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .section-content h2 {
