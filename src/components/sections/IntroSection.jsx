@@ -11,7 +11,7 @@ function IntroSection() {
         <>
           {/* Name header */}
           <div className="intro-name anim-fade-in-up" data-parallax={PARALLAX.CONTENT.NAME}>
-            <h2>Henri Pasha</h2>
+            <h2>Your Name</h2>
           </div>
 
           {/* Elegant intro text with enhanced animation */}

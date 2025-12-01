@@ -1,42 +1,96 @@
 {
-  "companyName": "Your Company",
+  "companyName": "Template Company",
   "industry": "Technology",
   "insights": [
     {
-      "id": "ai-paradigm-shift",
-      "title": "The AI Paradigm Shift",
-      "opportunity": "Transform knowledge work through AI-native systems",
-      "currentState": "Most organizations treat AI as a faster calculator rather than a fundamentally different approach to knowledge.",
-      "analysis": "Neural networks aren't just faster computation - they represent a new epistemology. Instant access to all domain knowledge, no forgetting, pattern recognition across infinite data points.\n\n**Real-World Evidence:**\n\n- Medical imaging AI achieves 94% accuracy vs. 88% for radiologists\n- Materials discovery reduced from years to weeks through molecular prediction\n- CERN particle physics finding patterns impossible for humans to process\n\nThe constraint is no longer knowledge - it's application.",
-      "proposal": "Build AI-native systems from inception rather than retrofitting legacy infrastructure.\n\n**Approach:**\n- Start with AI capabilities, design systems around them\n- Eliminate human bottlenecks through intelligent automation\n- Focus on outcomes impossible without AI",
+      "id": "insight-001",
+      "title": "Untapped Real-time Potential",
+      "opportunity": "Reduce data staleness from 5.5 hours to under 1 minute",
+      "currentState": "Your current batch processing happens every 6 hours, but your users check the platform multiple times per hour.",
+      "analysis": "This gap creates a 5.5-hour average data staleness that impacts decision-making speed.\n\n**Evidence:**\n\n- 73% of users refresh within 30 minutes, indicating desire for fresher data\n- Industry leaders report 40% faster decision-making with real-time data\n- Similar transformation at TechCorp resulted in 3x user engagement",
+      "proposal": "Implement streaming architecture with incremental updates, reducing latency to under 1 minute.\n\n**Before vs After:**\n- Current: Batch Every 6 Hours = 360 minutes average delay\n- Proposed: Real-time Streaming = <1 minute delay",
       "displayOrder": 1
     },
     {
-      "id": "albania-advantage",
-      "title": "Albania's Unique Position",
-      "opportunity": "Leapfrog developed nations through AI-native digitization",
-      "currentState": "While developed nations struggle with legacy infrastructure, Albania's ongoing digitization can be AI-native from inception.",
-      "analysis": "Most developed nations face critical challenges:\n\n- Legacy systems resist transformation\n- Entrenched monopolies protect outdated approaches\n- Regulatory frameworks built for pre-AI world\n\n**Albania's Advantages:**\n\n- No digital monopolies to protect old systems\n- Regulatory flexibility for rapid iteration\n- Smaller market enables complete transformation\n- Current digitization can incorporate AI from start",
-      "proposal": "Build foundational digital infrastructure with AI at its core.\n\n**Example - Healthcare:**\nUS healthcare runs on Epic - a despised monopoly blocking innovation. Starting fresh with AI-native design produces inherently superior results with no legacy baggage.",
+      "id": "insight-002",
+      "title": "Scalability Ceiling Approaching",
+      "opportunity": "Prevent performance walls within 6 months",
+      "currentState": "Your database queries are showing exponential growth in execution time as data volume increases.",
+      "analysis": "At current growth rate, you'll hit performance walls within 6 months.\n\n**Evidence:**\n\n- Query time increased 300% in last quarter alone\n- P99 latency approaching user experience threshold",
+      "proposal": "Implement intelligent caching layer with predictive pre-computation of common queries.\n\n**Architecture:**\n- Current: Single database → Linear scaling → Performance degradation\n- Proposed: Multi-tier cache → Horizontal scaling → Consistent performance",
       "displayOrder": 2
     },
     {
-      "id": "development-commoditization",
-      "title": "The End of Traditional Development",
-      "opportunity": "Reduce development time from months to days",
-      "currentState": "Traditional development agencies operate like mechanics scamming customers who don't understand cars - opacity, delays, vendor lock-in.",
-      "analysis": "What I've learned through iteration:\n\n**Generation 1:** 1+ week per project, expensive API calls, manual oversight\n**Generation 2:** 5 days per project, heavy monitoring required\n**Generation 3:** 2-3 days per project, extensive planning upfront\n**Generation 4:** 1-2 days per project, spec-driven development\n\nThe trajectory is clear - development is becoming commoditized.",
-      "proposal": "Adopt spec-driven, AI-powered development immediately.\n\n**Benefits:**\n- 90% reduction in development time\n- Fixed costs, guaranteed delivery\n- Complete ownership transfer\n- No vendor lock-in",
+      "id": "insight-003",
+      "title": "AI-Powered Automation Opportunity",
+      "opportunity": "Save $200k annually and reduce delays from 4 hours to 30 seconds",
+      "currentState": "Your support team manually categorizes and routes 10,000+ tickets monthly.",
+      "analysis": "This manual process costs $200k annually and introduces 4-hour average delays.\n\n**Evidence:**\n\n- Similar AI implementation reduced response time by 85%\n- NLP models achieve 92% accuracy in ticket categorization",
+      "proposal": "Deploy NLP model for automatic categorization and intelligent routing with human-in-the-loop validation.\n\n**Flow:**\n- Before: Ticket → Manual Review (4hr) → Assignment → Resolution\n- After: Ticket → AI Categorization (30s) → Smart Routing → Faster Resolution",
       "displayOrder": 3
     },
     {
-      "id": "practical-ai-implementation",
-      "title": "From Theory to Practice",
-      "opportunity": "Deploy working AI solutions in weeks, not quarters",
-      "currentState": "Most AI initiatives stall in planning phases or produce demos without real utility.",
-      "analysis": "Through building real products, I've learned what works:\n\n**Success Patterns:**\n- Start with narrow, high-value problems\n- Validate with users before scaling\n- Focus on outcomes, not technology\n\n**Case Studies:**\n- ApplyVisa: 40,000 programs indexed at zero cost\n- EnglishUnleashed: 600k users in 4 months\n- Client projects: 1-2 day delivery vs. weeks",
-      "proposal": "Implement proven patterns for rapid AI deployment.\n\n**Ready Solutions:**\n- Specification tools reducing scoping by 90%\n- Knowledge markets for expertise trading\n- Computer vision for instant 3D modeling\n- Local platforms for untapped markets",
+      "id": "insight-004",
+      "title": "Strategic Insight 4",
+      "opportunity": "Achieve 40% improvement in key metrics",
+      "currentState": "Observable pattern 4 in your current system architecture and user behavior.",
+      "analysis": "This pattern indicates potential for 40% improvement in key metrics.\n\n**Evidence:**\n\n- Supporting evidence 1 for insight 4\n- Supporting evidence 2 for insight 4\n- Supporting evidence 3 for insight 4",
+      "proposal": "Systematic approach 4 to address this opportunity with proven methodologies.\n\nVisualization shows 40% improvement potential.",
       "displayOrder": 4
+    },
+    {
+      "id": "insight-005",
+      "title": "Strategic Insight 5",
+      "opportunity": "Achieve 50% improvement in key metrics",
+      "currentState": "Observable pattern 5 in your current system architecture and user behavior.",
+      "analysis": "This pattern indicates potential for 50% improvement in key metrics.\n\n**Evidence:**\n\n- Supporting evidence 1 for insight 5\n- Supporting evidence 2 for insight 5\n- Supporting evidence 3 for insight 5",
+      "proposal": "Systematic approach 5 to address this opportunity with proven methodologies.\n\nVisualization shows 50% improvement potential.",
+      "displayOrder": 5
+    },
+    {
+      "id": "insight-006",
+      "title": "Strategic Insight 6",
+      "opportunity": "Achieve 60% improvement in key metrics",
+      "currentState": "Observable pattern 6 in your current system architecture and user behavior.",
+      "analysis": "This pattern indicates potential for 60% improvement in key metrics.\n\n**Evidence:**\n\n- Supporting evidence 1 for insight 6\n- Supporting evidence 2 for insight 6\n- Supporting evidence 3 for insight 6",
+      "proposal": "Systematic approach 6 to address this opportunity with proven methodologies.\n\nVisualization shows 60% improvement potential.",
+      "displayOrder": 6
+    },
+    {
+      "id": "insight-007",
+      "title": "Strategic Insight 7",
+      "opportunity": "Achieve 70% improvement in key metrics",
+      "currentState": "Observable pattern 7 in your current system architecture and user behavior.",
+      "analysis": "This pattern indicates potential for 70% improvement in key metrics.\n\n**Evidence:**\n\n- Supporting evidence 1 for insight 7\n- Supporting evidence 2 for insight 7\n- Supporting evidence 3 for insight 7",
+      "proposal": "Systematic approach 7 to address this opportunity with proven methodologies.\n\nVisualization shows 70% improvement potential.",
+      "displayOrder": 7
+    },
+    {
+      "id": "insight-008",
+      "title": "Strategic Insight 8",
+      "opportunity": "Achieve 80% improvement in key metrics",
+      "currentState": "Observable pattern 8 in your current system architecture and user behavior.",
+      "analysis": "This pattern indicates potential for 80% improvement in key metrics.\n\n**Evidence:**\n\n- Supporting evidence 1 for insight 8\n- Supporting evidence 2 for insight 8\n- Supporting evidence 3 for insight 8",
+      "proposal": "Systematic approach 8 to address this opportunity with proven methodologies.\n\nVisualization shows 80% improvement potential.",
+      "displayOrder": 8
+    },
+    {
+      "id": "insight-009",
+      "title": "Strategic Insight 9",
+      "opportunity": "Achieve 90% improvement in key metrics",
+      "currentState": "Observable pattern 9 in your current system architecture and user behavior.",
+      "analysis": "This pattern indicates potential for 90% improvement in key metrics.\n\n**Evidence:**\n\n- Supporting evidence 1 for insight 9\n- Supporting evidence 2 for insight 9\n- Supporting evidence 3 for insight 9",
+      "proposal": "Systematic approach 9 to address this opportunity with proven methodologies.\n\nVisualization shows 90% improvement potential.",
+      "displayOrder": 9
+    },
+    {
+      "id": "insight-010",
+      "title": "Strategic Insight 10",
+      "opportunity": "Achieve 100% improvement in key metrics",
+      "currentState": "Observable pattern 10 in your current system architecture and user behavior.",
+      "analysis": "This pattern indicates potential for 100% improvement in key metrics.\n\n**Evidence:**\n\n- Supporting evidence 1 for insight 10\n- Supporting evidence 2 for insight 10\n- Supporting evidence 3 for insight 10",
+      "proposal": "Systematic approach 10 to address this opportunity with proven methodologies.\n\nVisualization shows 100% improvement potential.",
+      "displayOrder": 10
     }
   ]
 }

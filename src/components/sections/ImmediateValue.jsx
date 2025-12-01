@@ -49,7 +49,7 @@ function ImmediateValue() {
           <div className="contact-section space-organic-lg" data-parallax={PARALLAX.CONTENT.CONTACT}>
             <h2>Ready to get started?</h2>
             <a
-              href="https://wa.link/gs5pqq"
+              href="#contact"
               target="_blank"
               rel="noopener noreferrer"
               className="cta-button"

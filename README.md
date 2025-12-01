@@ -41,7 +41,7 @@ A fluid, dynamic pitch site with a three-act narrative structure showcasing prov
 
 ```bash
 # Clone the repository
-git clone https://github.com/phoebusdev/portfolio-site.git
+git clone https://github.com/your-username/portfolio-site.git
 cd portfolio-site
 
 # Install dependencies
@@ -199,4 +199,4 @@ Built with [Claude Code](https://claude.com/claude-code)
 
 ---
 
-**Repository**: https://github.com/phoebusdev/portfolio-site
+**Repository**: https://github.com/your-username/portfolio-site

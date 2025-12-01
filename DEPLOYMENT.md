@@ -191,6 +191,6 @@ ls src/data/targets/
 
 ## Support
 
-- **Repository**: https://github.com/phoebusdev/portfolio-site
-- **Issues**: https://github.com/phoebusdev/portfolio-site/issues
+- **Repository**: https://github.com/your-username/portfolio-site
+- **Issues**: https://github.com/your-username/portfolio-site/issues
 - **Documentation**: README.md, CLAUDE.md (if exists)

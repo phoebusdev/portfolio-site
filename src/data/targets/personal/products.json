@@ -1,62 +1,340 @@
 {
   "products": [
     {
-      "id": "carvenc-3d-store",
-      "name": "Carvenc",
-      "category": "Production Example",
-      "valueProposition": "When automation eliminates labor costs, what becomes economically viable?",
-      "timeline": "Live at carvenc.vercel.app | Demo → Production Roadmap",
-      "liveUrl": "https://carvenc.vercel.app",
-      "description": "### The Opportunity\n\nArchitectural stone ornament was constrained by labor costs for 150 years. CNC automation eliminates 90%+ of fabrication labor. Cathedral-quality elements become economically viable at any scale.\n\n**What This Reveals**: Cost structures aren't permanent. When major cost categories disappear (labor via CNC, design via photogrammetry/AI), previously uneconomical products become viable. The shift from **$80,000 manual carving to $6,000 CNC** isn't an improvement—it's a restructuring.\n\n### The Value\n\n- **For Developers**: UNESCO-quality ornament at material cost\n- **For Architecture**: Economics enable styles impossible since industrialization\n- **For Production**: Albanian facility (€150-300/ton material, €400-700/month labor) creates sustainable margins at competitive pricing\n\n### Demo → Production Roadmap\n\n**Current State**: Live demo showcasing UNESCO Heritage Scans with interactive 3D visualization\n\n**Path to Production**:\n1. Albanian facility economics validated (labor + material costs documented)\n2. Photogrammetry pipeline operational (heritage sites → CNC-ready models)\n3. Quality verification complete (cathedral-grade output at scale)\n\n**The Insight**: When fabrication labor drops 90%, every architectural style from the last 150 years becomes accessible. This demonstrates what happens when automation removes a dominant cost constraint.",
-      "significance": "This demonstrates a repeating pattern: when a dominant cost disappears, entire markets restructure. Manual stone carving wasn't expensive because of materials—it was expensive because of skilled labor. CNC + photogrammetry + AI eliminate three constraints simultaneously. The result: cathedral-quality ornament at material cost. The lesson: seemingly permanent cost structures often await the right automation to collapse them.",
-      "demoType": "live",
-      "integrationRequirements": "### Live Demo\n\n**URL**: [carvenc.vercel.app](https://carvenc.vercel.app)\n\nInteractive 3D visualization of UNESCO Heritage Scans. Full production stack demonstrating economic viability of automated architectural ornament.\n\n### Production Economics\n\n**Albanian Facility**:\n- Material: €150-300/ton (limestone/marble)\n- Labor: €400-700/month (CNC operators)\n- Margin: Sustainable while matching Western European pricing\n\n**Cost Transformation**:\n- Traditional manual: $80,000 (93% labor, 7% material)\n- CNC automated: $6,000 (primarily material cost)\n\n### Technical Pipeline\n\n- Photogrammetry capture (heritage sites → 3D models)\n- AI-assisted optimization (CNC-ready toolpaths)\n- Quality verification (cathedral-grade standards)\n- React Three Fiber visualization",
+      "id": "product-001",
+      "name": "SmartCache Pro",
+      "category": "Performance",
+      "valueProposition": "50% faster page loads in 48 hours",
+      "timeline": "48 hours to implementation",
+      "description": "### Overview\n\nIntelligent caching layer that learns from user patterns to predictively load content. Reduces server load by 70% while improving user experience.\n\n### Key Features\n\n- ML-powered prediction engine\n- Automatic cache invalidation\n- Real-time performance monitoring\n- Zero-configuration setup\n\n### Technical Stack\n\n- Redis, Machine Learning, Edge Computing\n\n### Requirements\n\n- Node.js 16+, Redis 6+, 2GB RAM",
+      "demoType": "interactive",
+      "integrationRequirements": "### Integration\n\n- Drop-in replacement for current cache\n- Zero-configuration setup\n- Customizable TTL strategies, Prediction algorithms, Storage backends\n\n### Testimonial\n\n\"SmartCache transformed our user experience overnight.\" - CTO, TechStartup\n\n2.3s → 1.2s page load",
       "roiMetrics": [
         {
-          "label": "Labor Cost Reduction",
-          "value": "90%+",
-          "timeframe": "CNC vs manual carving"
+          "label": "Avg Improvement",
+          "value": "47%",
+          "timeframe": "faster load times"
         },
         {
-          "label": "Cost Transformation",
-          "value": "$80k → $6k",
-          "timeframe": "per major element"
+          "label": "Server Reduction",
+          "value": "70%",
+          "timeframe": "fewer database queries"
         },
         {
-          "label": "Production Advantage",
-          "value": "Competitive margins",
-          "timeframe": "Albanian facility economics"
+          "label": "User Satisfaction",
+          "value": "+23",
+          "timeframe": "NPS score increase"
         }
       ],
       "displayOrder": 1
     },
     {
-      "id": "agora-platform",
-      "name": "Agora",
-      "category": "Platform Concept",
-      "valueProposition": "When AI eliminates observation constraints, why rely on proxies?",
-      "timeline": "Live prototype at agora-landing-alpha.vercel.app",
-      "liveUrl": "https://agora-landing-alpha.vercel.app",
-      "description": "### The Constraint That Shaped Everything\n\nCredentials, interviews, years of experience—all proxies for capability we couldn't directly measure. Humans used proxies because **direct observation doesn't scale**. You can't watch a thousand candidates code. You can't observe problem-solving across diverse scenarios.\n\n**What AI Changes**:\n- Observation was constrained by human capacity—AI removes that limit\n- Proxies were compromises, not truth (credentials predict capability at r≈0.3)\n- When you can observe work quality at scale, filtering by credentials reduces quality\n\n### The Architectural Solution\n\nAgora enforces direct observation by making proxies unavailable. Four structural constraints ensure evaluation based only on delivery:\n\n- **Anonymity by Default**: No names, credentials, or identity markers. Only verified delivery history.\n- **Escrow Protection**: Payment locked until specifications met, cryptographically enforced.\n- **Public Transaction History**: Every delivery recorded—specification, submission, acceptance/rejection.\n- **Specification Discipline**: Clear acceptance criteria required. AI-assisted generation makes this practical.\n\n### From Inference to Observation\n\nInstead of \"what kind of person should do X,\" the platform answers \"what are the requirements for X.\" Every transaction creates data. Patterns emerge from thousands of transactions. The platform doesn't just facilitate work—it refines our understanding of requirements.",
-      "significance": "This demonstrates a shift enabled by AI: when observation becomes computationally cheap, systems built on expensive observation need redesigning. Credentials existed because watching work didn't scale. With AI evaluation, we can observe the work directly. The prototype demonstrates this architecture—browse projects, view specifications, explore transaction history, all without proxy data. The insight: proxies aren't just imperfect, they're harmful when better signals are available.",
-      "demoType": "live",
-      "integrationRequirements": "### Live Prototype\n\n**URL**: [agora-landing-alpha.vercel.app](https://agora-landing-alpha.vercel.app)\n\nInteractive demonstration of direct observation architecture. Browse projects with specifications, view transaction history without credentials, explore how the interface prevents credential-based filtering.\n\n### MVP Implementation\n\n- Anonymous profiles with transaction history\n- Specification-driven project posting\n- Centralized escrow (Stripe Connect for MVP)\n- Public Q&A for requirement clarification\n- Simple reputation (completion count, dispute rate)\n\n### Technical Architecture\n\n- Static HTML/CSS landing with embedded prototype\n- Next.js application with TypeScript\n- AI-assisted specification generation (Claude API)\n- Mobile-responsive, privacy-first design",
-      "roiMetrics": [],
+      "id": "product-002",
+      "name": "FlowBuilder Studio",
+      "category": "Automation",
+      "valueProposition": "Visual workflows live in 1 week",
+      "timeline": "1 week to full deployment",
+      "description": "### Overview\n\nDrag-and-drop workflow automation that integrates with your existing tools. Build complex automations without code.\n\n### Key Features\n\n- 200+ pre-built connectors\n- Visual debugging tools\n- Version control built-in\n- Team collaboration features\n\n### Technical Stack\n\n- TypeScript, React, Node.js\n\n### Requirements\n\n- Modern browser, API access",
+      "demoType": "playground",
+      "integrationRequirements": "### Integration\n\n- API-first, works with any system\n- Customizable: Custom nodes, Themes, Workflows\n\n### Setup Time\n\n- Embedded demo available",
+      "roiMetrics": [
+        {
+          "label": "Automation Rate",
+          "value": "80%",
+          "timeframe": "task automation"
+        },
+        {
+          "label": "Time Saved",
+          "value": "30 hours",
+          "timeframe": "per week per team"
+        },
+        {
+          "label": "Error Reduction",
+          "value": "95%",
+          "timeframe": "fewer manual errors"
+        }
+      ],
       "displayOrder": 2
     },
     {
-      "id": "hitch-rideshare",
-      "name": "Hitch",
-      "category": "Production Demo",
-      "valueProposition": "When AI learns movement patterns, why force central planning?",
-      "timeline": "Interactive demo at hitch-demo.vercel.app",
-      "liveUrl": "https://hitch-demo.vercel.app",
-      "description": "### The Cowpath Philosophy\n\nIn urban planning, a \"cowpath\" is the trail that appears when people choose efficient routes—not planned ones. **The most effective design follows organic behavior rather than controlling it.**\n\n**What This Reveals**:\n- Traditional ridesharing forces artificial friction: browsing, negotiating, rating\n- Central planning ignores local knowledge and natural patterns\n- Star ratings create anxiety and punish edge cases\n- Systems work better when they amplify existing behavior\n\n### The AI Observation Approach\n\nInstead of forcing predefined systems, Hitch observes natural movement and builds intelligence around it:\n\n**One-Toggle Interface**: Driver Mode or Rider Mode ON. No browsing. AI handles matching.\n\n**Pattern Learning**: From your first trip, the system learns routes and timing. Zero configuration.\n\n**Corridor Detection**: AI identifies common routes (Tiranë → Durrës) by observation, not dictation.\n\n**Zero Friction**: No negotiating, browsing, or ratings. WhatsApp coordination uses trusted channels. Completion percentages replace punitive stars.\n\n### Decentralized Intelligence\n\nTransparent pricing: (fuel cost ÷ passengers) + 30% driver premium. No surge pricing. Privacy-first: location data deleted within 24 hours. Toggle OFF means zero tracking. The system works because it follows behavior, not because it controls it.",
-      "significance": "This demonstrates a fundamental principle: decentralized systems that observe and amplify natural behavior outperform central planning. Traditional platforms ask \"how should people move?\" Hitch asks \"how do people actually move?\" The demo proves AI can learn organic patterns, detect corridors, match riders and drivers without central control. Built for Albania's transportation patterns (commute-based earning, trust-first coordination), but the principle is universal: observe, don't dictate.",
-      "demoType": "interactive",
-      "integrationRequirements": "### Interactive Demo\n\n**URL**: [hitch-demo.vercel.app](https://hitch-demo.vercel.app)\n\nFully functional demo with realistic interactions. Toggle driver/rider modes, see AI corridor detection, experience match notifications, view trip history and earnings. Mobile-optimized interface demonstrating zero-friction design.\n\n### Features Demonstrated\n\n- One-touch toggle interface (driver/rider modes)\n- AI pattern recognition and corridor detection\n- Automatic matching with accept/decline flow\n- WhatsApp coordination integration\n- Earnings and completion tracking\n- Privacy-first architecture\n\n### Technical Implementation\n\n- Next.js 14 with App Router\n- TypeScript for type safety\n- Tailwind CSS for responsive design\n- Client-side interactions with mock data\n- Production-ready interface",
-      "roiMetrics": [],
+      "id": "product-003",
+      "name": "DataPulse Analytics",
+      "category": "Analytics",
+      "valueProposition": "Real-time insights in 3 days",
+      "timeline": "3 days to implementation",
+      "description": "### Overview\n\nStream processing pipeline that turns raw data into actionable insights. See what's happening in your business right now.\n\n### Key Features\n\n- Sub-second data processing\n- Customizable dashboards\n- Anomaly detection\n- Predictive analytics\n\n### Technical Stack\n\n- Apache Kafka, ClickHouse, React\n\n### Requirements\n\n- Data source access, 8GB RAM",
+      "demoType": "video",
+      "integrationRequirements": "### Integration\n\n- Connects to existing data sources\n- Customizable: Metrics, Alerts, Visualizations\n\n### Demo\n\n- Video duration: 2:30",
+      "roiMetrics": [
+        {
+          "label": "Processing Speed",
+          "value": "1M",
+          "timeframe": "events/second"
+        },
+        {
+          "label": "Latency",
+          "value": "<100ms",
+          "timeframe": "end-to-end"
+        },
+        {
+          "label": "Accuracy",
+          "value": "99.9%",
+          "timeframe": "data accuracy"
+        }
+      ],
       "displayOrder": 3
+    },
+    {
+      "id": "product-004",
+      "name": "Solution 4",
+      "category": "Performance",
+      "valueProposition": "10% improvement in 2 days",
+      "timeline": "2 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 4 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 4\n- Feature 2 of product 4\n- Feature 3 of product 4\n- Feature 4 of product 4\n\n### Technical Stack\n\n- Technology 1, Platform 2\n\n### Requirements\n\n- Requirement 1",
+      "demoType": "interactive",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 1",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "10%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "100ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "1000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": "product-005",
+      "name": "Solution 5",
+      "category": "Automation",
+      "valueProposition": "20% improvement in 3 days",
+      "timeline": "3 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 5 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 5\n- Feature 2 of product 5\n- Feature 3 of product 5\n- Feature 4 of product 5\n\n### Technical Stack\n\n- Technology 2, Platform 3\n\n### Requirements\n\n- Requirement 2",
+      "demoType": "video",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 2",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "20%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "90ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "2000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": "product-006",
+      "name": "Solution 6",
+      "category": "Analytics",
+      "valueProposition": "30% improvement in 4 days",
+      "timeline": "4 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 6 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 6\n- Feature 2 of product 6\n- Feature 3 of product 6\n- Feature 4 of product 6\n\n### Technical Stack\n\n- Technology 3, Platform 4\n\n### Requirements\n\n- Requirement 3",
+      "demoType": "playground",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 3",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "30%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "80ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "3000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": "product-007",
+      "name": "Solution 7",
+      "category": "Integration",
+      "valueProposition": "40% improvement in 5 days",
+      "timeline": "5 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 7 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 7\n- Feature 2 of product 7\n- Feature 3 of product 7\n- Feature 4 of product 7\n\n### Technical Stack\n\n- Technology 4, Platform 5\n\n### Requirements\n\n- Requirement 4",
+      "demoType": "interactive",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 4",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "40%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "70ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "4000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": "product-008",
+      "name": "Solution 8",
+      "category": "Performance",
+      "valueProposition": "50% improvement in 6 days",
+      "timeline": "6 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 8 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 8\n- Feature 2 of product 8\n- Feature 3 of product 8\n- Feature 4 of product 8\n\n### Technical Stack\n\n- Technology 5, Platform 6\n\n### Requirements\n\n- Requirement 5",
+      "demoType": "video",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 5",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "50%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "60ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "5000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": "product-009",
+      "name": "Solution 9",
+      "category": "Automation",
+      "valueProposition": "60% improvement in 7 days",
+      "timeline": "7 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 9 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 9\n- Feature 2 of product 9\n- Feature 3 of product 9\n- Feature 4 of product 9\n\n### Technical Stack\n\n- Technology 6, Platform 7\n\n### Requirements\n\n- Requirement 6",
+      "demoType": "playground",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 6",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "60%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "50ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "6000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": "product-010",
+      "name": "Solution 10",
+      "category": "Analytics",
+      "valueProposition": "70% improvement in 8 days",
+      "timeline": "8 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 10 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 10\n- Feature 2 of product 10\n- Feature 3 of product 10\n- Feature 4 of product 10\n\n### Technical Stack\n\n- Technology 7, Platform 8\n\n### Requirements\n\n- Requirement 7",
+      "demoType": "interactive",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 7",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "70%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "40ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "7000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": "product-011",
+      "name": "Solution 11",
+      "category": "Integration",
+      "valueProposition": "80% improvement in 9 days",
+      "timeline": "9 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 11 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 11\n- Feature 2 of product 11\n- Feature 3 of product 11\n- Feature 4 of product 11\n\n### Technical Stack\n\n- Technology 8, Platform 9\n\n### Requirements\n\n- Requirement 8",
+      "demoType": "video",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 8",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "80%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "30ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "8000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": "product-012",
+      "name": "Solution 12",
+      "category": "Performance",
+      "valueProposition": "90% improvement in 10 days",
+      "timeline": "10 days to implementation",
+      "description": "### Overview\n\nAdvanced solution 12 that delivers immediate value to your organization through cutting-edge technology.\n\n### Key Features\n\n- Feature 1 of product 12\n- Feature 2 of product 12\n- Feature 3 of product 12\n- Feature 4 of product 12\n\n### Technical Stack\n\n- Technology 9, Platform 10\n\n### Requirements\n\n- Requirement 9",
+      "demoType": "playground",
+      "integrationRequirements": "### Integration\n\n- Seamless integration\n- Customization 9",
+      "roiMetrics": [
+        {
+          "label": "Improvement",
+          "value": "90%",
+          "timeframe": "overall"
+        },
+        {
+          "label": "Speed",
+          "value": "20ms",
+          "timeframe": "processing"
+        },
+        {
+          "label": "Scale",
+          "value": "9000",
+          "timeframe": "ops/sec"
+        }
+      ],
+      "displayOrder": 12
     }
   ]
 }

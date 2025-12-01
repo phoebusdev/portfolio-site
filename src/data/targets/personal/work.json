@@ -1,75 +1,484 @@
 {
   "workItems": [
     {
-      "id": "blumbergs-consulting",
-      "type": "company",
-      "title": "Data Analysis & Automation Consultant",
-      "shortDescription": "Transformed regulatory data into actionable insights for 10,000+ charitable organizations",
-      "detailedStory": "Six-year engagement processing and analyzing large-scale regulatory datasets for Canada's charitable sector. Progressed from SQL analysis to implementing machine learning models for compliance pattern recognition.",
-      "technologiesUsed": ["SQL", "Python", "Machine Learning", "Data Pipeline Automation"],
+      "id": "proj-001",
+      "title": "Global Payment Platform",
+      "shortDescription": "Scaled payment processing to 1M daily transactions",
+      "detailedStory": "Built a distributed payment processing system handling over $500M in daily volume across 47 countries. Achieved 99.99% uptime during peak events with sub-50ms latency.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "1M+",
+          "context": "transactions/day"
+        },
+        {
+          "label": "Performance",
+          "value": "< 50ms",
+          "context": "p99 latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.99%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "$500M",
+          "context": "daily volume"
+        }
+      ],
+      "technologiesUsed": ["Distributed Systems", "Event Sourcing", "Real-time Processing", "Global Infrastructure"],
       "visualAssets": [],
-      "explorationContent": "### The Challenge\n\nCanadian charities submit complex regulatory filings with inconsistent data quality across 86,000+ organizations. Manual processing couldn't scale with sector growth or regulatory changes.\n\n### The Evolution\n\n**Year 1-2**: Manual SQL queries and statistical analysis. Identified repeatable patterns in data errors and validation requirements.\n\n**Year 3-4**: Developed Python scripts for automation. Reduced processing time from weeks to days. First applications of pattern recognition.\n\n**Year 5-6**: Implemented ML models for anomaly detection and predictive compliance. Transitioned from reactive analysis to proactive insight generation.\n\n### The Impact\n\n- Published sector-wide analyses reaching 10,000+ organizations annually\n- Processing time reduced from weeks to hours through automation\n- Created frameworks now standard across the firm\n- Work cited in academic research and policy documents\n\n### Recognition\n\n**Academic Citations:**\n- [Carleton University Research Note (2023)](https://carleton.ca/profbrouard/wp-content/uploads/PARGnote202439RNRegisteredcharitiesstatistics20240111FBML.pdf)\n- [Carleton T3010 Research Group (2025)](https://carleton.ca/profbrouard/t3010researchgroup/)\n\n**Media Coverage:**\n- [Hilborn Charity eNEWS (2024)](https://hilborn-charityenews.ca/articles/data-snapshot-the-canadian-charity-sector-2022)\n- [The Charity Report (2021)](https://www.thecharityreport.com/features/blumberg-snapshot/)\n- [Foundation Magazine (2022)](https://foundationmag.ca/how-much-did-the-largest-canadian-private-foundations-spend-in-2020/)\n\n**Policy Influence:**\n- [Alberta Public Inquiry Report (2020)](https://open.alberta.ca/dataset/3176fd2d-670b-4c4a-b8a7-07383ae43743/resource/f8a8d0ff-24c1-427f-9989-f24283f75cd2/download/energy-report-public-inquiry-anti-alberta-energy-campaigns-sched-g-tax-memorandum.pdf)",
+      "explorationContent": "### The Challenge\n\nLegacy monolith couldn't handle Black Friday traffic. Cross-region data consistency requirements. PCI compliance at scale.\n\n### The Solution\n\nWhen the platform hit scaling limits at 100k transactions, I redesigned the architecture using event sourcing and CQRS patterns. This allowed horizontal scaling across regions while maintaining consistency.\n\n### The Results\n\nImplemented event sourcing for audit trail. Multi-region active-active deployment. Zero-downtime migration strategy.",
       "displayOrder": 1
     },
     {
-      "id": "dormezy-platform",
-      "type": "company",
-      "title": "Dormezy - Student Housing Platform",
-      "shortDescription": "Founded venture-backed startup selected for WebSummit presentation",
-      "detailedStory": "Identified critical inefficiency in $200B student housing market. Built platform combining verified listings, virtual tours, and integrated lease signing. Secured funding and prestigious accelerator placement.",
-      "technologiesUsed": ["React", "Node.js", "PostgreSQL", "AWS"],
+      "id": "proj-002",
+      "title": "AI-Powered Analytics Dashboard",
+      "shortDescription": "Reduced time-to-insight from hours to seconds",
+      "detailedStory": "Created an intelligent analytics platform that automatically surfaces insights from petabytes of data using ML models and natural language queries.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "5PB",
+          "context": "data processed"
+        },
+        {
+          "label": "Performance",
+          "value": "3s",
+          "context": "average query time"
+        },
+        {
+          "label": "Accuracy",
+          "value": "94%",
+          "context": "prediction accuracy"
+        },
+        {
+          "label": "Impact",
+          "value": "10x",
+          "context": "faster decisions"
+        }
+      ],
+      "technologiesUsed": ["Machine Learning", "Natural Language Processing", "Real-time Analytics", "Distributed Computing"],
       "visualAssets": [],
-      "explorationContent": "### Market Insight\n\nStudent housing platforms hadn't evolved with user expectations. Fragmented listings, unverified properties, no integrated lease signing. Technology existed to solve each problem—nobody had combined them effectively.\n\n### Execution\n\n- Secured $30,000 in seed funding\n- Built comprehensive platform: verified listings, virtual tours, roommate matching\n- Selected from 2,400+ startups for WebSummit Alpha program\n- 500+ students joined beta within 2 months\n- 12 property partners committed pre-launch\n\n### Key Learning\n\nWorking with traditional developers revealed systemic inefficiencies: inflated timelines, artificial complexity, vendor lock-in. This experience directly informed my transition to AI-powered development—understanding both the problem and the solution.",
+      "explorationContent": "### The Challenge\n\nPetabyte-scale data processing. Real-time ML inference at scale. Natural language understanding.\n\n### The Solution\n\nTraditional BI tools required analysts to manually build queries and wait hours for results. I built an AI layer that understands natural language questions and pre-computes likely queries.\n\n### The Results\n\nDistributed ML pipeline with caching. Smart query optimization engine. Progressive result streaming.",
       "displayOrder": 2
     },
     {
-      "id": "phoebusdigital",
-      "type": "company",
-      "title": "Phoebus Digital - Development Studio",
-      "shortDescription": "AI-powered development delivering in days what traditionally takes weeks",
-      "detailedStory": "Development studio specializing in rapid, AI-native solutions. Focus on education technology and platforms requiring fast, reliable execution.",
-      "technologiesUsed": ["Next.js", "React", "Node.js", "PostgreSQL", "AI Development Tools"],
-      "websiteUrl": "https://phoebusdigital.com",
+      "id": "proj-003",
+      "title": "Real-time Collaboration Engine",
+      "shortDescription": "Enabled 50k concurrent users with zero conflicts",
+      "detailedStory": "Architected a conflict-free replicated data type (CRDT) based collaboration system supporting real-time editing across global teams.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "50k",
+          "context": "concurrent users"
+        },
+        {
+          "label": "Performance",
+          "value": "< 100ms",
+          "context": "sync time"
+        },
+        {
+          "label": "Reliability",
+          "value": "Zero",
+          "context": "data conflicts"
+        },
+        {
+          "label": "Impact",
+          "value": "5x",
+          "context": "team productivity"
+        }
+      ],
+      "technologiesUsed": ["CRDTs", "WebSockets", "Edge Computing", "Operational Transform"],
       "visualAssets": [],
-      "explorationContent": "### Philosophy\n\nTraditional development treats clients like car owners at a dishonest mechanic—technical opacity enables exploitation. My approach: transparent pricing, guaranteed delivery, complete ownership transfer.\n\n### Process Innovation\n\n**Specification First**: Clear requirements before code\n**Fixed Deliverables**: Product, not service model\n**Rapid Iteration**: 1-2 day delivery through AI-powered development\n**Complete Transfer**: Client owns everything outright\n\n### Results\n\n- ApplyVisa: 40,000+ programs, zero external cost\n- EnglishUnleashed: 600,000 users in 4 months\n- L2English: Complete IELTS platform with Cambridge integration\n\nEach project rebuilt 3-4 times as development approach evolved—from week-long manual coding to 1-2 day spec-driven delivery.",
+      "explorationContent": "### The Challenge\n\nGlobal synchronization latency. Conflict resolution at scale. Offline-first architecture.\n\n### The Solution\n\nTraditional collaboration tools suffered from conflicts and data loss. Using CRDTs, I built a system where every edit is preserved and conflicts are mathematically impossible.\n\n### The Results\n\nCRDT-based conflict-free merging. Edge node deployment strategy. Intelligent sync prioritization.",
       "displayOrder": 3
     },
     {
-      "id": "applyvisa-platform",
-      "type": "project",
-      "parentCompany": "phoebusdigital",
-      "title": "ApplyVisa.au",
-      "shortDescription": "Australia's most comprehensive education search platform",
-      "detailedStory": "Transformed stalled project into functioning platform at zero external cost. Built searchable database of 40,000+ programs from CRICOS government data. Now the primary research tool for Australian education.",
-      "technologiesUsed": ["Next.js", "Web Scraping", "PostgreSQL", "Vercel"],
-      "websiteUrl": "https://applyvisa.com.au",
+      "id": "proj-004",
+      "title": "Innovation Project 4",
+      "shortDescription": "Achieved 20x performance improvement",
+      "detailedStory": "Architected a distributed system handling millions of requests with sub-second latency across global regions.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "100k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 100ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.9%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "5x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 1", "Stack 2", "Tool 3"],
       "visualAssets": [],
-      "explorationContent": "### Client Situation\n\nCommission agreements with universities in place. Previous developers quoted $50,000+ with uncertain delivery. Existing competitors prioritized conversion over utility—incomplete data, aggressive sales funnels.\n\n### Strategic Approach\n\nRather than compete on marketing spend, become the definitive research tool:\n\n- Scraped complete CRICOS government database\n- Built comprehensive, filterable interface\n- Session persistence without account requirements\n- SEO-optimized pages for every university and field\n- Utility-first design drives natural conversion\n\n### Technical Execution\n\n- Zero external costs (no API fees, scraped public data)\n- 3-week delivery from concept to launch\n- Complete client ownership of code and data\n- Scalable architecture handling thousands of daily searches\n\n### Market Impact\n\nBecame the most comprehensive free resource for Australian education research. Commission structure means superior user experience aligns with business model—helping students find the right program drives revenue.",
+      "explorationContent": "### The Challenge\n\nChallenge 1: Scalability requirements. Challenge 2: Performance optimization. Challenge 3: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 1: Advanced architecture. Solution 2: Optimized algorithms. Solution 3: Seamless integration.",
       "displayOrder": 4
     },
     {
-      "id": "english-unleashed",
-      "type": "project",
-      "parentCompany": "phoebusdigital",
-      "title": "EnglishUnleashed",
-      "shortDescription": "Language learning platform reaching 600,000+ users organically",
-      "detailedStory": "Evolved linguistics professor's concept from PDF store to comprehensive platform. Strategic guidance prevented premature scaling while achieving viral growth through AI-generated content.",
-      "technologiesUsed": ["Next.js", "Stripe", "YouTube API", "PostgreSQL"],
+      "id": "proj-005",
+      "title": "Innovation Project 5",
+      "shortDescription": "Achieved 30x performance improvement",
+      "detailedStory": "Led the transformation from monolithic architecture to microservices, reducing deployment time by 90%.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "200k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 95ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.91%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "10x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 2", "Stack 3", "Tool 4"],
       "visualAssets": [],
-      "explorationContent": "### Evolution Through Validation\n\n**Week 1 - MVP**: Simple PDF store using Gumroad API. YouTube integration for video catalog. Zero backend complexity. Test market response before building.\n\n**Month 2 - Viral Growth**: AI-generated shadowing videos gained 200,000 subscribers. Key insight: the 'soulless' AI voice was perfect for learners—clear, consistent, comprehensible. What entertainment considers a weakness, education considers a strength.\n\n**Month 4 - Platform Scaling**: \n- Migrated from Gumroad (reducing 10% fees to 2.9%)\n- Built quiz system with progress tracking\n- Implemented tiered subscriptions\n- Account system capturing user value\n\n### Strategic Guidance\n\nClient wanted to add mobile app and AI chat immediately. Advised against—validate core offering first. Features without proven value create maintenance burden, not competitive advantage.\n\n### Results\n\n- 600,000 users in 4 months\n- Sustainable revenue from day one\n- Complete platform ownership\n- Positioned for strategic expansion based on data, not assumptions",
+      "explorationContent": "### The Challenge\n\nChallenge 2: Scalability requirements. Challenge 3: Performance optimization. Challenge 4: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 2: Advanced architecture. Solution 3: Optimized algorithms. Solution 4: Seamless integration.",
       "displayOrder": 5
     },
     {
-      "id": "l2-english",
-      "type": "project",
-      "parentCompany": "phoebusdigital",
-      "title": "L2English",
-      "shortDescription": "IELTS certification platform with Cambridge integration",
-      "detailedStory": "Collaboration platform connecting certified teachers with IELTS students. Clean architecture focused on core value: effective test preparation.",
-      "technologiesUsed": ["React", "Node.js", "WebRTC", "Stripe", "Cambridge API"],
+      "id": "proj-006",
+      "title": "Innovation Project 6",
+      "shortDescription": "Achieved 40x performance improvement",
+      "detailedStory": "Built machine learning pipeline processing terabytes of data daily with 99.9% accuracy.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "300k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 90ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.92%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "15x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 3", "Stack 4", "Tool 5"],
       "visualAssets": [],
-      "explorationContent": "### Design Principle\n\nNo feature bloat. Every element serves the core mission: preparing students for IELTS certification.\n\n### Core Platform\n\n- **Cambridge Integration**: Official placement testing\n- **Flexible Structure**: Group and individual instruction tiers\n- **Progress Analytics**: Data-driven improvement tracking\n- **Material Distribution**: Centralized resource management\n- **Clean Architecture**: Focus on learning, not platform complexity\n\n### Technical Implementation\n\n- Real-time video sessions without third-party dependencies\n- Stripe subscription management with sandbox testing\n- Complete client ownership of infrastructure\n- Production-ready with single webhook configuration\n\n### Value Delivery\n\nPlatform does one thing excellently: connect qualified teachers with motivated students for IELTS success. No distractions, no unnecessary features, just effective preparation.",
+      "explorationContent": "### The Challenge\n\nChallenge 3: Scalability requirements. Challenge 4: Performance optimization. Challenge 5: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 3: Advanced architecture. Solution 4: Optimized algorithms. Solution 5: Seamless integration.",
       "displayOrder": 6
+    },
+    {
+      "id": "proj-007",
+      "title": "Innovation Project 7",
+      "shortDescription": "Achieved 50x performance improvement",
+      "detailedStory": "Designed and implemented real-time collaboration features supporting thousands of concurrent users.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "400k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 85ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.93%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "20x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 4", "Stack 5", "Tool 6"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 4: Scalability requirements. Challenge 5: Performance optimization. Challenge 6: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 4: Advanced architecture. Solution 5: Optimized algorithms. Solution 6: Seamless integration.",
+      "displayOrder": 7
+    },
+    {
+      "id": "proj-008",
+      "title": "Innovation Project 8",
+      "shortDescription": "Achieved 60x performance improvement",
+      "detailedStory": "Created automated testing framework reducing bug escape rate by 75% and deployment time by 60%.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "500k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 80ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.94%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "25x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 5", "Stack 6", "Tool 7"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 5: Scalability requirements. Challenge 6: Performance optimization. Challenge 7: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 5: Advanced architecture. Solution 6: Optimized algorithms. Solution 7: Seamless integration.",
+      "displayOrder": 8
+    },
+    {
+      "id": "proj-009",
+      "title": "Innovation Project 9",
+      "shortDescription": "Achieved 70x performance improvement",
+      "detailedStory": "Developed edge computing solution decreasing latency by 80% for users in remote regions.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "600k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 75ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.95%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "30x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 6", "Stack 7", "Tool 8"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 6: Scalability requirements. Challenge 7: Performance optimization. Challenge 8: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 6: Advanced architecture. Solution 7: Optimized algorithms. Solution 8: Seamless integration.",
+      "displayOrder": 9
+    },
+    {
+      "id": "proj-010",
+      "title": "Innovation Project 10",
+      "shortDescription": "Achieved 80x performance improvement",
+      "detailedStory": "Implemented event-driven architecture processing 100k events per second with zero message loss.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "700k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 70ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.96%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "35x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 7", "Stack 8", "Tool 9"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 7: Scalability requirements. Challenge 8: Performance optimization. Challenge 9: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 7: Advanced architecture. Solution 8: Optimized algorithms. Solution 9: Seamless integration.",
+      "displayOrder": 10
+    },
+    {
+      "id": "proj-011",
+      "title": "Innovation Project 11",
+      "shortDescription": "Achieved 90x performance improvement",
+      "detailedStory": "Built progressive web app achieving 95+ Lighthouse scores and 40% increase in user engagement.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "800k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 65ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.97%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "40x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 8", "Stack 9", "Tool 10"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 8: Scalability requirements. Challenge 9: Performance optimization. Challenge 10: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 8: Advanced architecture. Solution 9: Optimized algorithms. Solution 10: Seamless integration.",
+      "displayOrder": 11
+    },
+    {
+      "id": "proj-012",
+      "title": "Innovation Project 12",
+      "shortDescription": "Achieved 100x performance improvement",
+      "detailedStory": "Architected a distributed system handling millions of requests with sub-second latency across global regions.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "900k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 60ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.98%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "45x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 9", "Stack 10", "Tool 11"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 9: Scalability requirements. Challenge 10: Performance optimization. Challenge 11: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 9: Advanced architecture. Solution 10: Optimized algorithms. Solution 11: Seamless integration.",
+      "displayOrder": 12
+    },
+    {
+      "id": "proj-013",
+      "title": "Innovation Project 13",
+      "shortDescription": "Achieved 110x performance improvement",
+      "detailedStory": "Led the transformation from monolithic architecture to microservices, reducing deployment time by 90%.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "1000k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 55ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.99%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "50x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 10", "Stack 11", "Tool 12"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 10: Scalability requirements. Challenge 11: Performance optimization. Challenge 12: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 10: Advanced architecture. Solution 11: Optimized algorithms. Solution 12: Seamless integration.",
+      "displayOrder": 13
+    },
+    {
+      "id": "proj-014",
+      "title": "Innovation Project 14",
+      "shortDescription": "Achieved 120x performance improvement",
+      "detailedStory": "Built machine learning pipeline processing terabytes of data daily with 99.9% accuracy.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "1100k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 50ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.91%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "55x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 11", "Stack 12", "Tool 13"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 11: Scalability requirements. Challenge 12: Performance optimization. Challenge 13: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 11: Advanced architecture. Solution 12: Optimized algorithms. Solution 13: Seamless integration.",
+      "displayOrder": 14
+    },
+    {
+      "id": "proj-015",
+      "title": "Innovation Project 15",
+      "shortDescription": "Achieved 130x performance improvement",
+      "detailedStory": "Designed and implemented real-time collaboration features supporting thousands of concurrent users.",
+      "impactMetrics": [
+        {
+          "label": "Scale",
+          "value": "1200k",
+          "context": "operations/sec"
+        },
+        {
+          "label": "Performance",
+          "value": "< 45ms",
+          "context": "latency"
+        },
+        {
+          "label": "Reliability",
+          "value": "99.92%",
+          "context": "uptime"
+        },
+        {
+          "label": "Impact",
+          "value": "60x",
+          "context": "improvement"
+        }
+      ],
+      "technologiesUsed": ["Tech 12", "Stack 13", "Tool 14"],
+      "visualAssets": [],
+      "explorationContent": "### The Challenge\n\nChallenge 12: Scalability requirements. Challenge 13: Performance optimization. Challenge 14: System integration.\n\n### The Solution\n\nThis project pushed the boundaries of what was possible with modern technology. By leveraging cutting-edge approaches, we achieved remarkable results.\n\n### The Results\n\nSolution 12: Advanced architecture. Solution 13: Optimized algorithms. Solution 14: Seamless integration.",
+      "displayOrder": 15
     }
   ]
 }
