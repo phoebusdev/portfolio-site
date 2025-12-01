@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": "post-001",
+      "title": "Introducing Our New Platform",
+      "slug": "introducing-new-platform",
+      "excerpt": "We're excited to announce the launch of our redesigned platform with improved performance and new features.",
+      "content": "### A New Beginning\n\nAfter months of development, we're thrilled to unveil our completely redesigned platform. This update brings significant improvements across the board.\n\n### What's New\n\n- **Faster Performance**: 50% improvement in load times\n- **Redesigned Interface**: Cleaner, more intuitive navigation\n- **New Features**: Enhanced collaboration tools\n\n### Looking Ahead\n\nThis is just the beginning. We have an exciting roadmap planned for the coming months.",
+      "author": "Team",
+      "publishedAt": "2024-11-15",
+      "featured": true,
+      "tags": ["announcement", "platform", "launch"],
+      "readTime": "3 min"
+    },
+    {
+      "id": "post-002",
+      "title": "Building for Scale: Lessons Learned",
+      "slug": "building-for-scale",
+      "excerpt": "Key insights from scaling our infrastructure to handle millions of requests.",
+      "content": "### The Challenge\n\nScaling isn't just about adding more servers. It requires rethinking architecture from the ground up.\n\n### Key Lessons\n\n1. **Start with observability** - You can't optimize what you can't measure\n2. **Cache strategically** - Not everything needs to be cached\n3. **Design for failure** - Assume things will break\n\n### Results\n\nThese principles helped us achieve 99.99% uptime while handling 10x traffic growth.",
+      "author": "Team",
+      "publishedAt": "2024-10-28",
+      "featured": true,
+      "tags": ["engineering", "scale", "infrastructure"],
+      "readTime": "5 min"
+    },
+    {
+      "id": "post-003",
+      "title": "The Future of AI-Powered Development",
+      "slug": "future-ai-development",
+      "excerpt": "Exploring how AI is transforming the way we build software.",
+      "content": "### A Paradigm Shift\n\nAI isn't replacing developers—it's augmenting their capabilities in unprecedented ways.\n\n### Current Applications\n\n- Code generation and completion\n- Automated testing and debugging\n- Documentation generation\n\n### What's Next\n\nThe next wave will focus on AI understanding intent, not just syntax.",
+      "author": "Team",
+      "publishedAt": "2024-10-10",
+      "featured": false,
+      "tags": ["AI", "development", "future"],
+      "readTime": "4 min"
+    }
+  ]
+}

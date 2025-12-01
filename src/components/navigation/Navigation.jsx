@@ -21,10 +21,34 @@ function Navigation() {
           </li>
           <li>
             <NavLink
-              to="/work"
+              to="/about"
               className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
             >
-              Work
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/press"
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            >
+              Press
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/resources"
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            >
+              Resources
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/projects"
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            >
+              Projects
             </NavLink>
           </li>
           <li>

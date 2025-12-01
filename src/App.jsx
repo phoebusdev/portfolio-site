@@ -6,6 +6,10 @@ import analyticsTracker from './utils/analytics.js';
 import keyboardNavController from './utils/keyboard.js';
 import Navigation from './components/navigation/Navigation.jsx';
 import HomePage from './pages/HomePage.jsx';
+import AboutPage from './pages/AboutPage.jsx';
+import PressPage from './pages/PressPage.jsx';
+import ResourcesPage from './pages/ResourcesPage.jsx';
+import ProjectsPage from './pages/ProjectsPage.jsx';
 import WorkPage from './pages/WorkPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 import NoiseOverlay from './components/effects/NoiseOverlay.jsx';
@@ -82,6 +86,10 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/press" element={<PressPage />} />
+          <Route path="/resources" element={<ResourcesPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>

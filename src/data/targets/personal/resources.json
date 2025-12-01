@@ -1,0 +1,72 @@
+{
+  "resources": [
+    {
+      "id": "resource-001",
+      "name": "SmartCache Pro",
+      "description": "Intelligent caching layer that learns from user patterns to predictively load content. Reduces server load by 70% while improving user experience.",
+      "category": "Performance",
+      "previewUrl": "https://example.com/smartcache-demo",
+      "documentationUrl": "https://docs.example.com/smartcache",
+      "githubUrl": "https://github.com/example/smartcache",
+      "status": "stable",
+      "tags": ["caching", "performance", "ML"],
+      "features": [
+        "ML-powered prediction engine",
+        "Automatic cache invalidation",
+        "Real-time performance monitoring",
+        "Zero-configuration setup"
+      ]
+    },
+    {
+      "id": "resource-002",
+      "name": "FlowBuilder Studio",
+      "description": "Drag-and-drop workflow automation that integrates with your existing tools. Build complex automations without code.",
+      "category": "Automation",
+      "previewUrl": "https://example.com/flowbuilder-demo",
+      "documentationUrl": "https://docs.example.com/flowbuilder",
+      "githubUrl": null,
+      "status": "stable",
+      "tags": ["automation", "workflow", "no-code"],
+      "features": [
+        "200+ pre-built connectors",
+        "Visual debugging tools",
+        "Version control built-in",
+        "Team collaboration features"
+      ]
+    },
+    {
+      "id": "resource-003",
+      "name": "DataPulse Analytics",
+      "description": "Stream processing pipeline that turns raw data into actionable insights. See what's happening in your business right now.",
+      "category": "Analytics",
+      "previewUrl": "https://example.com/datapulse-demo",
+      "documentationUrl": "https://docs.example.com/datapulse",
+      "githubUrl": "https://github.com/example/datapulse",
+      "status": "beta",
+      "tags": ["analytics", "real-time", "streaming"],
+      "features": [
+        "Sub-second data processing",
+        "Customizable dashboards",
+        "Anomaly detection",
+        "Predictive analytics"
+      ]
+    },
+    {
+      "id": "resource-004",
+      "name": "SecureVault API",
+      "description": "Enterprise-grade secrets management with zero-knowledge encryption. Your secrets never leave your infrastructure.",
+      "category": "Security",
+      "previewUrl": null,
+      "documentationUrl": "https://docs.example.com/securevault",
+      "githubUrl": "https://github.com/example/securevault",
+      "status": "stable",
+      "tags": ["security", "encryption", "secrets"],
+      "features": [
+        "Zero-knowledge architecture",
+        "Automatic key rotation",
+        "Audit logging",
+        "Role-based access control"
+      ]
+    }
+  ]
+}

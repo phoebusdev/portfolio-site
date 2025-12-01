@@ -1,0 +1,81 @@
+{
+  "projects": [
+    {
+      "id": "project-001",
+      "title": "Decentralized Identity Platform",
+      "status": "seeking-validation",
+      "description": "A self-sovereign identity system that gives users complete control over their personal data while enabling seamless authentication across services.",
+      "goals": [
+        "Build trust without centralized authority",
+        "Enable portable reputation across platforms",
+        "Reduce identity verification friction"
+      ],
+      "seekingContributions": [
+        "Cryptography expertise for zero-knowledge proofs",
+        "UX research for non-technical users",
+        "Legal review for GDPR/privacy compliance"
+      ],
+      "previewUrl": null,
+      "tags": ["identity", "decentralized", "privacy"],
+      "createdAt": "2024-11-01"
+    },
+    {
+      "id": "project-002",
+      "title": "AI-Powered Code Review",
+      "status": "active-development",
+      "description": "Automated code review assistant that understands context, suggests improvements, and learns from team preferences over time.",
+      "goals": [
+        "Reduce code review bottlenecks",
+        "Maintain consistent code quality",
+        "Help junior developers learn faster"
+      ],
+      "seekingContributions": [
+        "Training data from open-source projects",
+        "Feedback on review suggestions",
+        "Integration testing with various CI/CD pipelines"
+      ],
+      "previewUrl": "https://example.com/ai-review-demo",
+      "tags": ["AI", "developer-tools", "automation"],
+      "createdAt": "2024-10-15"
+    },
+    {
+      "id": "project-003",
+      "title": "Sustainable Supply Chain Tracker",
+      "status": "concept",
+      "description": "Transparent supply chain visibility platform helping consumers make informed decisions about product sustainability and ethical sourcing.",
+      "goals": [
+        "Increase supply chain transparency",
+        "Reward ethical manufacturers",
+        "Empower conscious consumers"
+      ],
+      "seekingContributions": [
+        "Industry partnerships for data access",
+        "Sustainability certification expertise",
+        "Mobile app development"
+      ],
+      "previewUrl": null,
+      "tags": ["sustainability", "supply-chain", "transparency"],
+      "createdAt": "2024-09-20"
+    },
+    {
+      "id": "project-004",
+      "title": "Open Education Platform",
+      "status": "seeking-validation",
+      "description": "Peer-to-peer learning platform connecting mentors and learners with focus on practical skills and project-based education.",
+      "goals": [
+        "Democratize access to quality education",
+        "Enable learning through real projects",
+        "Build credentialing based on demonstrated skill"
+      ],
+      "seekingContributions": [
+        "Curriculum design expertise",
+        "Platform testing and feedback",
+        "Mentor network building"
+      ],
+      "previewUrl": "https://example.com/edu-platform-demo",
+      "tags": ["education", "peer-learning", "skills"],
+      "createdAt": "2024-08-10"
+    }
+  ],
+  "comments": []
+}
