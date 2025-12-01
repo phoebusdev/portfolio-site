@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import smoothScrollController from './utils/scroll.js';
 import sessionTracker from './utils/session.js';
 import analyticsTracker from './utils/analytics.js';
 import keyboardNavController from './utils/keyboard.js';
-import IntroSection from './components/sections/IntroSection.jsx';
-import ProvenExcellence from './components/sections/ProvenExcellence.jsx';
-import StrategicVision from './components/sections/StrategicVision.jsx';
-import ImmediateValue from './components/sections/ImmediateValue.jsx';
+import Navigation from './components/navigation/Navigation.jsx';
+import HomePage from './pages/HomePage.jsx';
+import WorkPage from './pages/WorkPage.jsx';
+import ContactPage from './pages/ContactPage.jsx';
 import NoiseOverlay from './components/effects/NoiseOverlay.jsx';
 import ParticleSystem from './components/effects/ParticleSystem.jsx';
 import './styles/animations.css';
@@ -16,6 +17,7 @@ import './styles/depth.css';
 function App() {
   const [isReady, setIsReady] = useState(false);
   const [currentSection, setCurrentSection] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     // Initialize utilities
@@ -52,6 +54,11 @@ function App() {
     };
   }, []);
 
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   if (!isReady) {
     return (
       <div className="app">
@@ -68,11 +75,16 @@ function App() {
       <NoiseOverlay opacity={0.03} />
       <ParticleSystem count={20} />
 
-      <main className="scroll-snap-container">
-        <IntroSection />
-        <ProvenExcellence />
-        <StrategicVision />
-        <ImmediateValue />
+      {/* Navigation */}
+      <Navigation />
+
+      {/* Main content with routes */}
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/work" element={<WorkPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
       </main>
 
       {/* Current section indicator (debug) */}
