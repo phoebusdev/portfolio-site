@@ -138,11 +138,67 @@ src/components/effects/
 }
 ```
 
-### Reference Implementation
+### Reference Implementations
 
-See `src/components/effects/ParticleGrid.jsx` for a complete working example of:
-- Proper event handling on parent section
-- Optimized draw loop with cached values
-- Full canvas coverage without margins
+**ParticleGrid** (`src/components/effects/ParticleGrid.jsx`):
+- Grid-based particle system with mouse reactivity
 - Ease-based particle behavior
-- Correct coordinate calculations
+- Optimized draw loop with cached values
+
+**SwarmAnimation** (`src/components/effects/SwarmAnimation.jsx`):
+- Perlin noise flowing particles with trails
+- Click-and-drag attraction
+- Additive blending with fade overlay
+
+---
+
+## Adding Animations to Pages
+
+### Method 1: Standalone Pages (Direct Import)
+
+For pages like `AboutPage.jsx` that don't use `BaseSection`:
+
+```jsx
+// 1. Import the animation component
+import SwarmAnimation from '../components/effects/SwarmAnimation.jsx';
+
+// 2. Add inside the hero section (which has position: relative)
+<section className="page-hero">
+  <SwarmAnimation />
+  <div className="hero-content">
+    {/* Content here - already has z-index: 5 */}
+  </div>
+</section>
+```
+
+**Why this works immediately:**
+- `.page-hero` already has `position: relative` (Page.css)
+- `.hero-content` already has `z-index: 5` (Page.css)
+- Animation components use `z-index: 1` and attach events to parent `<section>`
+
+### Method 2: BaseSection Pages (Background Effects)
+
+For sections using `BaseSection`, use the `backgroundEffects` prop:
+
+```jsx
+<BaseSection
+  sectionId="my-section"
+  backgroundEffects={{
+    showParticleGrid: true,      // For ParticleGrid
+    // showSwarmAnimation: true, // For SwarmAnimation (add to BaseSection first)
+  }}
+  renderContent={(data) => <>{/* content */}</>}
+/>
+```
+
+**To add a new animation to BaseSection:**
+1. Import in `BaseSection.jsx`
+2. Add conditional render: `{backgroundEffects.showNewAnimation && <NewAnimation />}`
+3. Animation will inherit proper layering from BaseSection structure
+
+### Quick Reference: Page Types
+
+| Page Type | Animation Method | Example |
+|-----------|-----------------|---------|
+| Standalone page | Direct import into `<section>` | AboutPage, PressPage |
+| BaseSection page | `backgroundEffects` prop | IntroSection, ProvenExcellence |
