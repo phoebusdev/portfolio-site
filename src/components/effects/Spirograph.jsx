@@ -3,7 +3,6 @@ import './Spirograph.css';
 
 function Spirograph({ className = '' }) {
   const mainCanvasRef = useRef(null);
-  const offscreenCanvasRef = useRef(null);
   const animationRef = useRef(null);
   const framesRef = useRef(0);
 
@@ -19,7 +18,6 @@ function Spirograph({ className = '' }) {
 
     // Create offscreen canvas for drawing curves
     const offscreenCanvas = document.createElement('canvas');
-    offscreenCanvasRef.current = offscreenCanvas;
     const ctx = offscreenCanvas.getContext('2d');
 
     const cw = 400;
@@ -37,19 +35,18 @@ function Spirograph({ className = '' }) {
     const petals = 7;
 
     // White stroke for monotone design
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.8)';
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
     ctx.globalAlpha = 0.5;
-    ctx.lineWidth = 0.25;
+    ctx.lineWidth = 0.5;
+
+    let Cw, Ch;
 
     const resize = () => {
       const container = mainCanvas.parentElement;
-      const Cw = container.offsetWidth;
-      const Ch = container.offsetHeight;
+      Cw = container.offsetWidth || window.innerWidth;
+      Ch = container.offsetHeight || window.innerHeight;
       mainCanvas.width = Cw;
       mainCanvas.height = Ch;
-
-      Ctx.translate(Cw / 2, Ch / 2);
-      Ctx.scale(0.75, 0.75);
     };
 
     resize();
@@ -59,13 +56,13 @@ function Spirograph({ className = '' }) {
       framesRef.current += 0.3;
       const frames = framesRef.current;
 
-      const Cw = mainCanvas.width;
-      const Ch = mainCanvas.height;
-
-      Ctx.save();
+      // Clear main canvas
       Ctx.setTransform(1, 0, 0, 1, 0, 0);
       Ctx.clearRect(0, 0, Cw, Ch);
-      Ctx.restore();
+
+      // Set up transform for centered, scaled drawing
+      Ctx.translate(Cw / 2, Ch / 2);
+      Ctx.scale(0.75, 0.75);
 
       const t = frames * rad;
       const rx = Rx * Math.abs(Math.cos(t)) + 50;
@@ -80,12 +77,14 @@ function Spirograph({ className = '' }) {
       const x2 = cx + rx * Math.sin(kx * t);
       const y2 = cy - ry * Math.sin(ky * t);
 
+      // Draw to offscreen canvas
       ctx.beginPath();
       ctx.moveTo(x, y);
       ctx.quadraticCurveTo(x1, y1, x2, y2);
       ctx.stroke();
       ctx.globalCompositeOperation = 'lighter';
 
+      // Draw petals from offscreen canvas to main canvas
       for (let i = 0; i < petals; i++) {
         Ctx.globalCompositeOperation = 'source-over';
         Ctx.drawImage(offscreenCanvas, -200, -400);
@@ -98,9 +97,8 @@ function Spirograph({ className = '' }) {
     // Start animation
     animationRef.current = requestAnimationFrame(draw);
 
-    // Auto-stop after 30 seconds to save resources, then restart
+    // Clear and restart every 30 seconds
     const cycleAnimation = () => {
-      // Clear offscreen canvas and restart
       ctx.clearRect(0, 0, cw, ch);
       framesRef.current = 0;
     };
