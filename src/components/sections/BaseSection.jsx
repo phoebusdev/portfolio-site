@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ParallaxBackground from './ParallaxBackground.jsx';
 import LayeredBackground from '../effects/LayeredBackground.jsx';
 import GlowOrb from '../effects/GlowOrb.jsx';
+import InteractiveParticles from '../effects/InteractiveParticles.jsx';
 import { LoadingState } from '../ui/LoadingState.jsx';
 import { ErrorState } from '../ui/ErrorState.jsx';
 import { useSectionData } from '../../hooks/useSectionData.js';
@@ -24,6 +25,7 @@ import './Section.css';
  * @param {boolean} showHeader - Whether to show section header (default true)
  * @param {boolean} showIntro - Whether to show intro content (default true)
  * @param {string} sectionStyle - Inline style object for section
+ * @param {Object} interactiveParticles - Config for interactive particle background { enabled: bool, count: number }
  */
 function BaseSection({
   sectionId,
@@ -36,6 +38,7 @@ function BaseSection({
   showHeader = true,
   showIntro = true,
   sectionStyle,
+  interactiveParticles,
 }) {
   const { sectionData, loading: sectionLoading, error: sectionError } = useSectionData(sectionId);
   const [additionalData, setAdditionalData] = useState(null);
@@ -107,6 +110,9 @@ function BaseSection({
       style={sectionStyle}
     >
       {/* Background Effects */}
+      {interactiveParticles?.enabled && (
+        <InteractiveParticles particleCount={interactiveParticles.count || 30000} />
+      )}
       <ParallaxBackground
         intensity={backgroundEffects.parallaxIntensity || PARALLAX.INTENSITY.MEDIUM}
         enableContentParallax={backgroundEffects.enableContentParallax !== false}
@@ -182,6 +188,10 @@ BaseSection.propTypes = {
   showHeader: PropTypes.bool,
   showIntro: PropTypes.bool,
   sectionStyle: PropTypes.object,
+  interactiveParticles: PropTypes.shape({
+    enabled: PropTypes.bool,
+    count: PropTypes.number,
+  }),
 };
 
 export default BaseSection;
