@@ -44,7 +44,7 @@
 .hero-content {
   max-width: 800px;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 }
 
 .hero-content h1 {
