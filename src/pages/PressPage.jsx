@@ -25,12 +25,10 @@ function PressPage() {
     return (
       <div className="page page-press">
         <section className="page-hero page-hero-split">
+          <DriftAnimation />
           <div className="hero-content hero-content-left">
             <h1>Press</h1>
             <p className="hero-subtitle">Loading...</p>
-          </div>
-          <div className="hero-animation-container">
-            <DriftAnimation />
           </div>
         </section>
       </div>
@@ -77,14 +75,12 @@ function PressPage() {
     <div className="page page-press">
       {/* Hero section */}
       <section className="page-hero page-hero-split">
+        <DriftAnimation />
         <div className="hero-content hero-content-left">
           <h1>Press</h1>
           <p className="hero-subtitle">
             Insights, announcements, and thoughts on technology and innovation.
           </p>
-        </div>
-        <div className="hero-animation-container">
-          <DriftAnimation />
         </div>
       </section>
 
