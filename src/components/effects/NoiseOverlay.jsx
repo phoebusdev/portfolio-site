@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { logWarning } from '../../utils/errorLogger.js';
 import './NoiseOverlay.css';
 
 function NoiseOverlay({ opacity = 0.05, className = '' }) {
@@ -10,7 +11,7 @@ function NoiseOverlay({ opacity = 0.05, className = '' }) {
 
     const ctx = canvas.getContext('2d');
     if (!ctx) {
-      console.warn('[NoiseOverlay] Canvas context not supported');
+      logWarning('NOISE_OVERLAY_NO_CONTEXT', { component: 'NoiseOverlay' });
       return;
     }
 
@@ -33,7 +34,7 @@ function NoiseOverlay({ opacity = 0.05, className = '' }) {
 
       ctx.putImageData(imageData, 0, 0);
     } catch (error) {
-      console.warn('[NoiseOverlay] Canvas operation failed:', error);
+      logWarning('NOISE_OVERLAY_CANVAS_ERROR', { error: error.message });
     }
   }, []);
 

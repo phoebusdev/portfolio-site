@@ -1,5 +1,7 @@
 // Device capability detection for performance optimization
 
+/* eslint-disable no-console */
+
 class DeviceCapabilityDetector {
   constructor() {
     this.tier = null;

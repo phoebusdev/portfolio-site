@@ -1,5 +1,7 @@
 // Keyboard navigation utility
 
+/* eslint-disable no-console */
+
 class KeyboardNavigationController {
   constructor() {
     this.enabled = true;

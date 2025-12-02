@@ -5,6 +5,8 @@
  * (Sentry, LogRocket, etc.)
  */
 
+/* eslint-disable no-console */
+
 class ErrorLogger {
   constructor() {
     this.enabled = true;

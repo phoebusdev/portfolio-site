@@ -1,6 +1,8 @@
 // Session tracking utility - localStorage based
 // No PII, respects Do Not Track
 
+/* eslint-disable no-console */
+
 const SESSION_KEY = 'pitch-site-session';
 const SESSION_EXPIRY_DAYS = 30;
 

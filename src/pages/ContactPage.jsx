@@ -19,10 +19,10 @@ function ContactPage() {
         <div className="section-content">
           <div className="contact-grid">
             <div className="contact-info">
-              <h2>Let's Connect</h2>
+              <h2>Let&apos;s Connect</h2>
               <p className="lead-text">
                 Whether you have a project in mind or just want to chat about
-                technology and innovation, I'd love to hear from you.
+                technology and innovation, I&apos;d love to hear from you.
               </p>
 
               <div className="contact-methods">

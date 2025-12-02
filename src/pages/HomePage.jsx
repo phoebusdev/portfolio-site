@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import IntroSection from '../components/sections/IntroSection.jsx';
+import { logError } from '../utils/errorLogger.js';
 import './Page.css';
 
 function HomePage() {
@@ -13,7 +14,7 @@ function HomePage() {
         setFeaturedPosts(posts.filter((p) => p.featured).slice(0, 2));
       })
       .catch((err) => {
-        console.error('Failed to load press data:', err);
+        logError('PRESS_DATA_LOAD_FAILED', { error: err.message, page: 'HomePage' });
       });
   }, []);
 

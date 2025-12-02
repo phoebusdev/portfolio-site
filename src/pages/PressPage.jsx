@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import { logError } from '../utils/errorLogger.js';
 import './Page.css';
 
 function PressPage() {
@@ -15,7 +15,7 @@ function PressPage() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error('Failed to load press data:', err);
+        logError('PRESS_DATA_LOAD_FAILED', { error: err.message, page: 'PressPage' });
         setLoading(false);
       });
   }, []);
@@ -68,7 +68,6 @@ function PressPage() {
 
   // Show posts list
   const featuredPosts = posts.filter((p) => p.featured);
-  const otherPosts = posts.filter((p) => !p.featured);
 
   return (
     <div className="page page-press">

@@ -1,5 +1,7 @@
 import Lenis from 'lenis';
 
+/* eslint-disable no-console */
+
 class SmoothScrollController {
   constructor() {
     this.lenis = null;

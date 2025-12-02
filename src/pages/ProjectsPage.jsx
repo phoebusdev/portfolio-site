@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import SitePreview from '../components/shared/SitePreview.jsx';
 import CommentForm from '../components/shared/CommentForm.jsx';
+import { logError } from '../utils/errorLogger.js';
 import './Page.css';
 
 const STATUS_LABELS = {
@@ -30,7 +31,7 @@ function ProjectsPage() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error('Failed to load projects:', err);
+        logError('PROJECTS_LOAD_FAILED', { error: err.message, page: 'ProjectsPage' });
         setLoading(false);
       });
   }, []);

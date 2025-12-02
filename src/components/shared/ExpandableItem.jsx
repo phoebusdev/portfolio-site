@@ -34,9 +34,9 @@ function ExpandableItem({
   keyPoints = [],
   expandedSections = {},
   tags = [],
-  enableModal = false,
-  onModalOpen,
-  showExternalIcon = false,
+  enableModal: _enableModal = false,
+  onModalOpen: _onModalOpen,
+  showExternalIcon: _showExternalIcon = false,
   className = '',
   index = 0,
 }) {

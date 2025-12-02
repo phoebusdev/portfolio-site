@@ -9,13 +9,15 @@ class ErrorBoundary extends React.Component {
       error: null,
       errorInfo: null
     };
+    this.handleReset = this.handleReset.bind(this);
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(_error) {
     return { hasError: true };
   }
 
   componentDidCatch(error, errorInfo) {
+    // eslint-disable-next-line no-console
     console.error('[ErrorBoundary] Caught error:', error, errorInfo);
     this.setState({
       error,
@@ -26,10 +28,10 @@ class ErrorBoundary extends React.Component {
     // Example: Sentry.captureException(error, { extra: errorInfo });
   }
 
-  handleReset = () => {
+  handleReset() {
     this.setState({ hasError: false, error: null, errorInfo: null });
     window.location.reload();
-  };
+  }
 
   render() {
     if (this.state.hasError) {

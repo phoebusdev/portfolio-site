@@ -1,5 +1,7 @@
 // Analytics event tracker - Privacy-focused, no external services for MVP
 
+/* eslint-disable no-console */
+
 import sessionTracker from './session.js';
 
 class AnalyticsTracker {
