@@ -376,11 +376,11 @@ function SphereAnimation({ className = '' }) {
     const s = state.current;
 
     const resize = () => {
-      const rect = canvas.parentElement?.getBoundingClientRect();
-      if (!rect) return;
+      const container = canvas.parentElement;
+      // Use clientWidth/clientHeight with window fallback (like DriftAnimation)
+      s.width = container?.clientWidth || window.innerWidth;
+      s.height = container?.clientHeight || window.innerHeight;
 
-      s.width = rect.width;
-      s.height = rect.height;
       canvas.width = s.width;
       canvas.height = s.height;
 
@@ -398,12 +398,6 @@ function SphereAnimation({ className = '' }) {
       }
     };
 
-    // Generate texture and initialize
-    generateTexture();
-    resize();
-    addParticles();
-    s.initialized = true;
-
     // Mouse events on parent section
     const section = canvas.closest('section') || canvas.parentElement;
 
@@ -418,14 +412,21 @@ function SphereAnimation({ className = '' }) {
       s.mousePos.y = s.center.y;
     };
 
+    // Delay initialization to ensure DOM is ready (like DriftAnimation)
+    const initTimer = setTimeout(() => {
+      generateTexture();
+      resize();
+      addParticles();
+      s.initialized = true;
+      animationRef.current = requestAnimationFrame(animate);
+    }, 50);
+
     section.addEventListener('pointermove', handlePointerMove);
     section.addEventListener('pointerleave', handlePointerLeave);
     window.addEventListener('resize', resize);
 
-    // Start animation
-    animationRef.current = requestAnimationFrame(animate);
-
     return () => {
+      clearTimeout(initTimer);
       section.removeEventListener('pointermove', handlePointerMove);
       section.removeEventListener('pointerleave', handlePointerLeave);
       window.removeEventListener('resize', resize);
