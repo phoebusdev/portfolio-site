@@ -19,7 +19,7 @@ function DriftAnimation({ className = '' }) {
   // Configuration
   const config = useRef({
     particleCount: 1000,
-    particleSpeed: 0.3,
+    particleSpeed: 0.12, // 0.4x of original 0.3
     velocity: 0.9,
     circleWidth: 50,
     particleColor: 'rgba(255, 255, 255, 0.05)',
