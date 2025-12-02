@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
+import DriftAnimation from '../components/effects/DriftAnimation.jsx';
 import { logError } from '../utils/errorLogger.js';
 import './Page.css';
 
@@ -24,6 +25,7 @@ function PressPage() {
     return (
       <div className="page page-press">
         <section className="page-hero">
+          <DriftAnimation />
           <div className="hero-content">
             <h1>Press</h1>
             <p className="hero-subtitle">Loading...</p>
@@ -73,6 +75,7 @@ function PressPage() {
     <div className="page page-press">
       {/* Hero section */}
       <section className="page-hero">
+        <DriftAnimation />
         <div className="hero-content">
           <h1>Press</h1>
           <p className="hero-subtitle">
