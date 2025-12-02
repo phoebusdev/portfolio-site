@@ -491,6 +491,130 @@ export function withWillChange(element, props, animationFn) {
 
 ---
 
+## Canvas-Based Particle Animations (ParticleGrid Pattern)
+
+For high-performance particle effects that fill large areas, raw Canvas 2D with ImageData manipulation provides the best performance. This section documents lessons learned from the ParticleGrid implementation.
+
+### When to Use Canvas vs Motion One
+
+| Use Case | Recommendation |
+|----------|---------------|
+| UI element animations | Motion One (WAAPI) |
+| Scroll-linked reveals | CSS Scroll-Driven Animations |
+| 1000+ animated elements | Canvas 2D with ImageData |
+| Particle systems | Canvas 2D |
+| Mouse-reactive backgrounds | Canvas 2D |
+
+### Critical Implementation Rules
+
+#### 1. Z-Index Layering with Content Above Canvas
+
+When canvas is behind interactive content:
+```
+z-index: 1  → Canvas (background)
+z-index: 5+ → Content wrapper (must have position: relative)
+```
+
+**Problem**: Content blocks mouse events from reaching canvas.
+**Solution**: Attach pointer events to parent section, not canvas:
+
+```javascript
+// WRONG - events blocked by content layer
+canvas.addEventListener('pointermove', handler);
+
+// CORRECT - parent receives events regardless of z-index
+const section = canvas.closest('section');
+section.addEventListener('pointermove', handler);
+```
+
+#### 2. Coordinate System Consistency
+
+Always use viewport-relative coordinates:
+
+```javascript
+// WRONG - pageX is document-relative, rect is viewport-relative
+x = event.pageX - rect.left;  // Breaks when page is scrolled
+
+// CORRECT - both are viewport-relative
+x = event.clientX - rect.left;
+y = event.clientY - rect.top;
+```
+
+#### 3. Performance Tuning
+
+**Particle Distance** controls density vs performance:
+- Distance 1-2: ~230,000 particles (may lag)
+- Distance 5: ~36,000 particles (good balance)
+- Distance 10: ~17,000 particles (smooth 60fps)
+
+**Draw Loop Optimization**:
+```javascript
+// Cache everything outside the loop
+const particles = state.particleHolder;
+const data = state.data;
+const w = state.w;
+const len = state.particleHolderLength;
+
+// Inline hot functions
+const idx = (ix + iy * w) << 2;  // Bitwise shift for ×4
+data[idx] = r;
+data[idx + 1] = g;
+data[idx + 2] = b;
+data[idx + 3] = 255;
+```
+
+#### 4. Full Canvas Coverage
+
+Remove artificial limits for edge-to-edge coverage:
+```javascript
+// Fill entire canvas
+const rows = Math.floor(height / particleDistance);
+const cols = Math.floor(width / particleDistance);
+const marginLeft = 0;  // No centering margins
+const marginTop = 0;
+```
+
+#### 5. Particle Behaviors
+
+**Ease Behavior** (smooth, professional):
+```javascript
+// Push away based on force and density
+const force = (sensitivitySq - distanceSquared) / sensitivitySq;
+const invDist = force * density / distanceSquared;
+x -= dx * invDist;
+y -= dy * invDist;
+
+// Ease back to origin
+x += (originX - x) / speed;
+y += (originY - y) / speed;
+```
+
+**Wobble Behavior** (playful, bouncy):
+```javascript
+// Spring physics return
+vx = vx * wobbleFactor + (originX - x) * wobbleSpeed;
+vy = vy * wobbleFactor + (originY - y) * wobbleSpeed;
+x += vx;
+y += vy;
+```
+
+### Reference Implementation
+
+See `src/components/effects/ParticleGrid.jsx` for complete working code.
+
+**CSS Requirements**:
+```css
+.particle-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  touch-action: none;
+  pointer-events: auto;
+}
+```
+
+---
+
 ## Migration Path
 
 If requirements change and Motion One becomes insufficient:
