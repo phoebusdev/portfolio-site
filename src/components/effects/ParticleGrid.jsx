@@ -263,13 +263,28 @@ function ParticleGrid({ className = '' }) {
     }
     stopIntro();
 
-    // Get container dimensions
+    // Get container dimensions - use multiple fallbacks
     const container = canvas.parentElement;
-    state.w = container?.clientWidth || window.innerWidth;
-    state.h = container?.clientHeight || window.innerHeight;
+    const containerWidth = container?.clientWidth || 0;
+    const containerHeight = container?.clientHeight || 0;
+
+    // Use container dimensions, fallback to window, ensure minimum size
+    state.w = containerWidth > 0 ? containerWidth : window.innerWidth;
+    state.h = containerHeight > 0 ? containerHeight : window.innerHeight;
+
+    // Ensure we have valid dimensions
+    if (state.w <= 0 || state.h <= 0) {
+      // eslint-disable-next-line no-console
+      console.warn('[ParticleGrid] Invalid dimensions, retrying in 100ms');
+      setTimeout(handleResize, 100);
+      return;
+    }
 
     canvas.width = state.w;
     canvas.height = state.h;
+
+    // eslint-disable-next-line no-console
+    console.log('[ParticleGrid] Canvas size:', state.w, 'x', state.h);
 
     const context = canvas.getContext('2d', { willReadFrequently: false, alpha: false });
     state.imageData = context.getImageData(0, 0, state.w, state.h);
@@ -323,10 +338,21 @@ function ParticleGrid({ className = '' }) {
   useEffect(() => {
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) {
+      // eslint-disable-next-line no-console
+      console.log('[ParticleGrid] Reduced motion preferred - skipping');
+      return;
+    }
 
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      // eslint-disable-next-line no-console
+      console.log('[ParticleGrid] No canvas ref');
+      return;
+    }
+
+    // eslint-disable-next-line no-console
+    console.log('[ParticleGrid] Initializing...');
 
     // Initialize
     handleResize();
