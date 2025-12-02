@@ -23,6 +23,7 @@ function IntroSection() {
       backgroundEffects={{
         parallaxIntensity: PARALLAX.INTENSITY.DRAMATIC,
         showSpirograph: true,
+        showAnimatedRings: true,
         glowOrbs: [
           { ...GLOW_ORBS.EXTRA_LARGE, style: { top: '10%', left: '15%' } },
           { ...GLOW_ORBS.BLUE, style: { top: '50%', right: '20%' } },

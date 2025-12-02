@@ -4,6 +4,7 @@ import ParallaxBackground from './ParallaxBackground.jsx';
 import LayeredBackground from '../effects/LayeredBackground.jsx';
 import GlowOrb from '../effects/GlowOrb.jsx';
 import Spirograph from '../effects/Spirograph.jsx';
+import AnimatedRings from '../effects/AnimatedRings.jsx';
 import { LoadingState } from '../ui/LoadingState.jsx';
 import { ErrorState } from '../ui/ErrorState.jsx';
 import { useSectionData } from '../../hooks/useSectionData.js';
@@ -114,6 +115,7 @@ function BaseSection({
       />
       {backgroundEffects.showLayeredBackground !== false && <LayeredBackground />}
       {backgroundEffects.showSpirograph && <Spirograph className="offset-right" />}
+      {backgroundEffects.showAnimatedRings && <AnimatedRings className="offset-right" />}
       {backgroundEffects.glowOrbs?.map((orb, i) => (
         <GlowOrb
           key={i}
@@ -170,6 +172,7 @@ BaseSection.propTypes = {
     enableContentParallax: PropTypes.bool,
     showLayeredBackground: PropTypes.bool,
     showSpirograph: PropTypes.bool,
+    showAnimatedRings: PropTypes.bool,
     glowOrbs: PropTypes.arrayOf(
       PropTypes.shape({
         size: PropTypes.number,
