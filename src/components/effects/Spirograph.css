@@ -1,0 +1,28 @@
+/* Spirograph Animation */
+
+.spirograph-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.spirograph-canvas {
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+/* Offset to the right */
+.spirograph-container.offset-right {
+  left: 20%;
+  right: -20%;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .spirograph-container {
+    display: none;
+  }
+}

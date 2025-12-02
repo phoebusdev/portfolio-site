@@ -45,6 +45,12 @@
   animation-delay: 0.2s;
 }
 
+/* Intro section wrapper for background effects */
+.intro-section-wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
 /* Work Items Grid - Organic spacing with increased whitespace */
 .work-items-grid {
   display: flex;
