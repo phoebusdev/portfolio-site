@@ -1,5 +1,7 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import './ParticleGrid.css';
+
+/* eslint-disable no-console */
 
 /**
  * ParticleGrid - Interactive particle system background
@@ -10,6 +12,8 @@ import './ParticleGrid.css';
 function ParticleGrid({ className = '' }) {
   const canvasRef = useRef(null);
   const animationFrameRef = useRef(null);
+  const initializedRef = useRef(false);
+  const [debugInfo, setDebugInfo] = useState('Mounting...');
   const stateRef = useRef({
     w: 0,
     h: 0,
@@ -252,8 +256,12 @@ function ParticleGrid({ className = '' }) {
   }, [clearImageData, draw]);
 
   const handleResize = useCallback(() => {
+    console.log('[ParticleGrid] handleResize called');
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      console.log('[ParticleGrid] handleResize: no canvas');
+      return;
+    }
 
     const state = stateRef.current;
 
@@ -267,6 +275,8 @@ function ParticleGrid({ className = '' }) {
     const container = canvas.parentElement;
     const containerWidth = container?.clientWidth || 0;
     const containerHeight = container?.clientHeight || 0;
+    console.log('[ParticleGrid] Container dimensions:', containerWidth, 'x', containerHeight);
+    console.log('[ParticleGrid] Window dimensions:', window.innerWidth, 'x', window.innerHeight);
 
     // Use container dimensions, fallback to window, ensure minimum size
     state.w = containerWidth > 0 ? containerWidth : window.innerWidth;
@@ -274,7 +284,6 @@ function ParticleGrid({ className = '' }) {
 
     // Ensure we have valid dimensions
     if (state.w <= 0 || state.h <= 0) {
-      // eslint-disable-next-line no-console
       console.warn('[ParticleGrid] Invalid dimensions, retrying in 100ms');
       setTimeout(handleResize, 100);
       return;
@@ -282,22 +291,33 @@ function ParticleGrid({ className = '' }) {
 
     canvas.width = state.w;
     canvas.height = state.h;
+    console.log('[ParticleGrid] Canvas size set to:', state.w, 'x', state.h);
 
-    // eslint-disable-next-line no-console
-    console.log('[ParticleGrid] Canvas size:', state.w, 'x', state.h);
+    try {
+      const context = canvas.getContext('2d', { willReadFrequently: false, alpha: false });
+      console.log('[ParticleGrid] Got 2d context:', !!context);
 
-    const context = canvas.getContext('2d', { willReadFrequently: false, alpha: false });
-    state.imageData = context.getImageData(0, 0, state.w, state.h);
-    state.data = state.imageData.data;
+      state.imageData = context.getImageData(0, 0, state.w, state.h);
+      state.data = state.imageData.data;
+      console.log('[ParticleGrid] ImageData created, data length:', state.data.length);
 
-    state.pointerPos = { x: -10000, y: -10000 };
-    state.introIndex = 0;
+      state.pointerPos = { x: -10000, y: -10000 };
+      state.introIndex = 0;
 
-    setClearImageData();
-    addParticles();
-    initIntroPath();
-    playIntro();
-    render();
+      console.log('[ParticleGrid] Calling setClearImageData...');
+      setClearImageData();
+      console.log('[ParticleGrid] Calling addParticles...');
+      addParticles();
+      console.log('[ParticleGrid] Calling initIntroPath...');
+      initIntroPath();
+      console.log('[ParticleGrid] Calling playIntro...');
+      playIntro();
+      console.log('[ParticleGrid] Calling render...');
+      render();
+      console.log('[ParticleGrid] handleResize complete!');
+    } catch (err) {
+      console.error('[ParticleGrid] Error in handleResize:', err);
+    }
   }, [stopIntro, setClearImageData, addParticles, initIntroPath, playIntro, render]);
 
   const handlePointerMove = useCallback((event) => {
@@ -336,26 +356,56 @@ function ParticleGrid({ className = '' }) {
   }, []);
 
   useEffect(() => {
+    console.log('[ParticleGrid] useEffect triggered');
+    setDebugInfo('useEffect running...');
+
+    // Prevent double initialization in React 18 strict mode
+    if (initializedRef.current) {
+      console.log('[ParticleGrid] Already initialized, skipping');
+      return;
+    }
+
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (prefersReducedMotion) {
-      // eslint-disable-next-line no-console
       console.log('[ParticleGrid] Reduced motion preferred - skipping');
+      setDebugInfo('Reduced motion - disabled');
       return;
     }
 
     const canvas = canvasRef.current;
     if (!canvas) {
-      // eslint-disable-next-line no-console
       console.log('[ParticleGrid] No canvas ref');
+      setDebugInfo('No canvas ref!');
       return;
     }
 
-    // eslint-disable-next-line no-console
-    console.log('[ParticleGrid] Initializing...');
+    console.log('[ParticleGrid] Canvas found, initializing...', canvas);
+    setDebugInfo('Canvas found, initializing...');
 
-    // Initialize
-    handleResize();
+    // Set initial canvas dimensions immediately as a fallback
+    const initialWidth = window.innerWidth || 800;
+    const initialHeight = window.innerHeight || 600;
+    canvas.width = initialWidth;
+    canvas.height = initialHeight;
+    console.log('[ParticleGrid] Set initial canvas size:', initialWidth, 'x', initialHeight);
+
+    // Mark as initialized
+    initializedRef.current = true;
+
+    // Use a small delay to ensure DOM is fully ready
+    const initTimer = setTimeout(() => {
+      try {
+        console.log('[ParticleGrid] Calling handleResize...');
+        setDebugInfo('Calling handleResize...');
+        handleResize();
+        console.log('[ParticleGrid] handleResize completed');
+        setDebugInfo('Initialized!');
+      } catch (err) {
+        console.error('[ParticleGrid] Error in handleResize:', err);
+        setDebugInfo('Error: ' + err.message);
+      }
+    }, 50);
 
     // Event listeners
     window.addEventListener('resize', handleResize);
@@ -365,6 +415,10 @@ function ParticleGrid({ className = '' }) {
     canvas.addEventListener('touchend', handlePointerLeave);
 
     return () => {
+      console.log('[ParticleGrid] Cleanup running');
+      clearTimeout(initTimer);
+      initializedRef.current = false;
+
       // Cleanup
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
@@ -380,11 +434,40 @@ function ParticleGrid({ className = '' }) {
   }, [handleResize, handlePointerMove, handlePointerLeave, stopIntro]);
 
   return (
-    <canvas
-      ref={canvasRef}
-      className={`particle-grid ${className}`}
-      aria-hidden="true"
-    />
+    <>
+      <canvas
+        ref={canvasRef}
+        width={800}
+        height={600}
+        className={`particle-grid ${className}`}
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          zIndex: 50,
+          background: '#ff0000', // DEBUG: Solid red to verify visibility
+          display: 'block',
+        }}
+      />
+      {/* DEBUG: Visible debug info */}
+      <div style={{
+        position: 'absolute',
+        top: 10,
+        left: 10,
+        zIndex: 9999,
+        background: 'yellow',
+        color: 'black',
+        padding: '10px',
+        fontSize: '14px',
+        fontFamily: 'monospace',
+        pointerEvents: 'none',
+      }}>
+        ParticleGrid Debug: {debugInfo}
+      </div>
+    </>
   );
 }
 
