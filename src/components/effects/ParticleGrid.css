@@ -1,0 +1,22 @@
+/* ParticleGrid - Interactive particle system background */
+
+.particle-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  touch-action: none;
+  pointer-events: auto;
+}
+
+/* Allow pointer events to pass through to content above */
+.particle-grid-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}

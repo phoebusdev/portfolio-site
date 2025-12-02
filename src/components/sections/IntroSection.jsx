@@ -1,5 +1,5 @@
 import BaseSection from './BaseSection.jsx';
-import { PARALLAX, GLOW_ORBS } from '../../constants/design.js';
+import { PARALLAX } from '../../constants/design.js';
 import './Section.css';
 
 function IntroSection() {
@@ -21,14 +21,8 @@ function IntroSection() {
         </>
       )}
       backgroundEffects={{
-        parallaxIntensity: PARALLAX.INTENSITY.DRAMATIC,
-        showSpirograph: true,
-        showAnimatedRings: true,
-        glowOrbs: [
-          { ...GLOW_ORBS.EXTRA_LARGE, style: { top: '10%', left: '15%' } },
-          { ...GLOW_ORBS.BLUE, style: { top: '50%', right: '20%' } },
-          { ...GLOW_ORBS.LARGE, style: { bottom: '20%', left: '40%' } },
-        ],
+        showLayeredBackground: false,
+        showParticleGrid: true,
       }}
       contentAlign="content-left"
       sectionStyle={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}
