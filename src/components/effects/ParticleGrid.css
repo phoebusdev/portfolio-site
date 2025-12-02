@@ -2,10 +2,18 @@
 
 .particle-grid {
   position: absolute;
-  inset: 0; /* top/right/bottom/left: 0 */
+  inset: 0;
   width: 100%;
-  min-height: 100vh;
-  z-index: 1;
+  height: 100%;
+  z-index: 2;
+  display: block;
   touch-action: none;
   pointer-events: auto;
+}
+
+/* Respect reduced motion preference - show static grid */
+@media (prefers-reduced-motion: reduce) {
+  .particle-grid {
+    pointer-events: none;
+  }
 }
