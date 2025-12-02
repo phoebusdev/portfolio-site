@@ -69,11 +69,12 @@
 /* Split Hero Layout - text left, animation right */
 .page-hero-split {
   overflow: hidden;
+  justify-content: flex-start;
 }
 
 .page-hero-split .hero-content-left {
   text-align: left;
-  padding-left: clamp(4rem, 12vw, 10rem);
+  padding-left: clamp(1.5rem, 5vw, 4rem);
   max-width: 50%;
 }
 
