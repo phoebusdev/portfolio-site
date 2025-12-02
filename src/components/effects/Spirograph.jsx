@@ -84,9 +84,10 @@ function Spirograph({ className = '' }) {
       ctx.globalCompositeOperation = 'lighter';
 
       // Draw petals from offscreen canvas to main canvas
+      Ctx.globalAlpha = 0.6;
       for (let i = 0; i < petals; i++) {
         Ctx.globalCompositeOperation = 'source-over';
-        Ctx.drawImage(offscreenCanvas, -200, -400);
+        Ctx.drawImage(offscreenCanvas, -cw / 2, -ch / 2);
         Ctx.rotate((2 * Math.PI) / petals);
       }
 
