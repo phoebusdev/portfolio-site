@@ -43,9 +43,9 @@ function ParticleGrid({ className = '' }) {
     particleWobbleSpeed: 0.05,
     particleMinDensity: 100,
     particleMaxDensity: 500,
-    bgColorR: 17,
-    bgColorG: 17,
-    bgColorB: 17,
+    bgColorR: 255, // DEBUG: bright red to verify canvas visibility
+    bgColorG: 0,
+    bgColorB: 0,
     introPathCoordinatesCount: 256,
     introSpeed: 15,
     pointerMoveTimeoutTime: 3500,
