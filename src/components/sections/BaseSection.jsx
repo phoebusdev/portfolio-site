@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ParallaxBackground from './ParallaxBackground.jsx';
 import LayeredBackground from '../effects/LayeredBackground.jsx';
 import GlowOrb from '../effects/GlowOrb.jsx';
+import Spirograph from '../effects/Spirograph.jsx';
 import { LoadingState } from '../ui/LoadingState.jsx';
 import { ErrorState } from '../ui/ErrorState.jsx';
 import { useSectionData } from '../../hooks/useSectionData.js';
@@ -112,6 +113,7 @@ function BaseSection({
         enableContentParallax={backgroundEffects.enableContentParallax !== false}
       />
       {backgroundEffects.showLayeredBackground !== false && <LayeredBackground />}
+      {backgroundEffects.showSpirograph && <Spirograph className="offset-right" />}
       {backgroundEffects.glowOrbs?.map((orb, i) => (
         <GlowOrb
           key={i}
@@ -167,6 +169,7 @@ BaseSection.propTypes = {
     parallaxIntensity: PropTypes.number,
     enableContentParallax: PropTypes.bool,
     showLayeredBackground: PropTypes.bool,
+    showSpirograph: PropTypes.bool,
     glowOrbs: PropTypes.arrayOf(
       PropTypes.shape({
         size: PropTypes.number,
