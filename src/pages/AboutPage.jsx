@@ -1,4 +1,4 @@
-import ParticleGrid from '../components/effects/ParticleGrid.jsx';
+import SwarmAnimation from '../components/effects/SwarmAnimation.jsx';
 import './Page.css';
 
 function AboutPage() {
@@ -6,7 +6,7 @@ function AboutPage() {
     <div className="page page-about">
       {/* Hero section */}
       <section className="page-hero">
-        <ParticleGrid />
+        <SwarmAnimation />
         <div className="hero-content">
           <h1>About</h1>
           <p className="hero-subtitle">

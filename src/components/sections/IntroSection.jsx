@@ -22,7 +22,7 @@ function IntroSection() {
       )}
       backgroundEffects={{
         showLayeredBackground: false,
-        showParticleGrid: true,
+        showSwarmAnimation: true,
       }}
       contentAlign="content-left"
       sectionStyle={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}
