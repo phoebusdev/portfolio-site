@@ -150,6 +150,12 @@ src/components/effects/
 - Click-and-drag attraction
 - Additive blending with fade overlay
 
+**DriftAnimation** (`src/components/effects/DriftAnimation.jsx`):
+- Organic drifting particles spawning in circle
+- Permanent trails (no canvas clear)
+- Click to reset
+- Used in split hero layout (PressPage)
+
 ---
 
 ## Adding Animations to Pages
@@ -202,3 +208,117 @@ For sections using `BaseSection`, use the `backgroundEffects` prop:
 |-----------|-----------------|---------|
 | Standalone page | Direct import into `<section>` | AboutPage, PressPage |
 | BaseSection page | `backgroundEffects` prop | IntroSection, ProvenExcellence |
+
+---
+
+## Split Hero Layouts (Text + Animation Side-by-Side)
+
+When you need text on one side and an animation on the other (e.g., PressPage), follow this pattern:
+
+### Structure
+
+```jsx
+<section className="page-hero page-hero-split">
+  <DriftAnimation />
+  <div className="hero-content hero-content-left">
+    <h1>Title</h1>
+    <p className="hero-subtitle">Subtitle text</p>
+  </div>
+</section>
+```
+
+**Key points:**
+- Animation component goes directly in the section (no wrapper containers)
+- Content uses `.hero-content-left` modifier class
+- Add `.page-hero-split` class to the section
+
+### CSS for Split Layout
+
+```css
+/* Override hero's default centering */
+.page-hero-split {
+  overflow: hidden;              /* Clip animation at boundaries */
+  justify-content: flex-start;   /* Align content to left, not center */
+}
+
+.page-hero-split .hero-content-left {
+  text-align: left;
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  max-width: 50%;                /* Constrain text to left half */
+}
+
+.page-hero-split .hero-content-left .hero-subtitle {
+  margin: 0;                     /* Remove auto-centering margin */
+}
+```
+
+### Positioning Animation to a Screen Region
+
+To position an animation in a specific region while preserving its aspect ratio:
+
+**DON'T** change the canvas width - this distorts the animation:
+```css
+/* BAD - changes aspect ratio */
+.animation {
+  left: 50%;
+  width: 50%;  /* Animation renders at half size, looks squished */
+}
+```
+
+**DO** keep full width and shift position, using overflow to clip:
+```css
+/* GOOD - preserves aspect ratio */
+.page-hero-split {
+  overflow: hidden;  /* Clip what extends beyond */
+}
+
+.page-hero-split .animation {
+  left: 25%;         /* Shift position */
+  width: 100%;       /* Keep original size/aspect ratio */
+}
+```
+
+### Calculating Position for Centered Animation
+
+To center an animation within a specific screen region:
+
+| Desired Center | Canvas Width | Left Value | Calculation |
+|---------------|--------------|------------|-------------|
+| 50% (center) | 100% | 0% | center - (width/2) = 50 - 50 = 0 |
+| 75% (right half center) | 100% | 25% | 75 - 50 = 25 |
+| 25% (left half center) | 100% | -25% | 25 - 50 = -25 |
+
+**Example**: Center animation in the right half of screen (center at 75%):
+```css
+.page-hero-split .drift-animation {
+  left: 25%;    /* 75% - 50% = 25% */
+  width: 100%;
+}
+```
+
+### Mobile Responsive
+
+On mobile, stack content and show full-width animation behind:
+
+```css
+@media (max-width: 900px) {
+  .page-hero-split .hero-content-left {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .page-hero-split .drift-animation {
+    left: 0;
+    width: 100%;
+    opacity: 0.5;  /* Fade so text is readable */
+  }
+}
+```
+
+### Reference Implementation
+
+**PressPage** (`src/pages/PressPage.jsx`):
+- DriftAnimation positioned in right half
+- Text aligned left
+- Uses `.page-hero-split` layout pattern
+
