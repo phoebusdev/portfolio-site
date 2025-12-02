@@ -84,7 +84,8 @@
 
 /* Shift animation to right half - keep original aspect ratio */
 /* Center at 75% (middle of right half): left edge at 25% */
-.page-hero-split .drift-animation {
+.page-hero-split .drift-animation,
+.page-hero-split .sphere-animation {
   left: 25%;
   width: 100%;
 }
@@ -101,7 +102,8 @@
     margin: 0 auto;
   }
 
-  .page-hero-split .drift-animation {
+  .page-hero-split .drift-animation,
+  .page-hero-split .sphere-animation {
     left: 0;
     width: 100%;
     opacity: 0.5;
