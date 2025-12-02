@@ -35,18 +35,14 @@ function Spirograph({ className = '' }) {
     const petals = 7;
 
     // White stroke for monotone design
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+    ctx.strokeStyle = '#ffffff';
     ctx.globalAlpha = 0.5;
-    ctx.lineWidth = 0.5;
+    ctx.lineWidth = 0.25;
 
-    let Cw, Ch;
-
+    // Set canvas size to window dimensions
     const resize = () => {
-      const container = mainCanvas.parentElement;
-      Cw = container.offsetWidth || window.innerWidth;
-      Ch = container.offsetHeight || window.innerHeight;
-      mainCanvas.width = Cw;
-      mainCanvas.height = Ch;
+      mainCanvas.width = window.innerWidth;
+      mainCanvas.height = window.innerHeight;
     };
 
     resize();
@@ -55,6 +51,9 @@ function Spirograph({ className = '' }) {
     const draw = () => {
       framesRef.current += 0.3;
       const frames = framesRef.current;
+
+      const Cw = mainCanvas.width;
+      const Ch = mainCanvas.height;
 
       // Clear main canvas
       Ctx.setTransform(1, 0, 0, 1, 0, 0);
