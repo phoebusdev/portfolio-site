@@ -58,6 +58,8 @@
 .parallax-scene {
   perspective: 1000px;
   perspective-origin: 50% 50%;
+  position: relative;
+  z-index: 5;
 }
 
 .parallax-layer {

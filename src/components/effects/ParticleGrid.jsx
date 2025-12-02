@@ -351,13 +351,11 @@ function ParticleGrid({ className = '' }) {
     // Event listeners
     window.addEventListener('resize', handleResize);
 
-    // Only add pointer listeners if reduced motion is not preferred
-    if (!reducedMotionRef.current) {
-      canvas.addEventListener('pointermove', handlePointerMove);
-      canvas.addEventListener('touchmove', handlePointerMove);
-      canvas.addEventListener('pointerleave', handlePointerLeave);
-      canvas.addEventListener('touchend', handlePointerLeave);
-    }
+    // Always add pointer listeners for mouse tracking interaction
+    canvas.addEventListener('pointermove', handlePointerMove);
+    canvas.addEventListener('touchmove', handlePointerMove);
+    canvas.addEventListener('pointerleave', handlePointerLeave);
+    canvas.addEventListener('touchend', handlePointerLeave);
 
     return () => {
       clearTimeout(initTimer);
