@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import ParallaxBackground from './ParallaxBackground.jsx';
 import LayeredBackground from '../effects/LayeredBackground.jsx';
 import GlowOrb from '../effects/GlowOrb.jsx';
-import InteractiveParticles from '../effects/InteractiveParticles.jsx';
 import { LoadingState } from '../ui/LoadingState.jsx';
 import { ErrorState } from '../ui/ErrorState.jsx';
 import { useSectionData } from '../../hooks/useSectionData.js';
@@ -110,12 +109,11 @@ function BaseSection({
       style={sectionStyle}
     >
       {/* Background Effects */}
-      {interactiveParticles?.enabled && (
-        <InteractiveParticles particleCount={interactiveParticles.count || 30000} />
-      )}
       <ParallaxBackground
         intensity={backgroundEffects.parallaxIntensity || PARALLAX.INTENSITY.MEDIUM}
         enableContentParallax={backgroundEffects.enableContentParallax !== false}
+        enableInteractiveParticles={interactiveParticles?.enabled || false}
+        particleCount={interactiveParticles?.count || 30000}
       />
       {backgroundEffects.showLayeredBackground !== false && <LayeredBackground />}
       {backgroundEffects.glowOrbs?.map((orb, i) => (
