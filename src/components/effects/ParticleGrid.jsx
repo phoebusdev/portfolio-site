@@ -197,28 +197,38 @@ function ParticleGrid({ className = '' }) {
       const b = state.particleHolder[i + 9];
       let activeTime = state.particleHolder[i + 10];
 
+      const density = state.particleHolder[i + 11];
+
       const da = px - cx;
       const db = py - cy;
       const particleActive = da * da + db * db <= particleDistanceSensitivitySquared;
 
       if (particleActive) {
-        const angle = Math.atan2(db, da);
-        const dirX = Math.cos(angle) * -1;
-        const dirY = Math.sin(angle) * -1;
-        const targetPosX = cx + dirX * cfg.particleMaxEscapeRouteLength;
-        const targetPosY = cy + dirY * cfg.particleMaxEscapeRouteLength;
+        // Ease behavior: particles pushed away based on force and density
+        const dx = px - x;
+        const dy = py - y;
+        const distanceSquared = dx * dx + dy * dy;
 
-        x += (targetPosX - x) / cfg.particleSpeed;
-        y += (targetPosY - y) / cfg.particleSpeed;
-        activeTime = 1;
+        if (distanceSquared > 0) {
+          const forceDirX = dx / distanceSquared;
+          const forceDirY = dy / distanceSquared;
+          const force = (particleDistanceSensitivitySquared - distanceSquared) / particleDistanceSensitivitySquared;
+
+          const dirX = forceDirX * force * density;
+          const dirY = forceDirY * force * density;
+
+          x -= dirX;
+          y -= dirY;
+        }
+
+        activeTime = 0.3;
       } else {
         activeTime -= 0.005;
 
+        // Ease back to original position
         if (activeTime > 0) {
-          vx = vx * cfg.particleWobbleFactor + (cx - x) * cfg.particleWobbleSpeed;
-          vy = vy * cfg.particleWobbleFactor + (cy - y) * cfg.particleWobbleSpeed;
-          x = x + vx;
-          y = y + vy;
+          x += (cx - x) / cfg.particleSpeed;
+          y += (cy - y) / cfg.particleSpeed;
         } else {
           x = cx;
           y = cy;
