@@ -343,6 +343,9 @@ function ParticleGrid({ className = '' }) {
     // Check for reduced motion preference (still render, but skip animations)
     reducedMotionRef.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // Find the parent section to attach events (content is above canvas, blocking events)
+    const section = canvas.closest('section') || canvas.parentElement;
+
     // Initialize with a small delay to ensure DOM is ready
     const initTimer = setTimeout(() => {
       handleResize();
@@ -351,11 +354,11 @@ function ParticleGrid({ className = '' }) {
     // Event listeners
     window.addEventListener('resize', handleResize);
 
-    // Always add pointer listeners for mouse tracking interaction
-    canvas.addEventListener('pointermove', handlePointerMove);
-    canvas.addEventListener('touchmove', handlePointerMove);
-    canvas.addEventListener('pointerleave', handlePointerLeave);
-    canvas.addEventListener('touchend', handlePointerLeave);
+    // Attach pointer listeners to section (not canvas) since content layer is above
+    section.addEventListener('pointermove', handlePointerMove);
+    section.addEventListener('touchmove', handlePointerMove);
+    section.addEventListener('pointerleave', handlePointerLeave);
+    section.addEventListener('touchend', handlePointerLeave);
 
     return () => {
       clearTimeout(initTimer);
@@ -366,10 +369,10 @@ function ParticleGrid({ className = '' }) {
       stopIntro();
 
       window.removeEventListener('resize', handleResize);
-      canvas.removeEventListener('pointermove', handlePointerMove);
-      canvas.removeEventListener('touchmove', handlePointerMove);
-      canvas.removeEventListener('pointerleave', handlePointerLeave);
-      canvas.removeEventListener('touchend', handlePointerLeave);
+      section.removeEventListener('pointermove', handlePointerMove);
+      section.removeEventListener('touchmove', handlePointerMove);
+      section.removeEventListener('pointerleave', handlePointerLeave);
+      section.removeEventListener('touchend', handlePointerLeave);
     };
   }, [handleResize, handlePointerMove, handlePointerLeave, stopIntro]);
 
