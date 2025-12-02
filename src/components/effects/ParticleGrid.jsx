@@ -322,11 +322,11 @@ function ParticleGrid({ className = '' }) {
     let x, y;
 
     if (event.type === 'touchmove') {
-      x = event.touches[0].pageX - rect.left;
-      y = event.touches[0].pageY - rect.top;
+      x = event.touches[0].clientX - rect.left;
+      y = event.touches[0].clientY - rect.top;
     } else {
-      x = event.pageX - rect.left;
-      y = event.pageY - rect.top;
+      x = event.clientX - rect.left;
+      y = event.clientY - rect.top;
     }
 
     state.pointerPos = { x, y };
