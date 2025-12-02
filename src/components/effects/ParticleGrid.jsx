@@ -27,13 +27,11 @@ function ParticleGrid({ className = '' }) {
     clearRowSize: 0,
   });
 
-  // Configuration
+  // Configuration - optimized for full coverage and smooth 60fps
   const config = useRef({
-    rowsInit: 300,
-    colsInit: 700,
     particlePropertiesCount: 12,
     particleDiameter: 1,
-    particleDistance: 1,
+    particleDistance: 10,  // Increased for smooth 60fps performance
     particleSpeed: 10,
     particleColorRGB: { r: 220, g: 220, b: 220 },
     particleMouseDistanceSensitivityMax: 250,
@@ -85,19 +83,18 @@ function ParticleGrid({ className = '' }) {
     const cfg = config.current;
 
     const pd = cfg.particleDiameter + cfg.particleDistance;
-    const rowsMax = Math.floor(state.h / pd);
-    const colsMax = Math.floor(state.w / pd);
-
-    const rows = Math.min(cfg.rowsInit, rowsMax);
-    const cols = Math.min(cfg.colsInit, colsMax);
+    // Fill entire canvas - no row/col limits, no margins
+    const rows = Math.floor(state.h / pd);
+    const cols = Math.floor(state.w / pd);
 
     const particleCount = rows * cols;
     state.particleHolderLength = particleCount * cfg.particlePropertiesCount;
     state.particleHolder = new Float32Array(state.particleHolderLength);
 
     let index = 0;
-    const marginLeft = Math.round((state.w - (cols * pd)) * 0.5);
-    const marginTop = Math.round((state.h - (rows * pd)) * 0.5);
+    // No margins - start from edge
+    const marginLeft = 0;
+    const marginTop = 0;
 
     for (let i = 0; i < state.particleHolderLength; i += cfg.particlePropertiesCount) {
       const x = marginLeft + (index % cols) * pd;
@@ -176,76 +173,70 @@ function ParticleGrid({ className = '' }) {
 
     if (!state.particleHolder || !state.data) return;
 
-    const left = 1;
-    const right = state.w;
-    const top = 1;
-    const bottom = state.h;
-
-    const particleDistanceSensitivitySquared = cfg.particleDistanceSensitivity * cfg.particleDistanceSensitivity;
+    // Cache values for performance
+    const particles = state.particleHolder;
+    const data = state.data;
+    const w = state.w;
+    const h = state.h;
+    const len = state.particleHolderLength;
+    const step = cfg.particlePropertiesCount;
+    const speed = cfg.particleSpeed;
+    const sensitivity = cfg.particleDistanceSensitivity;
+    const sensitivitySq = sensitivity * sensitivity;
     const px = state.pointerPos.x;
     const py = state.pointerPos.y;
 
-    for (let i = 0; i < state.particleHolderLength; i += cfg.particlePropertiesCount) {
-      let x = state.particleHolder[i];
-      let y = state.particleHolder[i + 1];
-      const cx = state.particleHolder[i + 2];
-      const cy = state.particleHolder[i + 3];
-      let vx = state.particleHolder[i + 4];
-      let vy = state.particleHolder[i + 5];
-      const r = state.particleHolder[i + 7];
-      const g = state.particleHolder[i + 8];
-      const b = state.particleHolder[i + 9];
-      let activeTime = state.particleHolder[i + 10];
-
-      const density = state.particleHolder[i + 11];
+    for (let i = 0; i < len; i += step) {
+      let x = particles[i];
+      let y = particles[i + 1];
+      const cx = particles[i + 2];
+      const cy = particles[i + 3];
+      let activeTime = particles[i + 10];
 
       const da = px - cx;
       const db = py - cy;
-      const particleActive = da * da + db * db <= particleDistanceSensitivitySquared;
+      const distToCenterSq = da * da + db * db;
 
-      if (particleActive) {
+      if (distToCenterSq <= sensitivitySq) {
         // Ease behavior: particles pushed away based on force and density
         const dx = px - x;
         const dy = py - y;
         const distanceSquared = dx * dx + dy * dy;
 
         if (distanceSquared > 0) {
-          const forceDirX = dx / distanceSquared;
-          const forceDirY = dy / distanceSquared;
-          const force = (particleDistanceSensitivitySquared - distanceSquared) / particleDistanceSensitivitySquared;
-
-          const dirX = forceDirX * force * density;
-          const dirY = forceDirY * force * density;
-
-          x -= dirX;
-          y -= dirY;
+          const density = particles[i + 11];
+          const force = (sensitivitySq - distanceSquared) / sensitivitySq;
+          const invDist = force * density / distanceSquared;
+          x -= dx * invDist;
+          y -= dy * invDist;
         }
-
         activeTime = 0.3;
-      } else {
+      } else if (activeTime > 0) {
         activeTime -= 0.005;
-
         // Ease back to original position
-        if (activeTime > 0) {
-          x += (cx - x) / cfg.particleSpeed;
-          y += (cy - y) / cfg.particleSpeed;
-        } else {
-          x = cx;
-          y = cy;
-        }
+        x += (cx - x) / speed;
+        y += (cy - y) / speed;
+      } else {
+        x = cx;
+        y = cy;
       }
 
-      state.particleHolder[i] = x;
-      state.particleHolder[i + 1] = y;
-      state.particleHolder[i + 4] = vx;
-      state.particleHolder[i + 5] = vy;
-      state.particleHolder[i + 10] = activeTime;
+      particles[i] = x;
+      particles[i + 1] = y;
+      particles[i + 10] = activeTime;
 
-      if (x > left && x < right && y > top && y < bottom) {
-        setPixel(state.data, state.w, x | 0, y | 0, r, g, b, 255);
+      // Inline setPixel for performance
+      const ix = x | 0;
+      const iy = y | 0;
+      if (ix > 0 && ix < w && iy > 0 && iy < h) {
+        const idx = (ix + iy * w) << 2;
+        data[idx] = particles[i + 7];
+        data[idx + 1] = particles[i + 8];
+        data[idx + 2] = particles[i + 9];
+        data[idx + 3] = 255;
       }
     }
-  }, [setPixel]);
+  }, []);
 
   const render = useCallback(() => {
     const canvas = canvasRef.current;
