@@ -125,15 +125,15 @@
 
 .feature-item {
   padding: clamp(1.5rem, 3vw, 2.5rem);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .feature-item:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(102, 126, 234, 0.2);
+  background: rgba(0, 0, 0, 0.7);
+  border-color: rgba(102, 126, 234, 0.3);
   transform: translateY(-4px);
 }
 
@@ -159,15 +159,15 @@
 
 .project-item {
   padding: clamp(2rem, 4vw, 3rem);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-item:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(102, 126, 234, 0.2);
+  background: rgba(0, 0, 0, 0.7);
+  border-color: rgba(102, 126, 234, 0.3);
 }
 
 .project-item h3 {
@@ -251,8 +251,8 @@
 /* Contact Form */
 .contact-form-placeholder {
   padding: clamp(2rem, 4vw, 3rem);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
 }
 
@@ -380,8 +380,8 @@
 
 .sidebar-card {
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
 }
 
@@ -673,15 +673,16 @@
 }
 
 .resource-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .resource-card:hover {
-  border-color: rgba(102, 126, 234, 0.2);
+  background: rgba(0, 0, 0, 0.7);
+  border-color: rgba(102, 126, 234, 0.3);
   transform: translateY(-4px);
 }
 
@@ -795,8 +796,8 @@
 
 .project-card-full {
   padding: clamp(2rem, 4vw, 3rem);
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
 }
 

@@ -3,7 +3,7 @@
 .expandable-item {
   position: relative;
   padding: clamp(2rem, 4vw, 3rem);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(12px) saturate(1.2);
   -webkit-backdrop-filter: blur(12px) saturate(1.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
