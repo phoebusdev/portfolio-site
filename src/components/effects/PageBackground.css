@@ -28,3 +28,12 @@
   position: relative;
   z-index: 1;
 }
+
+/* Press page: Center animation in right half of screen */
+.page-press .page-background {
+  overflow: hidden; /* Clip animation at boundaries */
+}
+
+.page-press .page-background .page-background-animation {
+  left: 25%; /* Center at 75% (right half): 75% - 50% = 25% */
+}
