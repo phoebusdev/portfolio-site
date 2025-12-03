@@ -454,7 +454,7 @@ function SphereAnimation({ className = '' }) {
   return (
     <canvas
       ref={canvasRef}
-      className={`sphere-animation ${className}`}
+      className={`sphere-animation page-background-animation ${className}`}
     />
   );
 }

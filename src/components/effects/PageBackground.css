@@ -46,3 +46,12 @@
 .page-about .page-background .page-background-animation {
   left: 25%; /* Center at 75% (right half): 75% - 50% = 25% */
 }
+
+/* Projects page: Center animation in right half of screen */
+.page-projects .page-background {
+  overflow: hidden; /* Clip animation at boundaries */
+}
+
+.page-projects .page-background .page-background-animation {
+  left: 25%; /* Center at 75% (right half): 75% - 50% = 25% */
+}

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import SitePreview from '../components/shared/SitePreview.jsx';
 import CommentForm from '../components/shared/CommentForm.jsx';
 import PageBackground from '../components/effects/PageBackground.jsx';
-import WaveAnimation from '../components/effects/WaveAnimation.jsx';
+import SphereAnimation from '../components/effects/SphereAnimation.jsx';
 import { logError } from '../utils/errorLogger.js';
 import './Page.css';
 
@@ -62,7 +62,7 @@ function ProjectsPage() {
     return (
       <div className="page page-projects">
         <PageBackground>
-          <WaveAnimation />
+          <SphereAnimation />
         </PageBackground>
 
         <section className="page-hero">
@@ -78,7 +78,7 @@ function ProjectsPage() {
   return (
     <div className="page page-projects">
       <PageBackground>
-        <WaveAnimation />
+        <SphereAnimation />
       </PageBackground>
 
       {/* Hero section */}
