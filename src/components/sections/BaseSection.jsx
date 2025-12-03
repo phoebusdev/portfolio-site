@@ -113,7 +113,7 @@ function BaseSection({
         intensity={backgroundEffects.parallaxIntensity || PARALLAX.INTENSITY.MEDIUM}
         enableContentParallax={backgroundEffects.enableContentParallax !== false}
       />
-      {backgroundEffects.showLayeredBackground !== false && <LayeredBackground />}
+      {backgroundEffects.showLayeredBackground && <LayeredBackground />}
       {backgroundEffects.showSpirograph && <Spirograph className="offset-right" />}
       {backgroundEffects.showParticleGrid && <ParticleGrid />}
       {backgroundEffects.glowOrbs?.map((orb, i) => (

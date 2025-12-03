@@ -18,8 +18,7 @@ body {
   font-family: 'Crimson Pro', Georgia, 'Times New Roman', Times, serif;
   line-height: 1.6;
   color: #f5f5f5;
-  background: linear-gradient(180deg, #0a0a0a 0%, #171717 50%, #0a0a0a 100%);
-  background-attachment: fixed;
+  background: #111111;
   overflow-x: hidden;
 }
 
