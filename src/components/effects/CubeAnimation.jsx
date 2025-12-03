@@ -15,6 +15,8 @@ function CubeAnimation({ className = '' }) {
     height: 0,
     cube: [],
     initialized: false,
+    time: 0,           // Accumulated animation time
+    lastFrameTime: 0,  // Last frame timestamp for delta calculation
   });
 
   // Simple seeded random for consistent results
@@ -338,7 +340,7 @@ function CubeAnimation({ className = '' }) {
   }, [vec3, vec4]);
 
   // Render loop
-  const render = useCallback(() => {
+  const render = useCallback((timestamp) => {
     const canvas = canvasRef.current;
     const s = stateRef.current;
 
@@ -347,8 +349,14 @@ function CubeAnimation({ className = '' }) {
       return;
     }
 
+    // Calculate delta time (capped to prevent jumps when frames are dropped)
+    const now = timestamp || performance.now();
+    const deltaTime = s.lastFrameTime ? Math.min((now - s.lastFrameTime) / 1000, 0.1) : 0;
+    s.lastFrameTime = now;
+    s.time += deltaTime;
+
     const context = canvas.getContext('2d');
-    const T = Date.now() * 0.001;
+    const T = s.time;  // Use accumulated time instead of absolute time
     const W = s.width;
     const H = s.height;
     const RAD = Math.PI / 180;
@@ -448,8 +456,14 @@ function CubeAnimation({ className = '' }) {
     const s = stateRef.current;
     const container = canvas.parentElement;
 
-    s.width = container?.clientWidth || window.innerWidth;
-    s.height = container?.clientHeight || window.innerHeight;
+    const newWidth = container?.clientWidth || window.innerWidth;
+    const newHeight = container?.clientHeight || window.innerHeight;
+
+    // Only update if dimensions actually changed (avoid unnecessary resets during scroll)
+    if (s.width === newWidth && s.height === newHeight) return;
+
+    s.width = newWidth;
+    s.height = newHeight;
 
     canvas.width = s.width;
     canvas.height = s.height;
