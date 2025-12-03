@@ -353,7 +353,7 @@ function CubeAnimation({ className = '' }) {
     const now = timestamp || performance.now();
     const deltaTime = s.lastFrameTime ? Math.min((now - s.lastFrameTime) / 1000, 0.1) : 0;
     s.lastFrameTime = now;
-    s.time += deltaTime;
+    s.time += deltaTime * 0.5;  // Half speed
 
     const context = canvas.getContext('2d');
     const T = s.time;  // Use accumulated time instead of absolute time
