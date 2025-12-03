@@ -11,12 +11,12 @@
   will-change: transform;
 }
 
-/* Override ParticleGrid styles when used as page background */
+/* ParticleGrid in page background - don't stretch, let it size naturally */
 .page-background .page-background-particles {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  /* Width and height set by canvas resolution, not CSS stretching */
   pointer-events: auto;
 }
 

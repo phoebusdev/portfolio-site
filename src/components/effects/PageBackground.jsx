@@ -30,8 +30,9 @@ function PageBackground() {
 
       rafRef.current = requestAnimationFrame(() => {
         const scrollY = window.scrollY;
-        // 0.2x parallax - background moves at 20% of scroll speed
-        const yOffset = scrollY * PARALLAX_FACTOR;
+        // 0.2x parallax - background scrolls up slower than content
+        // Negative offset so background moves up, revealing bottom portion
+        const yOffset = -scrollY * PARALLAX_FACTOR;
         container.style.transform = `translate3d(0, ${yOffset}px, 0)`;
         rafRef.current = null;
       });
