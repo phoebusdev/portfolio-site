@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import ParticleGrid from './ParticleGrid.jsx';
+import { useEffect, useRef, useState, cloneElement } from 'react';
 import './PageBackground.css';
 
 const PARALLAX_FACTOR = 0.2;
@@ -7,8 +6,11 @@ const PARALLAX_FACTOR = 0.2;
 /**
  * PageBackground - Fixed background that extends behind entire page
  * Applies a subtle parallax scroll effect (0.2x speed)
+ *
+ * @param {ReactElement} children - Animation component to render as background
+ * @param {string} className - Additional class for the animation (default: 'page-background-animation')
  */
-function PageBackground() {
+function PageBackground({ children, className = 'page-background-animation' }) {
   const containerRef = useRef(null);
   const rafRef = useRef(null);
   const [backgroundHeight, setBackgroundHeight] = useState('100vh');
@@ -59,9 +61,14 @@ function PageBackground() {
     };
   }, []);
 
+  // Clone the child animation with the appropriate className
+  const animationWithClass = children
+    ? cloneElement(children, { className })
+    : null;
+
   return (
     <div className="page-background" ref={containerRef} style={{ height: backgroundHeight }}>
-      <ParticleGrid className="page-background-particles" />
+      {animationWithClass}
     </div>
   );
 }

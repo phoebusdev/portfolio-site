@@ -5,7 +5,6 @@ import sessionTracker from './utils/session.js';
 import analyticsTracker from './utils/analytics.js';
 import keyboardNavController from './utils/keyboard.js';
 import Navigation from './components/navigation/Navigation.jsx';
-import PageBackground from './components/effects/PageBackground.jsx';
 import HomePage from './pages/HomePage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import PressPage from './pages/PressPage.jsx';
@@ -79,9 +78,6 @@ function App() {
       {/* Global ambient effects */}
       <NoiseOverlay opacity={0.03} />
       <ParticleSystem count={20} />
-
-      {/* Page background with parallax */}
-      <PageBackground />
 
       {/* Navigation */}
       <Navigation />

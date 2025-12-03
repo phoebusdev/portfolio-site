@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import IntroSection from '../components/sections/IntroSection.jsx';
+import PageBackground from '../components/effects/PageBackground.jsx';
+import ParticleGrid from '../components/effects/ParticleGrid.jsx';
 import { logError } from '../utils/errorLogger.js';
 import './Page.css';
 
@@ -20,6 +22,10 @@ function HomePage() {
 
   return (
     <div className="page page-home">
+      <PageBackground>
+        <ParticleGrid />
+      </PageBackground>
+
       <IntroSection />
 
       {/* Welcome section */}

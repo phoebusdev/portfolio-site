@@ -154,7 +154,11 @@ function DriftAnimation({ className = '' }) {
     if (!canvas) return;
 
     // Find parent section for event attachment
-    const section = canvas.closest('section') || canvas.parentElement;
+    // If no section (page-level background), use document to capture events
+    // above the main-content layer
+    const section = canvas.closest('section');
+    const eventTarget = section || document;
+    const container = canvas.parentElement;
 
     // Initialize
     const initTimer = setTimeout(() => {
@@ -164,7 +168,16 @@ function DriftAnimation({ className = '' }) {
 
     // Event listeners
     window.addEventListener('resize', handleResize);
-    section.addEventListener('click', handleClick);
+    eventTarget.addEventListener('click', handleClick);
+
+    // Watch for container size changes (for page-level backgrounds)
+    let resizeObserver = null;
+    if (container) {
+      resizeObserver = new ResizeObserver(() => {
+        handleResize();
+      });
+      resizeObserver.observe(container);
+    }
 
     return () => {
       clearTimeout(initTimer);
@@ -172,7 +185,10 @@ function DriftAnimation({ className = '' }) {
         cancelAnimationFrame(animationFrameRef.current);
       }
       window.removeEventListener('resize', handleResize);
-      section.removeEventListener('click', handleClick);
+      eventTarget.removeEventListener('click', handleClick);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
     };
   }, [handleResize, handleClick, render]);
 

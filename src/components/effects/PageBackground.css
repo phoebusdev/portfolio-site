@@ -11,12 +11,12 @@
   will-change: transform;
 }
 
-/* ParticleGrid in page background - don't stretch, use canvas resolution */
-.page-background .page-background-particles {
+/* Animation in page background - don't stretch, use canvas resolution */
+.page-background .page-background-animation {
   position: absolute;
   top: 0;
   left: 0;
-  /* Override .particle-grid's 100% sizing that causes stretching/distortion */
+  /* Override default 100% sizing that causes stretching/distortion */
   width: auto;
   height: auto;
   inset: auto;
