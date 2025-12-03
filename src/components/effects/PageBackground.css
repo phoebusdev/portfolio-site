@@ -37,3 +37,12 @@
 .page-press .page-background .page-background-animation {
   left: 25%; /* Center at 75% (right half): 75% - 50% = 25% */
 }
+
+/* About page: Center animation in right half of screen */
+.page-about .page-background {
+  overflow: hidden; /* Clip animation at boundaries */
+}
+
+.page-about .page-background .page-background-animation {
+  left: 25%; /* Center at 75% (right half): 75% - 50% = 25% */
+}

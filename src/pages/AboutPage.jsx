@@ -1,12 +1,12 @@
 import PageBackground from '../components/effects/PageBackground.jsx';
-import SwarmAnimation from '../components/effects/SwarmAnimation.jsx';
+import CubeAnimation from '../components/effects/CubeAnimation.jsx';
 import './Page.css';
 
 function AboutPage() {
   return (
     <div className="page page-about">
       <PageBackground>
-        <SwarmAnimation />
+        <CubeAnimation />
       </PageBackground>
 
       {/* Hero section */}
