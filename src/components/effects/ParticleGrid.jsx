@@ -345,7 +345,9 @@ function ParticleGrid({ className = '' }) {
     reducedMotionRef.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // Find the parent section to attach events (content is above canvas, blocking events)
-    const section = canvas.closest('section') || canvas.parentElement;
+    // If no section parent (page-level background), use document for events
+    const section = canvas.closest('section');
+    const eventTarget = section || document;
 
     // Initialize with a small delay to ensure DOM is ready
     const initTimer = setTimeout(() => {
@@ -355,11 +357,14 @@ function ParticleGrid({ className = '' }) {
     // Event listeners
     window.addEventListener('resize', handleResize);
 
-    // Attach pointer listeners to section (not canvas) since content layer is above
-    section.addEventListener('pointermove', handlePointerMove);
-    section.addEventListener('touchmove', handlePointerMove);
-    section.addEventListener('pointerleave', handlePointerLeave);
-    section.addEventListener('touchend', handlePointerLeave);
+    // Attach pointer listeners - to section if inside one, otherwise document
+    eventTarget.addEventListener('pointermove', handlePointerMove);
+    eventTarget.addEventListener('touchmove', handlePointerMove);
+    if (section) {
+      // Only attach leave events to section (document doesn't have meaningful leave)
+      section.addEventListener('pointerleave', handlePointerLeave);
+      section.addEventListener('touchend', handlePointerLeave);
+    }
 
     return () => {
       clearTimeout(initTimer);
@@ -370,10 +375,12 @@ function ParticleGrid({ className = '' }) {
       stopIntro();
 
       window.removeEventListener('resize', handleResize);
-      section.removeEventListener('pointermove', handlePointerMove);
-      section.removeEventListener('touchmove', handlePointerMove);
-      section.removeEventListener('pointerleave', handlePointerLeave);
-      section.removeEventListener('touchend', handlePointerLeave);
+      eventTarget.removeEventListener('pointermove', handlePointerMove);
+      eventTarget.removeEventListener('touchmove', handlePointerMove);
+      if (section) {
+        section.removeEventListener('pointerleave', handlePointerLeave);
+        section.removeEventListener('touchend', handlePointerLeave);
+      }
     };
   }, [handleResize, handlePointerMove, handlePointerLeave, stopIntro]);
 
