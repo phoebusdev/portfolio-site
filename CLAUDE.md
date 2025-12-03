@@ -322,3 +322,170 @@ On mobile, stack content and show full-width animation behind:
 - Text aligned left
 - Uses `.page-hero-split` layout pattern
 
+---
+
+## Full-Page Parallax Background System
+
+The site uses a global `PageBackground` component that renders a ParticleGrid behind all page content with a 0.2x parallax scroll effect. This section documents how it works and critical implementation details.
+
+### Architecture Overview
+
+```
+App.jsx
+├── NoiseOverlay (z-index: 35, fixed, pointer-events: none)
+├── ParticleSystem (floating particles)
+├── PageBackground (z-index: 0, fixed) ← Contains ParticleGrid
+├── Navigation (z-index: high, fixed)
+└── main.main-content (z-index: 1, relative)
+    └── Page components (transparent backgrounds)
+```
+
+**Key files:**
+- `src/components/effects/PageBackground.jsx` - Container with parallax logic
+- `src/components/effects/PageBackground.css` - Positioning and z-index
+- `src/components/effects/ParticleGrid.jsx` - Canvas animation
+
+### How the Parallax Works
+
+1. **Container Setup**: PageBackground is `position: fixed` at `top: 0`, covering viewport
+2. **Dynamic Height**: Container height = `viewport + (maxScroll × 0.2)` to ensure coverage
+3. **Scroll Transform**: On scroll, container translates by `-scrollY × 0.2` (moves UP slower than content)
+4. **Result**: Background scrolls at 20% of content speed, creating depth illusion
+
+```javascript
+// PageBackground.jsx - Key logic
+const PARALLAX_FACTOR = 0.2;
+
+// Calculate height to cover entire scroll depth
+const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+const maxOffset = maxScroll * PARALLAX_FACTOR;
+const requiredHeight = window.innerHeight + maxOffset;
+
+// On scroll - NEGATIVE offset moves background UP
+const yOffset = -scrollY * PARALLAX_FACTOR;
+container.style.transform = `translate3d(0, ${yOffset}px, 0)`;
+```
+
+### Critical Implementation Details
+
+#### 1. Parallax Direction (CRITICAL)
+
+**WRONG** - Positive offset causes blank space above:
+```javascript
+// Background moves DOWN, revealing empty space at top when scrolling
+const yOffset = scrollY * 0.2;  // BROKEN
+```
+
+**CORRECT** - Negative offset reveals bottom portion:
+```javascript
+// Background moves UP slower than content, revealing bottom as you scroll
+const yOffset = -scrollY * 0.2;  // CORRECT
+```
+
+#### 2. Canvas Aspect Ratio (CRITICAL)
+
+The ParticleGrid base CSS has `width: 100%; height: 100%` which STRETCHES the canvas, distorting circles into ovals.
+
+**WRONG** - Let base CSS stretch canvas:
+```css
+/* ParticleGrid.css default - causes distortion */
+.particle-grid {
+  width: 100%;
+  height: 100%;
+}
+```
+
+**CORRECT** - Override with auto sizing:
+```css
+/* PageBackground.css - preserves pixel ratio */
+.page-background .page-background-particles {
+  width: auto;
+  height: auto;
+  inset: auto;
+}
+```
+
+#### 3. Mouse Event Handling for Page-Level Background
+
+When ParticleGrid is inside a `<section>`, events attach to the section. When used as page background (no section parent), events must attach to `document`:
+
+```javascript
+// ParticleGrid.jsx - Event attachment logic
+const section = canvas.closest('section');
+const eventTarget = section || document;  // Fallback to document for page background
+
+eventTarget.addEventListener('pointermove', handlePointerMove);
+```
+
+**Why document?** The page-background (z-index: 0) is BELOW main-content (z-index: 1). Mouse events go to the higher z-index element. Attaching to `document` captures all events regardless of z-index.
+
+#### 4. Container ResizeObserver
+
+ParticleGrid must reinitialize when its container size changes (e.g., when PageBackground calculates dynamic height):
+
+```javascript
+// ParticleGrid.jsx - Watch container for size changes
+const container = canvas.parentElement;
+const resizeObserver = new ResizeObserver(() => {
+  handleResize();  // Reinitialize canvas with new dimensions
+});
+resizeObserver.observe(container);
+```
+
+Without this, the canvas initializes at wrong size and never updates.
+
+#### 5. Transparent Section Backgrounds
+
+All sections must have transparent backgrounds to show the PageBackground through:
+
+```css
+/* Remove section gradients */
+.section-depth-showcase,
+.section-strategic-vision {
+  background: transparent;  /* Not gradient */
+}
+
+/* Remove pseudo-element overlays */
+.page-hero::before,
+.page-hero::after,
+.page-section::before,
+.page-section::after {
+  /* These are removed - no gradient overlays */
+}
+```
+
+### PageBackground Checklist
+
+When modifying the background system:
+
+- [ ] Parallax uses NEGATIVE offset (`-scrollY * factor`)
+- [ ] Container height accounts for scroll depth: `viewport + maxScroll * factor`
+- [ ] Canvas CSS has `width: auto; height: auto` to prevent stretching
+- [ ] ParticleGrid has ResizeObserver on container
+- [ ] ParticleGrid attaches events to `document` when no section parent
+- [ ] All page sections have `background: transparent`
+- [ ] No pseudo-element overlays (`::before`, `::after`) blocking visibility
+- [ ] Body background matches ParticleGrid background color (`#111111`)
+
+### Common Bugs and Fixes
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| Blank space above background when scrolling | Positive parallax offset | Use negative: `-scrollY * 0.2` |
+| Circles appear as ovals | CSS stretching canvas | Set `width: auto; height: auto` |
+| Mouse effect offset from cursor | Canvas stretched or wrong coordinates | Fix CSS stretching, use `clientX/Y` |
+| Mouse interaction not working | Events attached to wrong element | Attach to `document` for page background |
+| Background doesn't cover full page | Height not calculated for scroll | Use `viewport + maxScroll * factor` |
+| Canvas wrong size on load | Timing issue with dynamic height | Add ResizeObserver on container |
+
+### Z-Index Reference
+
+```
+z-index: 35  - NoiseOverlay (texture, pointer-events: none)
+z-index: 30  - Navigation
+z-index: 5   - Section content (.parallax-scene, .hero-content)
+z-index: 1   - main.main-content
+z-index: 0   - PageBackground (ParticleGrid)
+z-index: -1  - ParallaxBackground (disabled gradients)
+```
+
