@@ -2,178 +2,188 @@ import { useEffect, useRef, useCallback } from 'react';
 import './WaveAnimation.css';
 
 /**
- * WaveAnimation - 3D particle wave using Three.js WebGPU
+ * WaveAnimation - 3D particle wave grid using Canvas 2D
  *
- * A grid of 100,000 particles that animate in a wave pattern using
- * compute shaders for GPU-accelerated animation.
+ * A grid of particles that animate in a wave pattern with 3D projection.
+ * Pure canvas implementation without external 3D libraries.
  */
 function WaveAnimation({ className = '' }) {
-  const containerRef = useRef(null);
-  const rendererRef = useRef(null);
-  const sceneRef = useRef(null);
-  const cameraRef = useRef(null);
+  const canvasRef = useRef(null);
   const animationRef = useRef(null);
-  const computeParticlesRef = useRef(null);
-  const initializedRef = useRef(false);
+  const stateRef = useRef({
+    width: 0,
+    height: 0,
+    initialized: false,
+    time: 0,
+    lastFrameTime: 0,
+    particles: [],
+  });
 
-  const init = useCallback(async () => {
-    if (initializedRef.current || !containerRef.current) return;
+  // Configuration
+  const config = {
+    gridSize: 80,          // particles per side (80x80 = 6400 particles)
+    separation: 12,        // spacing between particles
+    waveAmplitude: 40,     // height of waves
+    waveFrequency: 0.08,   // wave density
+    waveSpeed: 1.5,        // animation speed
+    cameraDistance: 600,   // camera distance from center
+    cameraHeight: 300,     // camera height
+    cameraRotationSpeed: 0.15, // auto-rotation speed
+    fov: 500,              // field of view for projection
+    particleBaseSize: 2,   // base particle size
+    particleSizeWave: 2,   // additional size from wave
+  };
 
-    const container = containerRef.current;
-    const width = container.clientWidth || window.innerWidth;
-    const height = container.clientHeight || window.innerHeight;
+  // Initialize particles in a grid
+  const initParticles = useCallback(() => {
+    const particles = [];
+    const halfGrid = config.gridSize / 2;
 
-    // Dynamic imports for Three.js WebGPU
-    let THREE, WebGPURenderer, Fn, float, vec3, sin, time, instancedArray, instanceIndex;
-
-    try {
-      // Import Three.js core and WebGPU modules
-      THREE = await import('three');
-      const webgpu = await import('three/webgpu');
-      const tsl = await import('three/tsl');
-
-      WebGPURenderer = webgpu.WebGPURenderer;
-      Fn = tsl.Fn;
-      float = tsl.float;
-      vec3 = tsl.vec3;
-      sin = tsl.sin;
-      time = tsl.time;
-      instancedArray = tsl.instancedArray;
-      instanceIndex = tsl.instanceIndex;
-    } catch (e) {
-      console.warn('Three.js WebGPU not available, skipping WaveAnimation');
-      return;
+    for (let x = 0; x < config.gridSize; x++) {
+      for (let z = 0; z < config.gridSize; z++) {
+        particles.push({
+          baseX: (x - halfGrid) * config.separation,
+          baseZ: (z - halfGrid) * config.separation,
+          gridX: x,
+          gridZ: z,
+        });
+      }
     }
 
-    // Check WebGPU support
-    if (!navigator.gpu) {
-      console.warn('WebGPU not supported, skipping WaveAnimation');
-      return;
-    }
+    return particles;
+  }, [config.gridSize, config.separation]);
 
-    const particleCount = 100_000;
+  // 3D to 2D projection
+  const project = useCallback((x, y, z, width, height, cameraX, cameraY, cameraZ) => {
+    // Translate relative to camera
+    const dx = x - cameraX;
+    const dy = y - cameraY;
+    const dz = z - cameraZ;
 
-    // Camera setup
-    const camera = new THREE.PerspectiveCamera(50, width / height, 10, 100000);
-    camera.position.set(0, 200, 500);
-    cameraRef.current = camera;
+    // Simple perspective projection
+    const scale = config.fov / (config.fov - dz);
 
-    // Scene setup
-    const scene = new THREE.Scene();
-    sceneRef.current = scene;
+    if (scale <= 0) return null; // Behind camera
 
-    // Instanced arrays for positions and sizes
-    const positions = instancedArray(particleCount, 'vec3');
-    const sizes = instancedArray(particleCount, 'vec3');
-
-    // Compute shader parameters
-    const separation = 100;
-    const amount = Math.sqrt(particleCount);
-    const offset = float(amount / 2);
-
-    // Initialize particles
-    const computeInit = Fn(() => {
-      const position = positions.element(instanceIndex);
-      const size = sizes.element(instanceIndex);
-
-      const x = instanceIndex.mod(amount);
-      const z = instanceIndex.div(amount);
-
-      position.x = offset.sub(x).mul(separation);
-      position.z = offset.sub(z).mul(separation);
-
-      size.assign(vec3(1.0));
-    })().compute(particleCount);
-
-    // Update particles (wave animation)
-    const computeUpdate = Fn(() => {
-      const x = float(instanceIndex.mod(amount)).mul(0.5);
-      const z = float(instanceIndex.div(amount)).mul(0.5);
-
-      const time2 = float(1).sub(time).mul(5);
-
-      const position = positions.element(instanceIndex);
-
-      const sinX = sin(x.add(time2).mul(0.7)).mul(50);
-      const sinZ = sin(z.add(time2).mul(0.5)).mul(50);
-
-      position.y = sinX.add(sinZ);
-
-      const size = sizes.element(instanceIndex);
-
-      const sinSX = sin(x.add(time2).mul(0.7)).add(1).mul(5);
-      const sinSZ = sin(z.add(time2).mul(0.5)).add(1).mul(5);
-
-      size.assign(sinSX.add(sinSZ));
-    });
-
-    computeParticlesRef.current = computeUpdate().compute(particleCount);
-
-    // Create particle material
-    const material = new THREE.SpriteNodeMaterial();
-    material.colorNode = vec3(1.0);
-    material.positionNode = positions.toAttribute();
-    material.scaleNode = sizes.toAttribute();
-    material.transparent = false;
-
-    // Create particle geometry
-    const geometry = new THREE.CircleGeometry();
-    const particles = new THREE.Mesh(geometry, material);
-    particles.count = particleCount;
-    particles.frustumCulled = false;
-    scene.add(particles);
-
-    // Renderer setup
-    const renderer = new WebGPURenderer({ antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setSize(width, height);
-    container.appendChild(renderer.domElement);
-    rendererRef.current = renderer;
-
-    // Initialize compute
-    await renderer.computeAsync(computeInit);
-
-    initializedRef.current = true;
-
-    // Animation loop
-    const animate = () => {
-      if (!rendererRef.current || !sceneRef.current || !cameraRef.current) return;
-
-      // Auto-rotate camera slowly around the scene
-      const t = Date.now() * 0.0001;
-      cameraRef.current.position.x = Math.sin(t) * 500;
-      cameraRef.current.position.z = Math.cos(t) * 500;
-      cameraRef.current.lookAt(0, 0, 0);
-
-      rendererRef.current.compute(computeParticlesRef.current);
-      rendererRef.current.render(sceneRef.current, cameraRef.current);
-
-      animationRef.current = requestAnimationFrame(animate);
+    return {
+      x: width / 2 + dx * scale,
+      y: height / 2 - dy * scale,
+      scale: scale,
+      depth: -dz,
     };
+  }, [config.fov]);
 
-    renderer.setAnimationLoop(animate);
-  }, []);
+  // Render loop
+  const render = useCallback((timestamp) => {
+    const canvas = canvasRef.current;
+    const s = stateRef.current;
 
+    if (!canvas || !s.initialized) {
+      animationRef.current = requestAnimationFrame(render);
+      return;
+    }
+
+    // Calculate delta time (capped to prevent jumps)
+    const now = timestamp || performance.now();
+    const deltaTime = s.lastFrameTime ? Math.min((now - s.lastFrameTime) / 1000, 0.1) : 0;
+    s.lastFrameTime = now;
+    s.time += deltaTime;
+
+    const ctx = canvas.getContext('2d');
+    const { width, height, particles, time } = s;
+
+    // Clear canvas
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, width, height);
+
+    // Camera position (auto-rotating around the grid)
+    const cameraAngle = time * config.cameraRotationSpeed;
+    const cameraX = Math.sin(cameraAngle) * config.cameraDistance;
+    const cameraZ = Math.cos(cameraAngle) * config.cameraDistance;
+    const cameraY = config.cameraHeight;
+
+    // Calculate particle positions and sort by depth
+    const projectedParticles = [];
+
+    for (const particle of particles) {
+      const { baseX, baseZ, gridX, gridZ } = particle;
+
+      // Wave displacement
+      const waveTime = time * config.waveSpeed;
+      const waveX = Math.sin((gridX * config.waveFrequency) + waveTime) * config.waveAmplitude;
+      const waveZ = Math.sin((gridZ * config.waveFrequency * 0.7) + waveTime * 0.8) * config.waveAmplitude;
+      const y = waveX + waveZ;
+
+      // Project to 2D
+      const projected = project(baseX, y, baseZ, width, height, cameraX, cameraY, cameraZ);
+
+      if (projected && projected.scale > 0 && projected.x > -50 && projected.x < width + 50 && projected.y > -50 && projected.y < height + 50) {
+        // Size based on wave height and distance
+        const waveNormalized = (y / (config.waveAmplitude * 2)) + 0.5;
+        const size = (config.particleBaseSize + waveNormalized * config.particleSizeWave) * projected.scale;
+
+        projectedParticles.push({
+          x: projected.x,
+          y: projected.y,
+          size: size,
+          depth: projected.depth,
+          brightness: Math.min(1, 0.3 + waveNormalized * 0.7),
+        });
+      }
+    }
+
+    // Sort by depth (far to near)
+    projectedParticles.sort((a, b) => a.depth - b.depth);
+
+    // Draw particles
+    ctx.beginPath();
+    for (const p of projectedParticles) {
+      if (p.size > 0.5) {
+        ctx.moveTo(p.x + p.size, p.y);
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      }
+    }
+    ctx.fillStyle = '#fff';
+    ctx.fill();
+
+    animationRef.current = requestAnimationFrame(render);
+  }, [project, config]);
+
+  // Handle resize
   const handleResize = useCallback(() => {
-    if (!containerRef.current || !rendererRef.current || !cameraRef.current) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    const width = containerRef.current.clientWidth || window.innerWidth;
-    const height = containerRef.current.clientHeight || window.innerHeight;
+    const s = stateRef.current;
+    const container = canvas.parentElement;
 
-    cameraRef.current.aspect = width / height;
-    cameraRef.current.updateProjectionMatrix();
+    const newWidth = container?.clientWidth || window.innerWidth;
+    const newHeight = container?.clientHeight || window.innerHeight;
 
-    rendererRef.current.setSize(width, height);
+    // Only update if dimensions actually changed
+    if (s.width === newWidth && s.height === newHeight) return;
+
+    s.width = newWidth;
+    s.height = newHeight;
+
+    canvas.width = s.width;
+    canvas.height = s.height;
   }, []);
 
+  // Setup
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    // Delay initialization to ensure container is ready
+    const s = stateRef.current;
+    const container = canvas.parentElement;
+
     const initTimer = setTimeout(() => {
-      init();
-    }, 100);
+      s.particles = initParticles();
+      handleResize();
+      s.initialized = true;
+      animationRef.current = requestAnimationFrame(render);
+    }, 50);
 
     window.addEventListener('resize', handleResize);
 
@@ -189,30 +199,18 @@ function WaveAnimation({ className = '' }) {
     return () => {
       clearTimeout(initTimer);
       window.removeEventListener('resize', handleResize);
-
       if (resizeObserver) {
         resizeObserver.disconnect();
       }
-
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
-
-      if (rendererRef.current) {
-        rendererRef.current.setAnimationLoop(null);
-        rendererRef.current.dispose();
-        if (rendererRef.current.domElement && rendererRef.current.domElement.parentNode) {
-          rendererRef.current.domElement.parentNode.removeChild(rendererRef.current.domElement);
-        }
-      }
-
-      initializedRef.current = false;
     };
-  }, [init, handleResize]);
+  }, [initParticles, handleResize, render]);
 
   return (
-    <div
-      ref={containerRef}
+    <canvas
+      ref={canvasRef}
       className={`wave-animation ${className}`}
       aria-hidden="true"
     />

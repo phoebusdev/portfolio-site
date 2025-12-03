@@ -78,7 +78,7 @@ function ProjectsPage() {
   return (
     <div className="page page-projects">
       <PageBackground>
-        <SphereAnimation />
+        <WaveAnimation />
       </PageBackground>
 
       {/* Hero section */}

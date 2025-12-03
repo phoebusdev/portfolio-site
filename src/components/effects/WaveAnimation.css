@@ -1,4 +1,4 @@
-/* WaveAnimation - 3D particle wave using Three.js WebGPU */
+/* WaveAnimation - 3D particle wave grid */
 
 .wave-animation {
   position: absolute;
@@ -7,12 +7,6 @@
   height: 100%;
   z-index: 1;
   display: block;
-  overflow: hidden;
-  background: #000;
-}
-
-.wave-animation canvas {
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
+  touch-action: none;
+  pointer-events: auto;
 }
