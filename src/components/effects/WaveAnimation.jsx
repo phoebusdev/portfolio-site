@@ -21,17 +21,22 @@ function WaveAnimation({ className = '' }) {
 
   // Configuration
   const config = {
-    gridSize: 80,          // particles per side (80x80 = 6400 particles)
-    separation: 12,        // spacing between particles
-    waveAmplitude: 40,     // height of waves
-    waveFrequency: 0.08,   // wave density
-    waveSpeed: 1.5,        // animation speed
-    cameraDistance: 600,   // camera distance from center
-    cameraHeight: 300,     // camera height
-    cameraRotationSpeed: 0.15, // auto-rotation speed
-    fov: 500,              // field of view for projection
-    particleBaseSize: 2,   // base particle size
-    particleSizeWave: 2,   // additional size from wave
+    gridSize: 120,         // particles per side (120x120 = 14400 particles)
+    separation: 18,        // spacing between particles (wider coverage)
+    waveAmplitude: 25,     // height of waves (lower for ocean feel)
+    waveFrequency: 0.18,   // wave density (more waves)
+    waveSpeed: 0.8,        // animation speed (slower, more ocean-like)
+    cameraDistance: 450,   // camera distance from center (closer)
+    cameraHeight: 180,     // camera height (lower angle)
+    cameraRotationSpeed: 0.08, // auto-rotation speed (slower)
+    fov: 600,              // field of view for projection (wider)
+    particleBaseSize: 1.5, // base particle size
+    particleSizeWave: 1.5, // additional size from wave
+    // Additional wave layers for ocean effect
+    secondaryWaveFreq: 0.25,
+    secondaryWaveAmp: 15,
+    tertiaryWaveFreq: 0.4,
+    tertiaryWaveAmp: 8,
   };
 
   // Initialize particles in a grid
@@ -108,18 +113,28 @@ function WaveAnimation({ className = '' }) {
     for (const particle of particles) {
       const { baseX, baseZ, gridX, gridZ } = particle;
 
-      // Wave displacement
+      // Wave displacement - multiple layers for ocean effect
       const waveTime = time * config.waveSpeed;
+      // Primary waves
       const waveX = Math.sin((gridX * config.waveFrequency) + waveTime) * config.waveAmplitude;
       const waveZ = Math.sin((gridZ * config.waveFrequency * 0.7) + waveTime * 0.8) * config.waveAmplitude;
-      const y = waveX + waveZ;
+      // Secondary waves (cross-direction, slightly faster)
+      const wave2 = Math.sin((gridX * config.secondaryWaveFreq) + waveTime * 1.2) * config.secondaryWaveAmp;
+      const wave2Z = Math.sin((gridZ * config.secondaryWaveFreq * 0.8) + waveTime * 1.1) * config.secondaryWaveAmp;
+      // Tertiary waves (fine detail, varied speed)
+      const wave3 = Math.sin((gridX * config.tertiaryWaveFreq) + waveTime * 0.6) * config.tertiaryWaveAmp;
+      const wave3Z = Math.sin((gridZ * config.tertiaryWaveFreq * 1.2) + waveTime * 0.9) * config.tertiaryWaveAmp;
+      // Combine all wave layers
+      const y = waveX + waveZ + wave2 + wave2Z + wave3 + wave3Z;
 
       // Project to 2D
       const projected = project(baseX, y, baseZ, width, height, cameraX, cameraY, cameraZ);
 
       if (projected && projected.scale > 0 && projected.x > -50 && projected.x < width + 50 && projected.y > -50 && projected.y < height + 50) {
         // Size based on wave height and distance
-        const waveNormalized = (y / (config.waveAmplitude * 2)) + 0.5;
+        // Total amplitude is sum of all wave layers
+        const totalAmplitude = (config.waveAmplitude + config.secondaryWaveAmp + config.tertiaryWaveAmp) * 2;
+        const waveNormalized = (y / totalAmplitude) + 0.5;
         const size = (config.particleBaseSize + waveNormalized * config.particleSizeWave) * projected.scale;
 
         projectedParticles.push({
