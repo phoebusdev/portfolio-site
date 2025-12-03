@@ -11,12 +11,15 @@
   will-change: transform;
 }
 
-/* ParticleGrid in page background - don't stretch, let it size naturally */
+/* ParticleGrid in page background - don't stretch, use canvas resolution */
 .page-background .page-background-particles {
   position: absolute;
   top: 0;
   left: 0;
-  /* Width and height set by canvas resolution, not CSS stretching */
+  /* Override .particle-grid's 100% sizing that causes stretching/distortion */
+  width: auto;
+  height: auto;
+  inset: auto;
   pointer-events: auto;
 }
 

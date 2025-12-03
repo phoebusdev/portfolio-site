@@ -348,11 +348,21 @@ function ParticleGrid({ className = '' }) {
     // If no section parent (page-level background), use document for events
     const section = canvas.closest('section');
     const eventTarget = section || document;
+    const container = canvas.parentElement;
 
     // Initialize with a small delay to ensure DOM is ready
     const initTimer = setTimeout(() => {
       handleResize();
     }, 50);
+
+    // Watch for container size changes (for dynamic height backgrounds)
+    let resizeObserver = null;
+    if (container) {
+      resizeObserver = new ResizeObserver(() => {
+        handleResize();
+      });
+      resizeObserver.observe(container);
+    }
 
     // Event listeners
     window.addEventListener('resize', handleResize);
@@ -374,6 +384,9 @@ function ParticleGrid({ className = '' }) {
       }
       stopIntro();
 
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
       window.removeEventListener('resize', handleResize);
       eventTarget.removeEventListener('pointermove', handlePointerMove);
       eventTarget.removeEventListener('touchmove', handlePointerMove);
