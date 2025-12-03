@@ -1,10 +1,16 @@
 import ProvenExcellence from '../components/sections/ProvenExcellence.jsx';
 import StrategicVision from '../components/sections/StrategicVision.jsx';
+import PageBackground from '../components/effects/PageBackground.jsx';
+import ParticleGrid from '../components/effects/ParticleGrid.jsx';
 import './Page.css';
 
 function WorkPage() {
   return (
     <div className="page page-work">
+      <PageBackground>
+        <ParticleGrid />
+      </PageBackground>
+
       {/* Hero section for Work page */}
       <section className="page-hero">
         <div className="hero-content">

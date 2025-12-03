@@ -374,9 +374,9 @@ function SphereAnimation({ className = '' }) {
 
     const ctx = canvas.getContext('2d');
     const s = state.current;
+    const container = canvas.parentElement;
 
     const resize = () => {
-      const container = canvas.parentElement;
       // Use clientWidth/clientHeight with window fallback (like DriftAnimation)
       s.width = container?.clientWidth || window.innerWidth;
       s.height = container?.clientHeight || window.innerHeight;
@@ -398,8 +398,11 @@ function SphereAnimation({ className = '' }) {
       }
     };
 
-    // Mouse events on parent section
-    const section = canvas.closest('section') || canvas.parentElement;
+    // Find parent section for event attachment
+    // If no section (page-level background), use document to capture events
+    // above the main-content layer
+    const section = canvas.closest('section');
+    const eventTarget = section || document;
 
     const handlePointerMove = (e) => {
       const rect = canvas.getBoundingClientRect();
@@ -421,15 +424,27 @@ function SphereAnimation({ className = '' }) {
       animationRef.current = requestAnimationFrame(animate);
     }, 50);
 
-    section.addEventListener('pointermove', handlePointerMove);
-    section.addEventListener('pointerleave', handlePointerLeave);
+    eventTarget.addEventListener('pointermove', handlePointerMove);
+    eventTarget.addEventListener('pointerleave', handlePointerLeave);
     window.addEventListener('resize', resize);
+
+    // Watch for container size changes (for page-level backgrounds)
+    let resizeObserver = null;
+    if (container) {
+      resizeObserver = new ResizeObserver(() => {
+        resize();
+      });
+      resizeObserver.observe(container);
+    }
 
     return () => {
       clearTimeout(initTimer);
-      section.removeEventListener('pointermove', handlePointerMove);
-      section.removeEventListener('pointerleave', handlePointerLeave);
+      eventTarget.removeEventListener('pointermove', handlePointerMove);
+      eventTarget.removeEventListener('pointerleave', handlePointerLeave);
       window.removeEventListener('resize', resize);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }

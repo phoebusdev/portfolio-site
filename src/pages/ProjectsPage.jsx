@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import SitePreview from '../components/shared/SitePreview.jsx';
 import CommentForm from '../components/shared/CommentForm.jsx';
+import PageBackground from '../components/effects/PageBackground.jsx';
 import SphereAnimation from '../components/effects/SphereAnimation.jsx';
 import { logError } from '../utils/errorLogger.js';
 import './Page.css';
@@ -60,9 +61,12 @@ function ProjectsPage() {
   if (loading) {
     return (
       <div className="page page-projects">
-        <section className="page-hero page-hero-split">
+        <PageBackground>
           <SphereAnimation />
-          <div className="hero-content hero-content-left">
+        </PageBackground>
+
+        <section className="page-hero">
+          <div className="hero-content">
             <h1>Projects</h1>
             <p className="hero-subtitle">Loading...</p>
           </div>
@@ -73,10 +77,13 @@ function ProjectsPage() {
 
   return (
     <div className="page page-projects">
-      {/* Hero section */}
-      <section className="page-hero page-hero-split">
+      <PageBackground>
         <SphereAnimation />
-        <div className="hero-content hero-content-left">
+      </PageBackground>
+
+      {/* Hero section */}
+      <section className="page-hero">
+        <div className="hero-content">
           <h1>Projects</h1>
           <p className="hero-subtitle">
             Ideas seeking validation, contribution, and collaboration.

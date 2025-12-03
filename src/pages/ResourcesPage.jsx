@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import SitePreview from '../components/shared/SitePreview.jsx';
+import PageBackground from '../components/effects/PageBackground.jsx';
+import ParticleGrid from '../components/effects/ParticleGrid.jsx';
 import { logError } from '../utils/errorLogger.js';
 import './Page.css';
 
@@ -29,6 +31,10 @@ function ResourcesPage() {
   if (loading) {
     return (
       <div className="page page-resources">
+        <PageBackground>
+          <ParticleGrid />
+        </PageBackground>
+
         <section className="page-hero">
           <div className="hero-content">
             <h1>Resources</h1>
@@ -41,6 +47,10 @@ function ResourcesPage() {
 
   return (
     <div className="page page-resources">
+      <PageBackground>
+        <ParticleGrid />
+      </PageBackground>
+
       {/* Hero section */}
       <section className="page-hero">
         <div className="hero-content">

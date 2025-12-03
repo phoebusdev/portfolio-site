@@ -1,9 +1,15 @@
 import ImmediateValue from '../components/sections/ImmediateValue.jsx';
+import PageBackground from '../components/effects/PageBackground.jsx';
+import ParticleGrid from '../components/effects/ParticleGrid.jsx';
 import './Page.css';
 
 function ContactPage() {
   return (
     <div className="page page-contact">
+      <PageBackground>
+        <ParticleGrid />
+      </PageBackground>
+
       {/* Hero section for Contact page */}
       <section className="page-hero">
         <div className="hero-content">

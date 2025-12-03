@@ -340,8 +340,12 @@ function SwarmAnimation({ className = '' }) {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // Find parent section for event attachment (content is above canvas)
-    const section = canvas.closest('section') || canvas.parentElement;
+    // Find parent section for event attachment
+    // If no section (page-level background), use document to capture events
+    // above the main-content layer
+    const section = canvas.closest('section');
+    const eventTarget = section || document;
+    const container = canvas.parentElement;
 
     // Initialize
     const initTimer = setTimeout(() => {
@@ -351,14 +355,23 @@ function SwarmAnimation({ className = '' }) {
 
     // Event listeners
     window.addEventListener('resize', handleResize);
-    section.addEventListener('pointermove', handlePointerMove);
-    section.addEventListener('pointerdown', handlePointerDown);
-    section.addEventListener('pointerup', handlePointerUp);
-    section.addEventListener('pointerleave', handlePointerLeave);
+    eventTarget.addEventListener('pointermove', handlePointerMove);
+    eventTarget.addEventListener('pointerdown', handlePointerDown);
+    eventTarget.addEventListener('pointerup', handlePointerUp);
+    eventTarget.addEventListener('pointerleave', handlePointerLeave);
 
     // Prevent context menu
     const preventContext = (e) => e.preventDefault();
-    section.addEventListener('contextmenu', preventContext);
+    eventTarget.addEventListener('contextmenu', preventContext);
+
+    // Watch for container size changes (for page-level backgrounds)
+    let resizeObserver = null;
+    if (container) {
+      resizeObserver = new ResizeObserver(() => {
+        handleResize();
+      });
+      resizeObserver.observe(container);
+    }
 
     return () => {
       clearTimeout(initTimer);
@@ -366,11 +379,14 @@ function SwarmAnimation({ className = '' }) {
         cancelAnimationFrame(animationFrameRef.current);
       }
       window.removeEventListener('resize', handleResize);
-      section.removeEventListener('pointermove', handlePointerMove);
-      section.removeEventListener('pointerdown', handlePointerDown);
-      section.removeEventListener('pointerup', handlePointerUp);
-      section.removeEventListener('pointerleave', handlePointerLeave);
-      section.removeEventListener('contextmenu', preventContext);
+      eventTarget.removeEventListener('pointermove', handlePointerMove);
+      eventTarget.removeEventListener('pointerdown', handlePointerDown);
+      eventTarget.removeEventListener('pointerup', handlePointerUp);
+      eventTarget.removeEventListener('pointerleave', handlePointerLeave);
+      eventTarget.removeEventListener('contextmenu', preventContext);
+      if (resizeObserver) {
+        resizeObserver.disconnect();
+      }
     };
   }, [handleResize, handlePointerMove, handlePointerDown, handlePointerUp, handlePointerLeave, render]);
 
